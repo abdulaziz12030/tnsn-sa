@@ -1,12 +1,6 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
-  images: {
-    remotePatterns: [
-      { protocol: 'https', hostname: 'images.unsplash.com' }
-    ]
-  },
-  experimental: {
-    typedRoutes: true
-  }
+  images: { unoptimized: true, remotePatterns: [{ protocol: 'https', hostname: 'images.unsplash.com' }] },
+  experimental: { typedRoutes: true }
 };
 export default nextConfig;

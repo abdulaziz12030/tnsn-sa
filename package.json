@@ -23,8 +23,6 @@
     "postcss": "8.4.38",
     "autoprefixer": "10.4.19"
   },
-  "engines": {
-    "node": ">=20"
-  },
+  "engines": { "node": ">=20" },
   "packageManager": "npm@10"
 }
