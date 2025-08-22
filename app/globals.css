@@ -2,6 +2,6 @@
 @tailwind components;
 @tailwind utilities;
 
+html { direction: rtl; }
 html, body { scroll-behavior: smooth; }
-.no-scrollbar::-webkit-scrollbar { display: none; }
-.no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
+.container { @apply max-w-6xl mx-auto px-4; }

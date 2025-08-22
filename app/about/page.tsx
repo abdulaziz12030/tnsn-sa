@@ -1,11 +1,10 @@
 export default function AboutPage() {
   return (
-    <section className="container mx-auto px-6 py-12 md:py-16">
-      <h1 className="text-3xl md:text-4xl font-bold mb-6">من نحن</h1>
-      <p className="leading-8 opacity-90">
-        ننطلق من الرياض برؤية تجمع بين الأصالة والحداثة، ونقدم حلولاً دعائية
-        وإعلانية مبتكرة ترفع من الجاذبية البصرية وتعكس هوية المشاريع بأعلى جودة.
+    <section className="container py-12">
+      <h1 className="text-3xl font-bold mb-4">من نحن</h1>
+      <p className="text-gray-700 leading-8">
+        نحن TNSN — وكالة حلول بصرية وإعلانية تركّز على الجودة والابتكار في الأسوار الإعلانية والطباعة واللوحات.
       </p>
     </section>
-  )
+  );
 }
