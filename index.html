@@ -1,94 +1,49 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="ar" dir="rtl">
 <head>
-<meta charset="utf-8"/><meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>TNSN — وكالة حلول بصرية وإعلانية</title>
-<link rel="icon" href="assets/img/favicon.svg"><link rel="stylesheet" href="assets/css/style.css">
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>TNSN — موقع تجريبي</title>
+<meta name="description" content="موقع TNSN مع سلايدر محسّن يعمل بصورة واحدة أو أكثر، مع تحسينات أداء وصور WebP." />
+<link rel="icon" href="assets/img/favicon.svg" type="image/svg+xml" />
+<link rel="preload" as="image" href="assets/img/hero/hero1.webp" />
+<link rel="stylesheet" href="assets/css/style.css" />
 </head>
 <body>
-<header>
-  <div class="container nav">
-    <div class="brand">TNSN</div>
-    <button id="menu-toggle" class="menu-toggle" aria-label="القائمة">القائمة</button>
-    <nav id="menu" class="menu">
-      <a href="#services">الخدمات</a><a href="#portfolio">الأعمال</a><a href="#about">من نحن</a><a href="#contact">تواصل</a>
-    </nav>
-  </div>
+<!-- Header -->
+<header class="site-header container">
+<div class="brand">TNSN</div>
+<button class="menu-toggle" aria-label="قائمة">☰</button>
+<nav class="site-nav" id="mainNav">
+<a href="#services">الخدمات</a>
+<a href="#portfolio">الأعمال</a>
+<a href="#about">من نحن</a>
+<a href="#contact">تواصل</a>
+</nav>
 </header>
 
+
+<!-- Hero Slider -->
 <section class="hero">
-  <div class="container hero-inner">
-    <div class="hero-text">
-      <h1>أسوار إعلانية، طباعة رقمية، ولوحات إرشادية</h1>
-      <p class="lead">حلول متقنة تعكس هوية مشروعك وتلفت الانتباه — ألوان جريئة، تنفيذ دقيق.</p>
-      <div class="cta"><a class="btn primary" href="#contact">اطلب عرض سعر</a><a class="btn" href="#services">خدماتنا</a></div>
-    </div>
-    <div class="hero-media card">
-      <img id="hero-img" alt="TNSN Hero" src="assets/img/hero1.jpg">
-      <div style="position:absolute;right:12px;bottom:12px;display:flex;gap:8px">
-        <button id="prev" class="btn" aria-label="السابق">‹</button>
-        <button id="next" class="btn" aria-label="التالي">›</button>
-      </div>
-    </div>
-  </div>
-</section>
+<div class="hero-inner container">
+<div class="hero-copy">
+<h1>حلول رقمية ذكية</h1>
+<p>نص تسويقي قصير يشرح قيمة الخدمة باختصار.
+</p>
+<a class="btn" href="#contact">ابدأ الآن</a>
+</div>
 
-<section id="services">
-  <div class="container">
-    <h2>خدماتنا</h2>
-    <div class="grid cols-3">
-      <div class="card"><h3>الأسوار الإعلانية</h3><p class="muted">تصميم وتنفيذ أسوار جذابة وثابتة.</p></div>
-      <div class="card"><h3>الطباعة الرقمية</h3><p class="muted">ألوان حيوية ودقة عالية بمقاسات متنوعة.</p></div>
-      <div class="card"><h3>اللوحات الإرشادية</h3><p class="muted">حلول تعريفية وإرشادية بمعايير عالية.</p></div>
-    </div>
-  </div>
-</section>
 
-<section id="portfolio">
-  <div class="container">
-    <h2>أعمالنا</h2>
-    <div class="grid cols-4">
-      <div class="ph"><img src="assets/img/p1.jpg" alt="مشروع 1"></div>
-      <div class="ph"><img src="assets/img/p2.jpg" alt="مشروع 2"></div>
-      <div class="ph"><img src="assets/img/p3.jpg" alt="مشروع 3"></div>
-      <div class="ph"><img src="assets/img/p4.jpg" alt="مشروع 4"></div>
-      <div class="ph"><img src="assets/img/p5.jpg" alt="مشروع 5"></div>
-      <div class="ph"><img src="assets/img/p6.jpg" alt="مشروع 6"></div>
-    </div>
-  </div>
-</section>
-
-<section id="about">
-  <div class="container">
-    <h2>من نحن</h2>
-    <div class="card"><p class="muted">TNSN — وكالة حلول بصرية وإعلانية تركّز على الجودة والابتكار: أسوار المشاريع، اللوحات الإرشادية، والطباعة الرقمية.</p></div>
-  </div>
-</section>
-
-<section id="contact">
-  <div class="container">
-    <h2>تواصل معنا</h2>
-    <div class="grid cols-2">
-      <div class="card">
-        <p>يسعدنا خدمتك وتقديم الحلول المناسبة لمشروعك.</p>
-        <div style="display:flex;gap:10px;flex-wrap:wrap;margin-top:8px">
-          <a class="btn primary" href="tel:+966507646222">اتصل: +966 50 764 6222</a>
-          <a class="btn" href="https://wa.me/966507646222" target="_blank" rel="noopener">واتساب</a>
-          <a class="btn" href="#services">اطلب عرض عمل</a>
-        </div>
-      </div>
-      <div class="card"><p class="muted">جدة — المملكة العربية السعودية</p><p class="muted">info@tnsn.sa</p></div>
-    </div>
-  </div>
-</section>
-
-<footer>
-  <div class="container" style="display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:10px">
-    <div class="muted">© <span id="y"></span> TNSN — جميع الحقوق محفوظة</div>
-    <div class="muted">نسخة متجاوبة — جوال/آيباد/لاب توب</div>
-  </div>
-</footer>
-
-<script src="assets/js/main.js"></script>
-<script>document.getElementById('y').textContent=(new Date()).getFullYear()</script>
-</body></html>
+<div class="hero-media">
+<div class="slider" data-autoplay="true" data-interval="4500">
+<!--
+ملاحظة: يعمل السلايدر سواء أضفت شريحة واحدة أو أكثر.
+ضع صورك في assets/img/hero/ وحدث المسارات أدناه.
+-->
+<div class="slide is-active">
+<img
+src="assets/img/hero/hero1.webp"
+alt="صورة رئيسية 1"
+loading="eager"
+decoding="async"
+</html>
