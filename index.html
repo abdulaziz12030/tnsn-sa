@@ -8,6 +8,12 @@
   <link rel="icon" href="assets/img/favicon.svg" type="image/svg+xml" />
   <link rel="preload" as="image" href="assets/img/hero/hero@2320.webp" />
   <link rel="stylesheet" href="assets/css/style.css" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css" />
+  <style>
+    .btn{transition:transform .2s ease, box-shadow .2s ease}
+    .btn:hover{transform:translateY(-2px); box-shadow:0 8px 20px rgba(0,0,0,.12)}
+    .hero [data-aos]{will-change:transform,opacity}
+  </style>
 </head>
 <body>
 
@@ -32,15 +38,16 @@
   <section class="hero">
     <div class="container hero-inner">
       <div class="hero-copy">
-        <h1>حليفك الأمثل لإعلان ذكي، وواجهات أجمل</h1>
-        <p>ننطلق من الرياض بروح أصيلة وحداثة أنيقة لابتكار حلول دعائية تُبرز الهوية وتُلهِم الجمال.</p>
+        <h1 data-aos="fade-up">حليفك الأمثل لإعلان ذكي، وواجهات أجمل</h1>
+        <p data-aos="fade-up" data-aos-delay="120">ننطلق من الرياض بروح أصيلة وحداثة أنيقة لابتكار حلول دعائية تُبرز الهوية وتُلهِم الجمال.</p>
         <div class="hero-cta">
+<div data-aos="fade-up" data-aos-delay="240">
           <a class="btn" href="#contact">ابدأ مشروعك</a>
           <a class="btn btn--ghost" href="#services">استكشف خدماتنا</a>
         </div>
       </div>
       <div class="hero-media">
-<picture>
+<picture data-aos="zoom-in" data-aos-delay="120">
   <source srcset="assets/img/hero/hero-2320.webp 2320w,
                   assets/img/hero/hero-1680.webp 1680w,
                   assets/img/hero/hero-1200.webp 1200w,
@@ -57,10 +64,12 @@
 </picture>
 </div>
     </div>
-  </section>
+  </div>
+</section>
 
   <!-- About -->
   <section id="about" class="section">
+<div data-aos="fade-up">
     <div class="container grid grid--2">
       <div>
         <h2 class="section-title">عن TNSN</h2>
@@ -83,20 +92,26 @@
       <h2 class="section-title">ماذا نقدّم؟</h2>
       <div class="grid grid--3">
         <article class="card">
+<div data-aos="fade-up">
           <h3 class="card-title">أسوار المشاريع</h3>
           <p>تصميم وتنفيذ أسوار إعلانية أنيقة بمواد عالية الجودة وثبات ألوان، تُبرز المشاريع بلمسة جذابة.</p>
           <img class="card-media" src="assets/img/services/fences.webp" alt="أسوار مشاريع" loading="lazy" decoding="async" />
-        </article>
+        </div>
+</article>
         <article class="card">
+<div data-aos="fade-up">
           <h3 class="card-title">لوحات إرشادية وتعريفية</h3>
           <p>تصميم وطباعة وتركيب لافتات داخلية وخارجية بمعايير عالمية وتقنيات حديثة.</p>
           <img class="card-media" src="assets/img/services/signage.webp" alt="لوحات إرشادية" loading="lazy" decoding="async" />
-        </article>
+        </div>
+</article>
         <article class="card">
+<div data-aos="fade-up">
           <h3 class="card-title">طباعة رقمية</h3>
           <p>مطبوعات بجودة استثنائية وإخراج بصري مُتقن، من البنرات إلى الجرافيك الأرضي والجدران.</p>
           <img class="card-media" src="assets/img/services/printing.webp" alt="طباعة رقمية" loading="lazy" decoding="async" />
-        </article>
+        </div>
+</article>
       </div>
     </div>
   </section>
@@ -127,14 +142,30 @@
     <div class="container">
       <h2 class="section-title">مختارات من أعمالنا</h2>
       <div class="grid grid--4 portfolio-grid">
-        <figure class="tile"><img src="assets/img/portfolio/p1@1200x744.webp" alt="عمل 1" loading="lazy" decoding="async" /></figure>
-        <figure class="tile"><img src="assets/img/portfolio/p2@1200x744.webp" alt="عمل 2" loading="lazy" decoding="async" /></figure>
-        <figure class="tile"><img src="assets/img/portfolio/p3@1200x744.webp" alt="عمل 3" loading="lazy" decoding="async" /></figure>
-        <figure class="tile"><img src="assets/img/portfolio/p4@1200x744.webp" alt="عمل 4" loading="lazy" decoding="async" /></figure>
-        <figure class="tile"><img src="assets/img/portfolio/p5@1200x744.webp" alt="عمل 5" loading="lazy" decoding="async" /></figure>
-        <figure class="tile"><img src="assets/img/portfolio/p6@1200x744.webp" alt="عمل 6" loading="lazy" decoding="async" /></figure>
-        <figure class="tile"><img src="assets/img/portfolio/p7@1200x744.webp" alt="عمل 7" loading="lazy" decoding="async" /></figure>
-        <figure class="tile"><img src="assets/img/portfolio/p8@1200x744.webp" alt="عمل 8" loading="lazy" decoding="async" /></figure>
+        <figure class="tile">
+<div data-aos="zoom-in"><img src="assets/img/portfolio/p1@1200x744.webp" alt="عمل 1" loading="lazy" decoding="async" /></div>
+</figure>
+        <figure class="tile">
+<div data-aos="zoom-in"><img src="assets/img/portfolio/p2@1200x744.webp" alt="عمل 2" loading="lazy" decoding="async" /></div>
+</figure>
+        <figure class="tile">
+<div data-aos="zoom-in"><img src="assets/img/portfolio/p3@1200x744.webp" alt="عمل 3" loading="lazy" decoding="async" /></div>
+</figure>
+        <figure class="tile">
+<div data-aos="zoom-in"><img src="assets/img/portfolio/p4@1200x744.webp" alt="عمل 4" loading="lazy" decoding="async" /></div>
+</figure>
+        <figure class="tile">
+<div data-aos="zoom-in"><img src="assets/img/portfolio/p5@1200x744.webp" alt="عمل 5" loading="lazy" decoding="async" /></div>
+</figure>
+        <figure class="tile">
+<div data-aos="zoom-in"><img src="assets/img/portfolio/p6@1200x744.webp" alt="عمل 6" loading="lazy" decoding="async" /></div>
+</figure>
+        <figure class="tile">
+<div data-aos="zoom-in"><img src="assets/img/portfolio/p7@1200x744.webp" alt="عمل 7" loading="lazy" decoding="async" /></div>
+</figure>
+        <figure class="tile">
+<div data-aos="zoom-in"><img src="assets/img/portfolio/p8@1200x744.webp" alt="عمل 8" loading="lazy" decoding="async" /></div>
+</figure>
       </div>
     </div>
   </section>
@@ -188,5 +219,14 @@
   </footer>
 
   <script src="assets/js/main.js" defer></script>
+  <script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
+  <script>
+    AOS.init({
+      duration: 700,
+      easing: 'ease-out-quart',
+      once: true,
+      offset: 80
+    });
+  </script>
 </body>
 </html>
