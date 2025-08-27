@@ -10,7 +10,7 @@
     if (toggle && nav) {
       toggle.addEventListener('click', () => nav.classList.toggle('is-open'));
     }
-    // نمط عرض قائمة الموبايل
+    // نمط القائمة المفتوحة
     const style = document.createElement('style');
     style.textContent = `
       .nav.is-open{
