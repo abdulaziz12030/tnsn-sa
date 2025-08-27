@@ -4,14 +4,25 @@
     const y = document.getElementById('y');
     if (y) y.textContent = new Date().getFullYear();
 
-    // فتح/إغلاق قائمة الموبايل
+    // قائمة الموبايل
     const toggle = document.querySelector('.menu-toggle');
     const nav = document.getElementById('mainNav');
     if (toggle && nav) {
       toggle.addEventListener('click', () => nav.classList.toggle('is-open'));
     }
+    // نمط عرض قائمة الموبايل
+    const style = document.createElement('style');
+    style.textContent = `
+      .nav.is-open{
+        display:flex; flex-direction:column; gap:6px;
+        position:absolute; top:64px; right:0; left:0;
+        background:#fff; border:1px solid #E6E8EB; padding:10px; margin:0 16px; border-radius:12px;
+        box-shadow:0 8px 24px rgba(0,0,0,.06);
+      }
+    `;
+    document.head.appendChild(style);
 
-    // تمرير سلس للروابط الداخلية
+    // تمرير سلس
     document.querySelectorAll('a[href^="#"]').forEach(a => {
       a.addEventListener('click', (e) => {
         const id = a.getAttribute('href');
@@ -24,22 +35,22 @@
       });
     });
 
-    // زر لأعلى: الظهور والإجراء
+    // زر لأعلى
     const toTop = document.querySelector('.to-top');
     const revealTop = () => {
       if (!toTop) return;
-      (window.scrollY > 320) ? toTop.removeAttribute('hidden') : toTop.setAttribute('hidden', '');
+      (window.scrollY > 280) ? toTop.removeAttribute('hidden') : toTop.setAttribute('hidden', '');
     };
     window.addEventListener('scroll', revealTop, { passive: true });
     revealTop();
     toTop && toTop.addEventListener('click', () => window.scrollTo({ top: 0, behavior: 'smooth' }));
 
-    // عدادات الإنجازات — تبدأ عند الظهور
+    // عدادات الإنجازات
     const counters = document.querySelectorAll('[data-counter]');
     if (counters.length) {
       const animate = (el) => {
         const target = parseInt(el.getAttribute('data-target') || '0', 10);
-        const dur = 1200; // ms
+        const dur = 1100; // ms
         const start = performance.now();
         const fmt = new Intl.NumberFormat('ar-SA');
 
@@ -60,7 +71,7 @@
             obs.unobserve(entry.target);
           }
         });
-      }, { threshold: 0.3 });
+      }, { threshold: 0.28 });
 
       counters.forEach(el => io.observe(el));
     }
