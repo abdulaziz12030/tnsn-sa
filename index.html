@@ -4,16 +4,42 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>TNSN — حليفك الأمثل لإعلان ذكي</title>
-  <meta name="description" content="TNSN — وكالة إعلان وطباعة ولافتات وسواتر مشاريع، حلول إبداعية بطابع سعودي واقعي وحداثي، جودة أولاً." />
-  <link rel="icon" href="assets/img/favicon.svg" type="image/svg+xml" />
-  <link rel="preload" as="image" href="assets/img/hero/hero@2320.webp" />
-  <link rel="stylesheet" href="assets/css/style.css" />
+  <meta name="description" content="TNSN — حلول دعائية تُبرز الهوية وتُلهِم الجمال. أسوار مشاريع، لوحات، طباعة، وهوية بصرية.">
+
+  <!-- Social (Open Graph + Twitter) -->
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="TNSN — حليفك الأمثل لإعلان ذكي">
+  <meta property="og:description" content="حلول دعائية تُبرز الهوية وتُلهِم الجمال. أسوار مشاريع، لوحات، طباعة، وهوية بصرية.">
+  <meta property="og:image" content="assets/img/hero/hero-1200.jpg">
+  <meta property="og:locale" content="ar_SA">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="TNSN — حليفك الأمثل لإعلان ذكي">
+  <meta name="twitter:description" content="حلول دعائية تُبرز الهوية وتُلهِم الجمال.">
+  <meta name="twitter:image" content="assets/img/hero/hero-1200.jpg">
+
+  <!-- Icons -->
+  <link rel="icon" href="assets/img/favicon.svg" type="image/svg+xml">
+  <!-- خيار: إن توفرت PNG -->
+  <link rel="apple-touch-icon" href="assets/img/favicon.png" sizes="180x180">
+
+  <!-- Canonical (حدّث الرابط لاحقًا عند النشر) -->
+  <link rel="canonical" href="https://example.com/">
+
+  <!-- Preload للـHero لتحسين LCP -->
+  <link rel="preload" as="image"
+        href="assets/img/hero/hero-1200.webp"
+        imagesrcset="assets/img/hero/hero-2320.webp 2320w,
+                     assets/img/hero/hero-1680.webp 1680w,
+                     assets/img/hero/hero-1200.webp 1200w,
+                     assets/img/hero/hero-560.webp 560w"
+        imagesizes="(min-width:1200px) 50vw, 100vw"
+        type="image/webp">
+
+  <!-- AOS (Animate On Scroll) -->
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css" />
-  <style>
-    .btn{transition:transform .2s ease, box-shadow .2s ease}
-    .btn:hover{transform:translateY(-2px); box-shadow:0 8px 20px rgba(0,0,0,.12)}
-    .hero [data-aos]{will-change:transform,opacity}
-  </style>
+
+  <!-- Styles -->
+  <link rel="stylesheet" href="assets/css/style.css" />
 </head>
 <body>
 
@@ -23,12 +49,13 @@
       <a class="brand" href="#" aria-label="TNSN">
         <img src="assets/img/logo.svg" alt="TNSN" width="120" height="32" />
       </a>
+
       <button class="menu-toggle" aria-label="القائمة">☰</button>
+
       <nav class="nav" id="mainNav">
         <a href="#about">عنّا</a>
         <a href="#services">الخدمات</a>
         <a href="#portfolio">الأعمال</a>
-        <a href="#values">قيمنا</a>
         <a href="#contact" class="btn btn--ghost">تواصل</a>
       </nav>
     </div>
@@ -39,49 +66,57 @@
     <div class="container hero-inner">
       <div class="hero-copy">
         <h1 data-aos="fade-up">حليفك الأمثل لإعلان ذكي، وواجهات أجمل</h1>
-        <p data-aos="fade-up" data-aos-delay="120">ننطلق من الرياض بروح أصيلة وحداثة أنيقة لابتكار حلول دعائية تُبرز الهوية وتُلهِم الجمال.</p>
-        <div class="hero-cta">
-<div data-aos="fade-up" data-aos-delay="240">
+        <p data-aos="fade-up" data-aos-delay="120">
+          ننطلق من الرياض بروح أصيلة وحداثة أنيقة لابتكار حلول دعائية تُبرز الهوية وتُلهِم الجمال.
+        </p>
+        <div class="hero-cta" data-aos="fade-up" data-aos-delay="240">
           <a class="btn" href="#contact">ابدأ مشروعك</a>
           <a class="btn btn--ghost" href="#services">استكشف خدماتنا</a>
         </div>
       </div>
+
       <div class="hero-media">
-<picture data-aos="zoom-in" data-aos-delay="120">
-  <source srcset="assets/img/hero/hero-2320.webp 2320w,
-                  assets/img/hero/hero-1680.webp 1680w,
-                  assets/img/hero/hero-1200.webp 1200w,
-                  assets/img/hero/hero-560.webp 560w"
-          type="image/webp"
-          sizes="(min-width:1200px) 50vw, 100vw">
-  <source srcset="assets/img/hero/hero-2320.jpg 2320w,
-                  assets/img/hero/hero-1680.jpg 1680w,
-                  assets/img/hero/hero-1200.jpg 1200w,
-                  assets/img/hero/hero-560.jpg 560w"
-          type="image/jpeg"
-          sizes="(min-width:1200px) 50vw, 100vw">
-  <img src="assets/img/hero/hero-1200.jpg" alt="Hero" loading="eager" decoding="async" style="width:100%;height:auto;">
-</picture>
-</div>
+        <picture data-aos="zoom-in" data-aos-delay="120">
+          <!-- للجوال (حمّل hero-mobile.* إن رغبت) -->
+          <source srcset="assets/img/hero/hero-mobile.webp" media="(max-width: 600px)" type="image/webp">
+          <source srcset="assets/img/hero/hero-mobile.jpg"  media="(max-width: 600px)" type="image/jpeg">
+
+          <!-- للأحجام الأكبر: WebP -->
+          <source srcset="assets/img/hero/hero-2320.webp 2320w,
+                          assets/img/hero/hero-1680.webp 1680w,
+                          assets/img/hero/hero-1200.webp 1200w,
+                          assets/img/hero/hero-560.webp 560w"
+                  type="image/webp"
+                  sizes="(min-width:1200px) 50vw, 100vw">
+
+          <!-- للأحجام الأكبر: JPG -->
+          <source srcset="assets/img/hero/hero-2320.jpg 2320w,
+                          assets/img/hero/hero-1680.jpg 1680w,
+                          assets/img/hero/hero-1200.jpg 1200w,
+                          assets/img/hero/hero-560.jpg 560w"
+                  type="image/jpeg"
+                  sizes="(min-width:1200px) 50vw, 100vw">
+
+          <img src="assets/img/hero/hero-1200.jpg" alt="Hero" loading="eager" decoding="async" style="width:100%;height:auto;">
+        </picture>
+      </div>
     </div>
-  </div>
-</section>
+  </section>
 
   <!-- About -->
   <section id="about" class="section">
-<div data-aos="fade-up">
     <div class="container grid grid--2">
-      <div>
+      <div data-aos="fade-up">
         <h2 class="section-title">عن TNSN</h2>
-        <p>نقدّم خطًا جديدًا في الدعاية والإعلان يتمحور حول الابتكار والإبداع، متناغمًا مع الجمال والجاذبية البصرية. فريقنا شغوف ومتمكّن، يُلهم الفكرة وروح التصميم، ويقدّم حلولًا مبتكرة بمعايير عالمية حديثة.</p>
+        <p>نقدّم خطًا جديدًا في الدعاية والإعلان يتمحور حول الابتكار والإبداع، متناغمًا مع الجمال والجاذبية البصرية.</p>
         <ul class="check-list">
-          <li>انطلاق من الرياض بطابع سعودي واقعي وحداثي</li>
+          <li>طابع سعودي واقعي وحداثي</li>
           <li>حلول متكاملة من الفكرة حتى الإخراج والطباعة</li>
-          <li>خبرة وتخصصية عالية، تتجاوز التوقعات</li>
+          <li>خبرة وتخصصية عالية تتجاوز التوقعات</li>
         </ul>
       </div>
-      <div class="about-media">
-        <img src="assets/img/about/about-tiles.webp" alt="عناصر بصرية من الهوية" loading="lazy" decoding="async" />
+      <div class="about-media" data-aos="fade-up" data-aos-delay="120">
+        <img src="assets/img/about/about-tiles.webp" alt="عناصر بصرية من الهوية" loading="lazy" decoding="async" width="1200" height="800" />
       </div>
     </div>
   </section>
@@ -89,50 +124,23 @@
   <!-- Services -->
   <section id="services" class="section section--alt">
     <div class="container">
-      <h2 class="section-title">ماذا نقدّم؟</h2>
+      <h2 class="section-title" data-aos="fade-up">ماذا نقدّم؟</h2>
       <div class="grid grid--3">
         <article class="card">
-<div data-aos="fade-up">
-          <h3 class="card-title">أسوار المشاريع</h3>
-          <p>تصميم وتنفيذ أسوار إعلانية أنيقة بمواد عالية الجودة وثبات ألوان، تُبرز المشاريع بلمسة جذابة.</p>
-          <img class="card-media" src="assets/img/services/fences.webp" alt="أسوار مشاريع" loading="lazy" decoding="async" />
-        </div>
-</article>
+          <h3 class="card-title" data-aos="fade-up">أسوار المشاريع</h3>
+          <img class="card-media" src="assets/img/services/fences.webp" alt="أسوار مشاريع" loading="lazy" decoding="async">
+          <p data-aos="fade-up" data-aos-delay="100">تصميم وتنفيذ أسوار إعلانية أنيقة.</p>
+        </article>
         <article class="card">
-<div data-aos="fade-up">
-          <h3 class="card-title">لوحات إرشادية وتعريفية</h3>
-          <p>تصميم وطباعة وتركيب لافتات داخلية وخارجية بمعايير عالمية وتقنيات حديثة.</p>
-          <img class="card-media" src="assets/img/services/signage.webp" alt="لوحات إرشادية" loading="lazy" decoding="async" />
-        </div>
-</article>
+          <h3 class="card-title" data-aos="fade-up">لوحات إرشادية</h3>
+          <img class="card-media" src="assets/img/services/signage.webp" alt="لوحات إرشادية" loading="lazy" decoding="async">
+          <p data-aos="fade-up" data-aos-delay="100">حِرفية عالية في اللوحات الإرشادية داخل وخارج المنشآت.</p>
+        </article>
         <article class="card">
-<div data-aos="fade-up">
-          <h3 class="card-title">طباعة رقمية</h3>
-          <p>مطبوعات بجودة استثنائية وإخراج بصري مُتقن، من البنرات إلى الجرافيك الأرضي والجدران.</p>
-          <img class="card-media" src="assets/img/services/printing.webp" alt="طباعة رقمية" loading="lazy" decoding="async" />
-        </div>
-</article>
-      </div>
-    </div>
-  </section>
-
-  <!-- Values / Vision -->
-  <section id="values" class="section">
-    <div class="container grid grid--2 values">
-      <div>
-        <h2 class="section-title">الجودة أولاً</h2>
-        <p>نلتزم بأعلى معايير التنفيذ والإخراج، وانسجام الألوان مع البيئة الحضرية، ونفكّر خارج الصندوق لنقترح حلولًا حديثة بمسارات عالمية.</p>
-        <ul class="bullet-list">
-          <li>ابتكار وإبداع في طرح الفكرة</li>
-          <li>معايير تنفيذ دقيقة ومخرجات مطبوعة راقية</li>
-          <li>رؤية متسقة مع مبادرات تحسين المشهد الحضري</li>
-        </ul>
-      </div>
-      <div class="value-badges">
-        <div class="badge">ابتكار</div>
-        <div class="badge">إتقان</div>
-        <div class="badge">هوية</div>
-        <div class="badge">جاذبية بصرية</div>
+          <h3 class="card-title" data-aos="fade-up">طباعة رقمية</h3>
+          <img class="card-media" src="assets/img/services/printing.webp" alt="طباعة رقمية" loading="lazy" decoding="async">
+          <p data-aos="fade-up" data-aos-delay="100">جودة طباعة تبرز الهوية وتحقق التأثير المطلوب.</p>
+        </article>
       </div>
     </div>
   </section>
@@ -140,93 +148,43 @@
   <!-- Portfolio -->
   <section id="portfolio" class="section section--alt">
     <div class="container">
-      <h2 class="section-title">مختارات من أعمالنا</h2>
-      <div class="grid grid--4 portfolio-grid">
-        <figure class="tile">
-<div data-aos="zoom-in"><img src="assets/img/portfolio/p1@1200x744.webp" alt="عمل 1" loading="lazy" decoding="async" /></div>
-</figure>
-        <figure class="tile">
-<div data-aos="zoom-in"><img src="assets/img/portfolio/p2@1200x744.webp" alt="عمل 2" loading="lazy" decoding="async" /></div>
-</figure>
-        <figure class="tile">
-<div data-aos="zoom-in"><img src="assets/img/portfolio/p3@1200x744.webp" alt="عمل 3" loading="lazy" decoding="async" /></div>
-</figure>
-        <figure class="tile">
-<div data-aos="zoom-in"><img src="assets/img/portfolio/p4@1200x744.webp" alt="عمل 4" loading="lazy" decoding="async" /></div>
-</figure>
-        <figure class="tile">
-<div data-aos="zoom-in"><img src="assets/img/portfolio/p5@1200x744.webp" alt="عمل 5" loading="lazy" decoding="async" /></div>
-</figure>
-        <figure class="tile">
-<div data-aos="zoom-in"><img src="assets/img/portfolio/p6@1200x744.webp" alt="عمل 6" loading="lazy" decoding="async" /></div>
-</figure>
-        <figure class="tile">
-<div data-aos="zoom-in"><img src="assets/img/portfolio/p7@1200x744.webp" alt="عمل 7" loading="lazy" decoding="async" /></div>
-</figure>
-        <figure class="tile">
-<div data-aos="zoom-in"><img src="assets/img/portfolio/p8@1200x744.webp" alt="عمل 8" loading="lazy" decoding="async" /></div>
-</figure>
+      <h2 class="section-title" data-aos="fade-up">أعمال مختارة</h2>
+      <div class="grid grid--4">
+        <figure class="tile" data-aos="zoom-in"><img src="assets/img/portfolio/p1-1200x744.webp" alt="عمل 1" loading="lazy" decoding="async"></figure>
+        <figure class="tile" data-aos="zoom-in"><img src="assets/img/portfolio/p2-1200x744.webp" alt="عمل 2" loading="lazy" decoding="async"></figure>
+        <figure class="tile" data-aos="zoom-in"><img src="assets/img/portfolio/p3-1200x744.webp" alt="عمل 3" loading="lazy" decoding="async"></figure>
+        <figure class="tile" data-aos="zoom-in"><img src="assets/img/portfolio/p4-1200x744.webp" alt="عمل 4" loading="lazy" decoding="async"></figure>
       </div>
-    </div>
-  </section>
-
-  <!-- CTA -->
-  <section class="cta">
-    <div class="container cta-inner">
-      <h2>جاهزون لنعكس طموحك</h2>
-      <p>فريقنا على استعداد لرفدك بكل ما ترغب. تواصل الآن لبدء مشروعك.</p>
-      <a class="btn btn--light" href="#contact">تواصل معنا</a>
     </div>
   </section>
 
   <!-- Contact -->
-  <section id="contact" class="section contact">
-    <div class="container grid grid--2">
-      <div>
-        <h2 class="section-title">تواصل معنا</h2>
-        <p>الهاتف: <a href="tel:+966507646222">+966 50 764 6222</a></p>
-        <p>البريد: <a href="mailto:info@tnsn.sa">info@tnsn.sa</a></p>
-        <p>الرياض، المملكة العربية السعودية</p>
-      </div>
-      <form class="contact-form" onsubmit="return false" aria-label="نموذج تواصل">
-        <div class="row">
-          <label>الاسم الكامل</label>
-          <input type="text" placeholder="مثال: محمد الأحمد" required />
-        </div>
-        <div class="row">
-          <label>البريد الإلكتروني</label>
-          <input type="email" placeholder="you@example.com" required />
-        </div>
-        <div class="row">
-          <label>رسالتك</label>
-          <textarea rows="4" placeholder="اكتب باختصار عن مشروعك" required></textarea>
-        </div>
-        <button class="btn" type="submit">إرسال</button>
-        <p class="form-note">* النموذج تجريبي — اربطه بمزوّد بريد أو خدمة نماذج لاحقًا.</p>
-      </form>
+  <section id="contact" class="section">
+    <div class="container">
+      <h2 class="section-title" data-aos="fade-up">تواصل معنا</h2>
+      <p data-aos="fade-up" data-aos-delay="100">
+        الهاتف: <a href="tel:+966507646222">+966 50 764 6222</a> — البريد: <a href="mailto:info@tnsn.sa">info@tnsn.sa</a>
+      </p>
     </div>
   </section>
 
+  <!-- Footer -->
   <footer class="footer">
     <div class="container footer-inner">
       <p>© <span id="y"></span> TNSN Advertising. جميع الحقوق محفوظة.</p>
       <nav class="social">
-        <a href="#" aria-label="Twitter"><img src="assets/icons/x.svg" alt="X" width="20" height="20"/></a>
+        <a href="#" aria-label="X"><img src="assets/icons/x.svg" alt="X" width="20" height="20"/></a>
         <a href="#" aria-label="Instagram"><img src="assets/icons/ig.svg" alt="Instagram" width="20" height="20"/></a>
         <a href="#" aria-label="LinkedIn"><img src="assets/icons/in.svg" alt="LinkedIn" width="20" height="20"/></a>
       </nav>
     </div>
   </footer>
 
+  <!-- Scripts -->
   <script src="assets/js/main.js" defer></script>
   <script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
   <script>
-    AOS.init({
-      duration: 700,
-      easing: 'ease-out-quart',
-      once: true,
-      offset: 80
-    });
+    AOS.init({ duration: 700, easing: 'ease-out-quart', once: true, offset: 80 });
   </script>
 </body>
 </html>
