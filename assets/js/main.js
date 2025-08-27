@@ -8,9 +8,7 @@
     const toggle = document.querySelector('.menu-toggle');
     const nav = document.getElementById('mainNav');
     if (toggle && nav) {
-      toggle.addEventListener('click', () => {
-        nav.classList.toggle('is-open');
-      });
+      toggle.addEventListener('click', () => nav.classList.toggle('is-open'));
     }
 
     // تمرير سلس للروابط الداخلية
@@ -25,6 +23,16 @@
         }
       });
     });
+
+    // زر لأعلى: الظهور والإجراء
+    const toTop = document.querySelector('.to-top');
+    const revealTop = () => {
+      if (!toTop) return;
+      (window.scrollY > 320) ? toTop.removeAttribute('hidden') : toTop.setAttribute('hidden', '');
+    };
+    window.addEventListener('scroll', revealTop, { passive: true });
+    revealTop();
+    toTop && toTop.addEventListener('click', () => window.scrollTo({ top: 0, behavior: 'smooth' }));
 
     // عدادات الإنجازات — تبدأ عند الظهور
     const counters = document.querySelectorAll('[data-counter]');
