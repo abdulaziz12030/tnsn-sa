@@ -22,7 +22,7 @@
   <link rel="apple-touch-icon" href="assets/img/favicon.png" sizes="180x180">
   <link rel="canonical" href="https://example.com/">
 
-  <!-- Preload للـHero (ديسكتوب) -->
+  <!-- Preload Hero (Desktop) -->
   <link rel="preload" as="image"
         href="assets/img/hero/hero-1200.webp"
         imagesrcset="assets/img/hero/hero-2320.webp 2320w,
@@ -39,8 +39,8 @@
 </head>
 <body>
 
-  <!-- زر واتساب رسمي — يسار/أسفل -->
-  <a class="floating-whatsapp" href="https://wa.me/966507646222" target="_blank" rel="noopener" aria-label="تواصل واتساب">
+  <!-- زر واتساب — صغير/رسمي يسار-أسفل -->
+  <a class="floating-whatsapp sm" href="https://wa.me/966507646222" target="_blank" rel="noopener" aria-label="تواصل واتساب">
     <svg viewBox="0 0 32 32" aria-hidden="true">
       <defs>
         <linearGradient id="waGrad" x1="0" x2="1">
@@ -72,19 +72,20 @@
         <a href="#about">عنّا</a>
         <a href="#services">الخدمات</a>
         <a href="#stats">الإنجازات</a>
+        <a href="#testimonials">قالوا عنّا</a>
         <a href="#portfolio">الأعمال</a>
         <a href="#contact" class="btn btn--ghost">تواصل</a>
       </nav>
     </div>
   </header>
 
-  <!-- Hero (Mobile-first رسمي وهادئ) -->
+  <!-- Hero -->
   <section class="hero">
     <div class="container hero-inner">
       <div class="hero-copy">
         <h1 class="h-underline" data-aos="fade-up">حلول دعائية رسمية وملائمة للجوال</h1>
         <p data-aos="fade-up" data-aos-delay="100">
-          من الفكرة إلى التنفيذ، نصنع حضورًا بصريًا رصينًا يليق بهوية عملك ويظهر بأفضل صورة على الجوال واللاب توب.
+          نحافظ على رصانة الهوية وسهولة الاستخدام على الموبايل واللاب توب بأناقة هادئة وتفاصيل دقيقة.
         </p>
         <div class="hero-cta" data-aos="fade-up" data-aos-delay="160">
           <a class="btn" href="#contact">ابدأ الآن</a>
@@ -94,11 +95,10 @@
 
       <div class="hero-media">
         <picture data-aos="zoom-in" data-aos-delay="80">
-          <!-- نسخة جوال (اختيارية) -->
+          <!-- Mobile (اختياري) -->
           <source srcset="assets/img/hero/hero-mobile.webp" media="(max-width: 600px)" type="image/webp">
           <source srcset="assets/img/hero/hero-mobile.jpg"  media="(max-width: 600px)" type="image/jpeg">
-
-          <!-- نسخ أكبر -->
+          <!-- Larger -->
           <source srcset="assets/img/hero/hero-2320.webp 2320w,
                           assets/img/hero/hero-1680.webp 1680w,
                           assets/img/hero/hero-1200.webp 1200w,
@@ -122,7 +122,7 @@
     <div class="container grid grid--2">
       <div data-aos="fade-up">
         <h2 class="section-title h-underline">عن TNSN</h2>
-        <p>نقدّم حلولاً دعائية ذات طابع رسمي وعملي، بتصميم هادئ يراعي قابلية القراءة وسهولة الاستخدام على الجوال أولًا.</p>
+        <p>حلول دعائية راقية بواجهة هادئة، تسهّل القراءة والاستخدام على الجوال مع أداء عالٍ وصور متجاوبة.</p>
         <ul class="check-list">
           <li>نهج موبايل-أول حقيقي</li>
           <li>تنفيذ دقيق ومواد عالية الجودة</li>
@@ -148,7 +148,7 @@
       </article>
       <article class="stat" data-aos="fade-up" data-aos-delay="120">
         <div class="stat-number" data-counter data-target="15">0</div>
-        <div class="stat-label">سنة خبرة</div>
+        <div class="stat-label">سنوات خبرة</div>
       </article>
       <article class="stat" data-aos="fade-up" data-aos-delay="160">
         <div class="stat-number" data-counter data-target="8">0</div>
@@ -176,6 +176,61 @@
           <img class="card-media" src="assets/img/services/printing.webp" alt="طباعة رقمية" loading="lazy" decoding="async">
           <h3 class="card-title">طباعة رقمية</h3>
           <p>خامات ممتازة ونتائج ثابتة الألوان.</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- Testimonials (قالوا عنّا) بصور تقريبية -->
+  <section id="testimonials" class="section">
+    <div class="container">
+      <h2 class="section-title h-underline" data-aos="fade-up">قالوا عنّا</h2>
+
+      <!-- سلايدر خفيف بالتمرير (snap) -->
+      <div class="t-slider" data-aos="fade-up" data-aos-delay="80">
+        <!-- بطاقة 1 -->
+        <article class="t-card">
+          <div class="t-head">
+            <img class="t-avatar" src="assets/img/testimonials/t1.jpg" alt="عميل 1" width="72" height="72" loading="lazy" decoding="async">
+            <div>
+              <div class="t-name">م. أحمد السالم</div>
+              <div class="t-role">مدير مشروع — شركة تطوير</div>
+            </div>
+          </div>
+          <p class="t-quote">“تنفيذ نظيف وواجهة رسمية مناسبة للجوال؛ تجربة سلسة من أول اتصال حتى التسليم.”</p>
+          <div class="t-meta">
+            <img src="assets/img/testimonials/brand-1.png" alt="شعار شركة" loading="lazy" decoding="async">
+          </div>
+        </article>
+
+        <!-- بطاقة 2 -->
+        <article class="t-card">
+          <div class="t-head">
+            <img class="t-avatar" src="assets/img/testimonials/t2.jpg" alt="عميل 2" width="72" height="72" loading="lazy" decoding="async">
+            <div>
+              <div class="t-name">نورة العتيبي</div>
+              <div class="t-role">قسم التسويق — قطاع حكومي</div>
+            </div>
+          </div>
+          <p class="t-quote">“الدقة في التصميم وراحة التصفح على الهاتف فرّقت معنا كثير—نوصي بهم.”</p>
+          <div class="t-meta">
+            <img src="assets/img/testimonials/brand-2.png" alt="شعار جهة" loading="lazy" decoding="async">
+          </div>
+        </article>
+
+        <!-- بطاقة 3 -->
+        <article class="t-card">
+          <div class="t-head">
+            <img class="t-avatar" src="assets/img/testimonials/t3.jpg" alt="عميل 3" width="72" height="72" loading="lazy" decoding="async">
+            <div>
+              <div class="t-name">سالم القحطاني</div>
+              <div class="t-role">مقاول مشاريع</div>
+            </div>
+          </div>
+          <p class="t-quote">“خدمة واضحة وسريعة، والنتيجة متقنة ومتوافقة مع الهوية.”</p>
+          <div class="t-meta">
+            <img src="assets/img/testimonials/brand-3.png" alt="شعار عميل" loading="lazy" decoding="async">
+          </div>
         </article>
       </div>
     </div>
