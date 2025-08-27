@@ -3,27 +3,24 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="theme-color" content="#0D0D0E" />
+  <title>TNSN — واجهة راقية واحترافية</title>
+  <meta name="description" content="واجهة متقدمة لمشاريع TNSN — أداء عالٍ، وصول ممتاز، وتجربة موبايل-أول.">
 
-  <title>TNSN — إعلان راقٍ وهوية تُلهم</title>
-  <meta name="description" content="TNSN — من الرياض، نبتكر حلولًا دعائية راقية ومتقنة تُبرز الهوية وتُلهم الجمهور: أسوار مشاريع، لوحات، طباعة وهوية بصرية.">
+  <!-- Preconnect / DNS -->
+  <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
+  <link rel="dns-prefetch" href="//cdn.jsdelivr.net">
 
-  <!-- Open Graph / Twitter -->
-  <meta property="og:type" content="website">
-  <meta property="og:title" content="TNSN — إعلان راقٍ وهوية تُلهم">
-  <meta property="og:description" content="حلول دعائية ذكية بلمسة فخمة، متوازنة للجوال واللاب توب.">
-  <meta property="og:image" content="assets/img/hero/hero-1200.jpg">
-  <meta property="og:locale" content="ar_SA">
-  <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="TNSN — إعلان راقٍ وهوية تُلهم">
-  <meta name="twitter:description" content="حلول دعائية ذكية بلمسة فخمة.">
-  <meta name="twitter:image" content="assets/img/hero/hero-1200.jpg">
+  <!-- Preload: Hero (AVIF ثم WebP) -->
+  <link rel="preload" as="image"
+        href="assets/img/hero/hero-1200.avif"
+        imagesrcset="assets/img/hero/hero-2320.avif 2320w,
+                     assets/img/hero/hero-1680.avif 1680w,
+                     assets/img/hero/hero-1200.avif 1200w,
+                     assets/img/hero/hero-560.avif 560w"
+        imagesizes="(min-width:1200px) 50vw, 100vw"
+        type="image/avif">
 
-  <!-- Icons -->
-  <link rel="icon" href="assets/img/favicon.svg" type="image/svg+xml">
-  <link rel="apple-touch-icon" href="assets/img/favicon.png" sizes="180x180">
-  <link rel="canonical" href="https://example.com/">
-
-  <!-- Preload للهيرو -->
   <link rel="preload" as="image"
         href="assets/img/hero/hero-1200.webp"
         imagesrcset="assets/img/hero/hero-2320.webp 2320w,
@@ -33,16 +30,17 @@
         imagesizes="(min-width:1200px) 50vw, 100vw"
         type="image/webp">
 
-  <!-- AOS (Animate On Scroll) -->
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css"/>
+  <!-- AOS Styles (CSS فقط؛ سكربت سنحمّله عند الخمول) -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css" />
 
-  <!-- Styles -->
+  <!-- App Styles -->
   <link rel="stylesheet" href="assets/css/style.css" />
 </head>
 <body>
 
   <!-- زر واتساب صغير/رسمي — يسار/أسفل -->
-  <a class="floating-whatsapp sm" href="https://wa.me/966507646222" target="_blank" rel="noopener" aria-label="تواصل عبر واتساب">
+  <a class="floating-whatsapp sm" href="https://wa.me/966507646222" target="_blank" rel="noopener"
+     aria-label="تواصل عبر واتساب">
     <svg viewBox="0 0 32 32" aria-hidden="true">
       <defs>
         <linearGradient id="waGrad" x1="0" x2="1">
@@ -62,15 +60,15 @@
   </button>
 
   <!-- Header -->
-  <header class="header">
-    <div class="container header-inner">
+  <header class="header" data-controller="nav">
+    <div class="container header__inner">
       <a class="brand" href="#" aria-label="TNSN">
         <img src="assets/img/logo.svg" alt="TNSN" width="118" height="32" />
       </a>
 
-      <button class="menu-toggle" aria-label="القائمة">☰</button>
+      <button class="menu-toggle" aria-label="فتح القائمة" aria-expanded="false" aria-controls="mainNav">☰</button>
 
-      <nav class="nav" id="mainNav">
+      <nav class="nav" id="mainNav" role="navigation" aria-label="التنقل الرئيسي" hidden>
         <a href="#about">عنّا</a>
         <a href="#services">الخدمات</a>
         <a href="#stats">الإنجازات</a>
@@ -81,209 +79,177 @@
     </div>
   </header>
 
-  <!-- Hero (داكن فخم + سطر شاعرّي فرعي) -->
-  <section class="hero">
-    <div class="container hero-inner">
-      <div class="hero-copy">
-        <h1 class="h-underline" data-aos="fade-up">نُهندس حضورك البصري… بفخامة تليق بهويتك</h1>
-        <p class="sub" data-aos="fade-up" data-aos-delay="100">
-          من الرياض، نترجم أهدافك في قوالب دعائية راقية تُبهر وتُلهم — كما تفعل رواية وواعي بأسلوبهما الرصين.
-        </p>
-        <div class="hero-cta" data-aos="fade-up" data-aos-delay="160">
-          <a class="btn" href="#contact">اطلب عرض سعر</a>
-          <a class="btn btn--ghost" href="#portfolio">مشاريعنا</a>
+  <main id="main" tabindex="-1">
+    <!-- Hero -->
+    <section class="hero section" data-section>
+      <div class="container hero__grid">
+        <div class="hero__copy">
+          <h1 class="h-underline" data-aos="fade-up">واجهة متقدمة لعرض أعمال TNSN</h1>
+          <p class="sub" data-aos="fade-up" data-aos-delay="80">أداء، وصول، وأناقة تنفيذ — مع احترام الهوية.</p>
+          <div class="hero__cta" data-aos="fade-up" data-aos-delay="140">
+            <a class="btn" href="#contact">تواصل</a>
+            <a class="btn btn--ghost" href="#portfolio">الأعمال</a>
+          </div>
         </div>
-      </div>
 
-      <div class="hero-media">
-        <picture data-aos="zoom-in" data-aos-delay="80">
+        <picture class="hero__media" data-aos="zoom-in" data-aos-delay="80">
           <!-- Mobile (اختياري) -->
+          <source srcset="assets/img/hero/hero-mobile.avif" media="(max-width: 600px)" type="image/avif">
           <source srcset="assets/img/hero/hero-mobile.webp" media="(max-width: 600px)" type="image/webp">
-          <source srcset="assets/img/hero/hero-mobile.jpg"  media="(max-width: 600px)" type="image/jpeg">
-          <!-- Larger -->
+          <!-- أكبر -->
+          <source srcset="assets/img/hero/hero-2320.avif 2320w,
+                          assets/img/hero/hero-1680.avif 1680w,
+                          assets/img/hero/hero-1200.avif 1200w,
+                          assets/img/hero/hero-560.avif 560w"
+                  type="image/avif" sizes="(min-width:1200px) 50vw, 100vw">
           <source srcset="assets/img/hero/hero-2320.webp 2320w,
                           assets/img/hero/hero-1680.webp 1680w,
                           assets/img/hero/hero-1200.webp 1200w,
                           assets/img/hero/hero-560.webp 560w"
-                  type="image/webp"
-                  sizes="(min-width:1200px) 50vw, 100vw">
-          <source srcset="assets/img/hero/hero-2320.jpg 2320w,
-                          assets/img/hero/hero-1680.jpg 1680w,
-                          assets/img/hero/hero-1200.jpg 1200w,
-                          assets/img/hero/hero-560.jpg 560w"
-                  type="image/jpeg"
-                  sizes="(min-width:1200px) 50vw, 100vw">
-          <img src="assets/img/hero/hero-1200.jpg" alt="Hero" loading="eager" decoding="async" />
+                  type="image/webp" sizes="(min-width:1200px) 50vw, 100vw">
+          <img src="assets/img/hero/hero-1200.jpg" alt="عرض بصري للأعمال" loading="eager" decoding="async"
+               fetchpriority="high" width="1200" height="700">
         </picture>
       </div>
-    </div>
+    </section>
 
-    <!-- شريط شعارات بسيط (خياري) -->
-    <div class="logos">
-      <div class="logos-track" aria-label="شعارات شركاء/عملاء">
-        <img src="assets/img/logos/logo-1.webp" alt="Logo 1" loading="lazy">
-        <img src="assets/img/logos/logo-2.webp" alt="Logo 2" loading="lazy">
-        <img src="assets/img/logos/logo-3.webp" alt="Logo 3" loading="lazy">
-        <img src="assets/img/logos/logo-4.webp" alt="Logo 4" loading="lazy">
+    <!-- About -->
+    <section id="about" class="section" data-section>
+      <div class="container grid grid--2">
+        <div data-aos="fade-up">
+          <h2 class="section-title h-underline">عن TNSN</h2>
+          <p class="lead">ننفّذ الواجهات الدعائية بمعايير عالية، مع هيكلة كود نظيفة وقابلة للتوسّع.</p>
+          <ul class="check-list">
+            <li>موبايل-أول حقيقي</li>
+            <li>توكنات تصميم قابلة لإعادة الاستخدام</li>
+            <li>أداء ممتاز وصور متجاوبة</li>
+          </ul>
+        </div>
+        <div class="media" data-aos="fade-up" data-aos-delay="80">
+          <img src="assets/img/about/about-tiles.webp" alt="عناصر من الهوية" loading="lazy" decoding="async" width="1200" height="800">
+        </div>
       </div>
-    </div>
-  </section>
+    </section>
 
-  <!-- About -->
-  <section id="about" class="section">
-    <div class="container grid grid--2">
-      <div data-aos="fade-up">
-        <h2 class="section-title h-underline">عن TNSN</h2>
-        <p>نمزج الحِرفة مع الحداثة لخلق حلول دعائية عالية الجودة: أسوار مشاريع، لوحات، طباعة وهوية بصرية — بتوازن رسمي يناسب الجوال واللاب توب.</p>
-        <ul class="check-list">
-          <li>نهج موبايل-أول وتجربة تُراعي التفاصيل</li>
-          <li>هوية بصرية متزنة ولمسة إنتاجية أنيقة</li>
-          <li>التزام بالمواعيد وجودة تليق بالعلامة</li>
-        </ul>
-      </div>
-      <div class="about-media" data-aos="fade-up" data-aos-delay="100">
-        <img src="assets/img/about/about-tiles.webp" alt="عناصر من الهوية" loading="lazy" decoding="async" width="1200" height="800" />
-      </div>
-    </div>
-  </section>
-
-  <!-- Stats -->
-  <section id="stats" class="section section--muted">
-    <div class="container stats-grid">
-      <article class="stat" data-aos="fade-up">
-        <div class="stat-number" data-counter data-target="250">0</div>
-        <div class="stat-label">عميل سعيد</div>
-      </article>
-      <article class="stat" data-aos="fade-up" data-aos-delay="80">
-        <div class="stat-number" data-counter data-target="540">0</div>
-        <div class="stat-label">مشروع مُنجز</div>
-      </article>
-      <article class="stat" data-aos="fade-up" data-aos-delay="120">
-        <div class="stat-number" data-counter data-target="15">0</div>
-        <div class="stat-label">سنوات خبرة</div>
-      </article>
-      <article class="stat" data-aos="fade-up" data-aos-delay="160">
-        <div class="stat-number" data-counter data-target="8">0</div>
-        <div class="stat-label">مدن نخدمها</div>
-      </article>
-    </div>
-  </section>
-
-  <!-- Services -->
-  <section id="services" class="section section--alt">
-    <div class="container">
-      <h2 class="section-title h-underline" data-aos="fade-up">الخدمات</h2>
-      <div class="grid grid--3">
-        <article class="card" data-aos="fade-up">
-          <img class="card-media" src="assets/img/services/fences.webp" alt="أسوار مشاريع" loading="lazy" decoding="async">
-          <h3 class="card-title">أسوار المشاريع</h3>
-          <p>تصاميم راقية تُحسّن المشهد البصري وتتماهى مع الهوية.</p>
+    <!-- Stats -->
+    <section id="stats" class="section section--muted" data-section>
+      <div class="container stats-grid">
+        <article class="stat" data-aos="fade-up">
+          <div class="stat__num" data-counter data-target="250">0</div>
+          <div class="stat__label">عملاء</div>
         </article>
-        <article class="card" data-aos="fade-up" data-aos-delay="80">
-          <img class="card-media" src="assets/img/services/signage.webp" alt="لوحات إرشادية" loading="lazy" decoding="async">
-          <h3 class="card-title">لوحات إرشادية</h3>
-          <p>وضوح عالٍ، مواد متينة، وتنفيذ مطابق للمعايير.</p>
+        <article class="stat" data-aos="fade-up" data-aos-delay="60">
+          <div class="stat__num" data-counter data-target="540">0</div>
+          <div class="stat__label">مشاريع</div>
         </article>
-        <article class="card" data-aos="fade-up" data-aos-delay="120">
-          <img class="card-media" src="assets/img/services/printing.webp" alt="طباعة رقمية" loading="lazy" decoding="async">
-          <h3 class="card-title">طباعة رقمية</h3>
-          <p>دقة ألوان وثبات يعكسان احترافية المشروع.</p>
+        <article class="stat" data-aos="fade-up" data-aos-delay="120">
+          <div class="stat__num" data-counter data-target="15">0</div>
+          <div class="stat__label">سنوات</div>
+        </article>
+        <article class="stat" data-aos="fade-up" data-aos-delay="180">
+          <div class="stat__num" data-counter data-target="8">0</div>
+          <div class="stat__label">مدن</div>
         </article>
       </div>
-    </div>
-  </section>
+    </section>
 
-  <!-- Testimonials: قالوا عنّا (بصور تقريبية) -->
-  <section id="testimonials" class="section">
-    <div class="container">
-      <h2 class="section-title h-underline" data-aos="fade-up">قالوا عنّا</h2>
-      <div class="t-slider" data-aos="fade-up" data-aos-delay="80">
-        <!-- بطاقة 1 -->
-        <article class="t-card">
-          <div class="t-head">
-            <img class="t-avatar" src="assets/img/testimonials/t1.jpg" alt="عميل 1" width="72" height="72" loading="lazy" decoding="async">
-            <div>
-              <div class="t-name">م. أحمد السالم</div>
-              <div class="t-role">مدير مشروع — شركة تطوير</div>
+    <!-- Services -->
+    <section id="services" class="section section--alt" data-section>
+      <div class="container">
+        <h2 class="section-title h-underline" data-aos="fade-up">الخدمات</h2>
+        <div class="grid grid--3">
+          <article class="card" data-aos="fade-up">
+            <img class="card__img" src="assets/img/services/fences.webp" alt="أسوار مشاريع" loading="lazy" decoding="async">
+            <h3 class="card__title">أسوار المشاريع</h3>
+            <p class="card__text">تصاميم راقية تُحسن المشهد البصري.</p>
+          </article>
+          <article class="card" data-aos="fade-up" data-aos-delay="80">
+            <img class="card__img" src="assets/img/services/signage.webp" alt="لوحات إرشادية" loading="lazy" decoding="async">
+            <h3 class="card__title">لوحات إرشادية</h3>
+            <p class="card__text">وضوح عالٍ وتنفيذ مطابق للمعايير.</p>
+          </article>
+          <article class="card" data-aos="fade-up" data-aos-delay="120">
+            <img class="card__img" src="assets/img/services/printing.webp" alt="طباعة رقمية" loading="lazy" decoding="async">
+            <h3 class="card__title">طباعة رقمية</h3>
+            <p class="card__text">دقة ألوان وثبات يعكسان احترافية.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- Testimonials -->
+    <section id="testimonials" class="section" data-section>
+      <div class="container">
+        <h2 class="section-title h-underline" data-aos="fade-up">قالوا عنّا</h2>
+        <div class="t-slider" data-aos="fade-up" data-aos-delay="80">
+          <article class="t-card">
+            <div class="t-head">
+              <img class="t-avatar" src="assets/img/testimonials/t1.jpg" alt="عميل 1" width="72" height="72" loading="lazy" decoding="async">
+              <div>
+                <div class="t-name">عميل حكومي</div>
+                <div class="t-role">إدارة المشاريع</div>
+              </div>
             </div>
-          </div>
-          <p class="t-quote">“تنفيذ دقيق وفخم يعكس هوية مشروعنا بجدارة؛ تجربة سلسة منذ أول اتصال.”</p>
-          <div class="t-meta">
-            <img src="assets/img/testimonials/brand-1.png" alt="شعار شركة" loading="lazy" decoding="async">
-          </div>
-        </article>
+            <p class="t-quote">“تجربة تنفيذ راقية ومتقنة على الجوال والويب.”</p>
+          </article>
 
-        <!-- بطاقة 2 -->
-        <article class="t-card">
-          <div class="t-head">
-            <img class="t-avatar" src="assets/img/testimonials/t2.jpg" alt="عميل 2" width="72" height="72" loading="lazy" decoding="async">
-            <div>
-              <div class="t-name">نورة العتيبي</div>
-              <div class="t-role">قطاع حكومي — تسويق</div>
+          <article class="t-card">
+            <div class="t-head">
+              <img class="t-avatar" src="assets/img/testimonials/t2.jpg" alt="عميل 2" width="72" height="72" loading="lazy" decoding="async">
+              <div>
+                <div class="t-name">شركة تطوير</div>
+                <div class="t-role">التسويق</div>
+              </div>
             </div>
-          </div>
-          <p class="t-quote">“هوية متزنة ومظهر راقٍ على الهواتف—نوصي بهم بكل ثقة.”</p>
-          <div class="t-meta">
-            <img src="assets/img/testimonials/brand-2.png" alt="شعار جهة" loading="lazy" decoding="async">
-          </div>
-        </article>
+            <p class="t-quote">“كود نظيف وقابل للتوسّع—ننصح به.”</p>
+          </article>
 
-        <!-- بطاقة 3 -->
-        <article class="t-card">
-          <div class="t-head">
-            <img class="t-avatar" src="assets/img/testimonials/t3.jpg" alt="عميل 3" width="72" height="72" loading="lazy" decoding="async">
-            <div>
-              <div class="t-name">سالم القحطاني</div>
-              <div class="t-role">مقاول مشاريع</div>
+          <article class="t-card">
+            <div class="t-head">
+              <img class="t-avatar" src="assets/img/testimonials/t3.jpg" alt="عميل 3" width="72" height="72" loading="lazy" decoding="async">
+              <div>
+                <div class="t-name">مقاول مشاريع</div>
+                <div class="t-role">عمليات</div>
+              </div>
             </div>
-          </div>
-          <p class="t-quote">“التزام بالمواعيد وخامات عالية—نتائج أنيقة تخدم الهدف.”</p>
-          <div class="t-meta">
-            <img src="assets/img/testimonials/brand-3.png" alt="شعار عميل" loading="lazy" decoding="async">
-          </div>
-        </article>
+            <p class="t-quote">“أداء عالي وصور متجاوبة بلا تنازلات.”</p>
+          </article>
+        </div>
       </div>
-    </div>
-  </section>
+    </section>
 
-  <!-- Portfolio -->
-  <section id="portfolio" class="section">
-    <div class="container">
-      <h2 class="section-title h-underline" data-aos="fade-up">أعمال مختارة</h2>
-      <div class="grid grid--4">
-        <figure class="tile" data-aos="zoom-in"><img src="assets/img/portfolio/p1-1200x744.webp" alt="عمل 1" loading="lazy" decoding="async"></figure>
-        <figure class="tile" data-aos="zoom-in" data-aos-delay="60"><img src="assets/img/portfolio/p2-1200x744.webp" alt="عمل 2" loading="lazy" decoding="async"></figure>
-        <figure class="tile" data-aos="zoom-in" data-aos-delay="120"><img src="assets/img/portfolio/p3-1200x744.webp" alt="عمل 3" loading="lazy" decoding="async"></figure>
-        <figure class="tile" data-aos="zoom-in" data-aos-delay="180"><img src="assets/img/portfolio/p4-1200x744.webp" alt="عمل 4" loading="lazy" decoding="async"></figure>
+    <!-- Portfolio -->
+    <section id="portfolio" class="section" data-section>
+      <div class="container">
+        <h2 class="section-title h-underline" data-aos="fade-up">أعمال مختارة</h2>
+        <div class="grid grid--4">
+          <figure class="tile" data-aos="zoom-in"><img src="assets/img/portfolio/p1-1200x744.webp" alt="عمل 1" loading="lazy" decoding="async"></figure>
+          <figure class="tile" data-aos="zoom-in" data-aos-delay="60"><img src="assets/img/portfolio/p2-1200x744.webp" alt="عمل 2" loading="lazy" decoding="async"></figure>
+          <figure class="tile" data-aos="zoom-in" data-aos-delay="120"><img src="assets/img/portfolio/p3-1200x744.webp" alt="عمل 3" loading="lazy" decoding="async"></figure>
+          <figure class="tile" data-aos="zoom-in" data-aos-delay="180"><img src="assets/img/portfolio/p4-1200x744.webp" alt="عمل 4" loading="lazy" decoding="async"></figure>
+        </div>
       </div>
-    </div>
-  </section>
+    </section>
 
-  <!-- CTA سفلية للموبايل -->
-  <div class="mobile-cta">
-    <a class="btn" href="https://wa.me/966507646222" target="_blank" rel="noopener">تواصل</a>
-    <a class="btn btn--ghost" href="#services">الخدمات</a>
-  </div>
-
-  <!-- Contact -->
-  <section id="contact" class="section section--alt">
-    <div class="container">
-      <h2 class="section-title h-underline" data-aos="fade-up">تواصل معنا</h2>
-      <p data-aos="fade-up" data-aos-delay="80">
-        الهاتف: <a href="tel:+966507646222">+966 50 764 6222</a> — البريد: <a href="mailto:info@tnsn.sa">info@tnsn.sa</a>
-      </p>
-      <div class="cta-row" data-aos="fade-up" data-aos-delay="120">
-        <a class="btn" href="https://wa.me/966507646222" target="_blank" rel="noopener">واتساب</a>
-        <a class="btn btn--ghost" href="#portfolio">مشاريعنا</a>
+    <!-- Contact -->
+    <section id="contact" class="section section--alt" data-section>
+      <div class="container">
+        <h2 class="section-title h-underline" data-aos="fade-up">تواصل</h2>
+        <p data-aos="fade-up" data-aos-delay="80">
+          الهاتف: <a href="tel:+966507646222">+966 50 764 6222</a> — البريد: <a href="mailto:info@tnsn.sa">info@tnsn.sa</a>
+        </p>
+        <div class="cta-row" data-aos="fade-up" data-aos-delay="120">
+          <a class="btn" href="https://wa.me/966507646222" target="_blank" rel="noopener">واتساب</a>
+          <a class="btn btn--ghost" href="#portfolio">مشاريعنا</a>
+        </div>
       </div>
-    </div>
-  </section>
+    </section>
+  </main>
 
-  <!-- Footer -->
   <footer class="footer">
-    <div class="container footer-inner">
-      <p>© <span id="y"></span> TNSN Advertising. جميع الحقوق محفوظة.</p>
-      <nav class="social">
+    <div class="container footer__inner">
+      <p>© <span id="y"></span> TNSN. جميع الحقوق محفوظة.</p>
+      <nav class="social" aria-label="الشبكات الاجتماعية">
         <a href="#" aria-label="X"><img src="assets/icons/x.svg" alt="X" width="20" height="20"/></a>
         <a href="#" aria-label="Instagram"><img src="assets/icons/ig.svg" alt="Instagram" width="20" height="20"/></a>
         <a href="#" aria-label="LinkedIn"><img src="assets/icons/in.svg" alt="LinkedIn" width="20" height="20"/></a>
@@ -291,9 +257,8 @@
     </div>
   </footer>
 
-  <!-- Scripts -->
-  <script src="assets/js/main.js" defer></script>
-  <script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
-  <script>AOS.init({ duration: 600, easing: 'ease-out', once: true, offset: 70 });</script>
+  <!-- Script (module) -->
+  <script type="module" src="assets/js/main.js"></script>
+  <noscript><style>.nav[hidden]{display:block!important} [data-aos]{opacity:1!important;transform:none!important}</style></noscript>
 </body>
 </html>
