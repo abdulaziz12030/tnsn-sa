@@ -1,18 +1,12 @@
-/* === موبايل-أول رسمي ومحايد الألوان === */
+/* === موبايل-أول رسمي ومحايد الألوان مع قسم "قالوا عنّا" === */
 :root{
   --container: 1120px;
   --gap: 16px;
   --radius: 14px;
 
-  /* لوحة هادئة ومحترفة */
-  --ink:#101318;          /* نص أساسي */
-  --muted:#68707a;        /* نص ثانوي */
-  --line:#E6E8EB;         /* حدود رقيقة */
-  --bg:#ffffff;           /* خلفية */
-  --alt:#f7f8f9;          /* خلفية بديلة */
-  --muted-bg:#f2f3f5;     /* لمسات فقاعات */
-  --accent:#2F5D62;       /* أخضر داكن هادئ (أكسنت خفيف) */
-  --accent-ink:#fff;
+  --ink:#101318; --muted:#68707a; --line:#E6E8EB;
+  --bg:#ffffff; --alt:#f7f8f9; --muted-bg:#f2f3f5;
+  --accent:#2F5D62; --accent-ink:#fff; /* أخضر داكن هادئ */
 }
 
 *{box-sizing:border-box}
@@ -29,14 +23,14 @@ img{max-width:100%; display:block}
 .section{padding:56px 0}
 .section--alt{background:var(--alt)}
 .section--muted{background:var(--muted-bg)}
-.section-title{margin:0 0 14px; font-size:clamp(22px,4.2vw,32px); letter-spacing:.2px}
+.section-title{margin:0 0 14px; font-size:clamp(22px,4.2vw,32px)}
 
-/* خط تحتي متزن */
+/* خط تحتي هادئ */
 .h-underline{position:relative; display:inline-block; padding-bottom:6px}
 .h-underline::after{
   content:""; position:absolute; inset-inline:0; bottom:0; height:2px;
-  background:linear-gradient(90deg, rgba(47,93,98,.0), rgba(47,93,98,.6), rgba(47,93,98,.0));
-  transform-origin:center; transform:scaleX(.8); transition:transform .5s ease;
+  background:linear-gradient(90deg, rgba(47,93,98,0), rgba(47,93,98,.55), rgba(47,93,98,0));
+  transform:scaleX(.8); transform-origin:center; transition:transform .5s ease;
 }
 .aos-animate .h-underline::after{ transform:scaleX(1) }
 
@@ -48,7 +42,6 @@ img{max-width:100%; display:block}
 .nav{display:none}
 .nav a{color:var(--ink); text-decoration:none; padding:10px 12px; border-radius:10px}
 .nav a:hover{background:#f1f3f4}
-
 @media (min-width:960px){ .menu-toggle{display:none} .nav{display:flex; gap:8px; align-items:center} }
 
 /* Buttons */
@@ -68,13 +61,10 @@ img{max-width:100%; display:block}
 }
 .hero-inner{display:grid; gap:18px; align-items:center; padding:28px 0}
 .hero-cta{display:flex; gap:10px; flex-wrap:wrap}
-.hero-media{
-  height:44vh; min-height:260px; max-height:680px;
-  border:1px solid rgba(255,255,255,.08); border-radius:var(--radius); overflow:hidden
-}
+.hero-media{height:44vh; min-height:260px; max-height:680px; border:1px solid rgba(255,255,255,.08); border-radius:var(--radius); overflow:hidden}
 .hero-media img{width:100%; height:100%; object-fit:cover}
 
-/* شبكات */
+/* Grids */
 .grid{display:grid; gap:18px}
 .grid--2{grid-template-columns:1fr}
 .grid--3{grid-template-columns:1fr}
@@ -82,24 +72,40 @@ img{max-width:100%; display:block}
 @media (min-width:768px){ .grid--2{grid-template-columns:1.05fr .95fr} }
 @media (min-width:960px){ .grid--3{grid-template-columns:repeat(3,1fr)} .grid--4{grid-template-columns:repeat(4,1fr)} }
 
-/* بطاقات */
+/* Cards */
 .card{background:#fff; border:1px solid var(--line); border-radius:12px; padding:16px; display:flex; flex-direction:column; gap:8px}
 .card-title{margin:8px 0 6px; font-size:18px}
 .card-media{border-radius:10px; aspect-ratio:4/3; object-fit:cover; background:#eef1f4}
 
-/* قائمة */
+/* Lists */
 .check-list{margin:12px 0 0; padding:0 20px; color:var(--muted)}
 .check-list li{margin:6px 0}
 
-/* عدادات الإنجازات */
+/* Stats */
 .stats-grid{display:grid; gap:12px; grid-template-columns:repeat(2,1fr)}
 @media (min-width:768px){ .stats-grid{grid-template-columns:repeat(4,1fr)} }
-.stat{
-  background:#fff; border:1px solid var(--line); border-radius:12px; padding:16px; text-align:center;
-  box-shadow:0 8px 20px rgba(0,0,0,.04);
-}
+.stat{background:#fff; border:1px solid var(--line); border-radius:12px; padding:16px; text-align:center; box-shadow:0 8px 20px rgba(0,0,0,.04)}
 .stat-number{font-size:clamp(26px,7vw,36px); font-weight:800; color:var(--accent); line-height:1.1}
 .stat-label{color:#50626a}
+
+/* Testimonials — سلايدر Snap بصور تقريبية */
+.t-slider{display:flex; gap:14px; overflow:auto; scroll-snap-type:x mandatory; padding-bottom:6px; -webkit-overflow-scrolling:touch}
+.t-slider::-webkit-scrollbar{height:8px}
+.t-slider::-webkit-scrollbar-thumb{background:#e2e5e8; border-radius:8px}
+
+.t-card{
+  min-width:86%; scroll-snap-align:start;
+  background:#fff; border:1px solid var(--line); border-radius:12px; padding:16px;
+  box-shadow:0 10px 26px rgba(0,0,0,.06);
+}
+@media (min-width:960px){ .t-card{min-width:44%} }
+
+.t-head{display:flex; align-items:center; gap:10px; margin-bottom:10px}
+.t-avatar{width:56px; height:56px; border-radius:50%; object-fit:cover; background:#f0f2f4; border:1px solid #e8ecef}
+.t-name{font-weight:700}
+.t-role{color:#7b8792; font-size:14px}
+.t-quote{margin:8px 0 12px; color:#2f363c; line-height:1.7}
+.t-meta img{height:22px; opacity:.85}
 
 /* Portfolio */
 .tile{border-radius:10px; overflow:hidden; border:1px solid var(--line); background:#fff}
@@ -120,21 +126,22 @@ img{max-width:100%; display:block}
 }
 @media (min-width:960px){ .mobile-cta{display:none} }
 
-/* واتساب عائم — يسار/أسفل */
+/* واتساب عائم — صغير/رسمي يسار-أسفل */
 .floating-whatsapp{
   position:fixed; inset-inline-start:14px; bottom:16px; z-index:30;
-  width:54px; height:54px; border-radius:50%;
+  width:48px; height:48px; border-radius:50%;
   display:grid; place-items:center; text-decoration:none;
   background:#25D366; box-shadow:0 10px 26px rgba(0,0,0,.18);
   transition:transform .2s ease;
 }
 .floating-whatsapp:hover{transform:translateY(-3px)}
-.floating-whatsapp svg{width:28px; height:28px}
+.floating-whatsapp svg{width:24px; height:24px}
+.floating-whatsapp.sm{width:44px; height:44px} /* نسخة أصغر */
 
 /* لأعلى — يمين/أسفل */
 .to-top{
   position:fixed; inset-inline-end:14px; bottom:16px; z-index:30;
-  width:48px; height:48px; border-radius:10px; border:1px solid var(--line);
+  width:44px; height:44px; border-radius:10px; border:1px solid var(--line);
   background:#fff; color:#333; display:grid; place-items:center;
   box-shadow:0 10px 26px rgba(0,0,0,.10);
   transition:transform .2s ease, opacity .2s ease;
