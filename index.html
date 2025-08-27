@@ -41,19 +41,34 @@
 </head>
 <body>
 
-  <!-- شارة اجتماعية جانبية (موبايل: مخفية، تُعرض على ≥ 992px) -->
+  <!-- شارة اجتماعية جانبية (تظهر ≥992px) -->
   <aside class="social-badge" aria-label="تابعنا">
     <a href="#" aria-label="X"><img src="assets/icons/x.svg" alt="X"></a>
     <a href="#" aria-label="Instagram"><img src="assets/icons/ig.svg" alt="Instagram"></a>
     <a href="#" aria-label="LinkedIn"><img src="assets/icons/in.svg" alt="LinkedIn"></a>
   </aside>
 
-  <!-- زر واتساب عائم على اليسار (يظهر دائمًا) -->
-  <a class="floating-whatsapp" href="https://wa.me/966507646222" target="_blank" rel="noopener" aria-label="تحدث عبر واتساب">
-    <svg viewBox="0 0 32 32" aria-hidden="true"><circle cx="16" cy="16" r="16"></circle>
+  <!-- زر واتساب رسمي — يسار/أسفل -->
+  <a class="floating-whatsapp" href="https://wa.me/966507646222" target="_blank" rel="noopener" aria-label="تواصل واتساب">
+    <span class="wa-badge">واتساب</span>
+    <svg viewBox="0 0 32 32" aria-hidden="true">
+      <defs>
+        <linearGradient id="waGrad" x1="0" x2="1">
+          <stop offset="0%" stop-color="#25D366"/>
+          <stop offset="100%" stop-color="#128C7E"/>
+        </linearGradient>
+      </defs>
+      <circle cx="16" cy="16" r="16" fill="url(#waGrad)"></circle>
       <path d="M22.7 18.9c-.2-.1-1.3-.7-1.5-.8-.2-.1-.3-.1-.4.1-.1.2-.5.8-.6.9-.1.1-.2.1-.4 0-1.1-.4-2-1.2-2.7-2.2-.2-.3-.1-.3 0-.5.1-.1.2-.2.3-.4.1-.1.1-.2 0-.4 0-.1-.4-1.2-.6-1.6-.2-.4-.3-.3-.5-.3h-.4c-.1 0-.4.1-.6.3-.2.2-.8.7-.8 1.8 0 1.1.8 2.2.9 2.3.1.1 1.7 2.7 4.3 3.7.6.2 1.1.4 1.5.5.6.2 1.2.2 1.7.1.5-.1 1.3-.6 1.5-1.2.2-.6.2-1.1.2-1.2 0-.1-.2-.1-.4-.2zM16 7.3c-4.8 0-8.7 3.9-8.7 8.7 0 1.5.4 2.9 1.1 4.1l-1.2 4.5 4.6-1.2c1.2.7 2.6 1 4.1 1 4.8 0 8.7-3.9 8.7-8.7S20.8 7.3 16 7.3z" fill="#fff"/>
     </svg>
   </a>
+
+  <!-- زر لأعلى — يمين/أسفل -->
+  <button class="to-top" aria-label="العودة للأعلى" hidden>
+    <svg viewBox="0 0 24 24" width="22" height="22" aria-hidden="true">
+      <path d="M12 5l7 7-1.4 1.4L13 10.8V19h-2v-8.2L6.4 13.4 5 12z" fill="currentColor"/>
+    </svg>
+  </button>
 
   <!-- Header -->
   <header class="header">
@@ -74,11 +89,11 @@
     </div>
   </header>
 
-  <!-- Hero (Mobile-first) -->
+  <!-- Hero -->
   <section class="hero">
     <div class="container hero-inner">
-      <div class="hero-copy">
-        <h1 data-aos="fade-up">حليفك الأمثل لإعلان ذكي، وواجهات أجمل</h1>
+      <div class="hero-copy glass">
+        <h1 class="h-underline" data-aos="fade-up">حليفك الأمثل لإعلان ذكي، وواجهات أجمل</h1>
         <p data-aos="fade-up" data-aos-delay="120">
           ننطلق من الرياض بروح أصيلة وحداثة أنيقة لابتكار حلول دعائية تُبرز الهوية وتُلهِم الجمال.
         </p>
@@ -90,28 +105,35 @@
 
       <div class="hero-media">
         <picture data-aos="zoom-in" data-aos-delay="120">
-          <!-- للجوال (ارفع hero-mobile.* إن رغبت) -->
+          <!-- موبايل (اختياري) -->
           <source srcset="assets/img/hero/hero-mobile.webp" media="(max-width: 600px)" type="image/webp">
           <source srcset="assets/img/hero/hero-mobile.jpg"  media="(max-width: 600px)" type="image/jpeg">
-
-          <!-- للأحجام الأكبر: WebP -->
+          <!-- أكبر -->
           <source srcset="assets/img/hero/hero-2320.webp 2320w,
                           assets/img/hero/hero-1680.webp 1680w,
                           assets/img/hero/hero-1200.webp 1200w,
                           assets/img/hero/hero-560.webp 560w"
                   type="image/webp"
                   sizes="(min-width:1200px) 50vw, 100vw">
-
-          <!-- للأحجام الأكبر: JPG -->
           <source srcset="assets/img/hero/hero-2320.jpg 2320w,
                           assets/img/hero/hero-1680.jpg 1680w,
                           assets/img/hero/hero-1200.jpg 1200w,
                           assets/img/hero/hero-560.jpg 560w"
                   type="image/jpeg"
                   sizes="(min-width:1200px) 50vw, 100vw">
-
           <img src="assets/img/hero/hero-1200.jpg" alt="Hero" loading="eager" decoding="async" />
         </picture>
+      </div>
+    </div>
+
+    <!-- شريط شعارات (Marquee لطيف) -->
+    <div class="logos">
+      <div class="logos-track" aria-label="شعارات عملاء">
+        <img src="assets/img/logos/logo-1.webp" alt="شعار 1" loading="lazy">
+        <img src="assets/img/logos/logo-2.webp" alt="شعار 2" loading="lazy">
+        <img src="assets/img/logos/logo-3.webp" alt="شعار 3" loading="lazy">
+        <img src="assets/img/logos/logo-4.webp" alt="شعار 4" loading="lazy">
+        <!-- كرر حسب الحاجة -->
       </div>
     </div>
   </section>
@@ -120,7 +142,7 @@
   <section id="about" class="section">
     <div class="container grid grid--2">
       <div data-aos="fade-up">
-        <h2 class="section-title">عن TNSN</h2>
+        <h2 class="section-title h-underline">عن TNSN</h2>
         <p>نقدّم خطًا جديدًا في الدعاية والإعلان يتمحور حول الابتكار والإبداع، متناغمًا مع الجمال والجاذبية البصرية.</p>
         <ul class="check-list">
           <li>طابع سعودي واقعي وحداثي</li>
@@ -134,22 +156,22 @@
     </div>
   </section>
 
-  <!-- Stats / Counters (عدادات متحركة) -->
+  <!-- Stats -->
   <section id="stats" class="section section--accent">
     <div class="container stats-grid">
-      <article class="stat" data-aos="fade-up">
+      <article class="stat glass" data-aos="fade-up">
         <div class="stat-number" data-counter data-target="250">0</div>
         <div class="stat-label">عميل سعيد</div>
       </article>
-      <article class="stat" data-aos="fade-up" data-aos-delay="120">
+      <article class="stat glass" data-aos="fade-up" data-aos-delay="120">
         <div class="stat-number" data-counter data-target="540">0</div>
         <div class="stat-label">مشروع مُنجز</div>
       </article>
-      <article class="stat" data-aos="fade-up" data-aos-delay="180">
+      <article class="stat glass" data-aos="fade-up" data-aos-delay="180">
         <div class="stat-number" data-counter data-target="15">0</div>
         <div class="stat-label">سنة خبرة</div>
       </article>
-      <article class="stat" data-aos="fade-up" data-aos-delay="240">
+      <article class="stat glass" data-aos="fade-up" data-aos-delay="240">
         <div class="stat-number" data-counter data-target="8">0</div>
         <div class="stat-label">مدن نخدمها</div>
       </article>
@@ -159,19 +181,19 @@
   <!-- Services -->
   <section id="services" class="section section--alt">
     <div class="container">
-      <h2 class="section-title" data-aos="fade-up">ماذا نقدّم؟</h2>
+      <h2 class="section-title h-underline" data-aos="fade-up">ماذا نقدّم؟</h2>
       <div class="grid grid--3">
-        <article class="card" data-aos="fade-up">
+        <article class="card hover-raise" data-aos="fade-up">
           <img class="card-media" src="assets/img/services/fences.webp" alt="أسوار مشاريع" loading="lazy" decoding="async">
           <h3 class="card-title">أسوار المشاريع</h3>
           <p>تصميم وتنفيذ أسوار إعلانية أنيقة.</p>
         </article>
-        <article class="card" data-aos="fade-up" data-aos-delay="100">
+        <article class="card hover-raise" data-aos="fade-up" data-aos-delay="100">
           <img class="card-media" src="assets/img/services/signage.webp" alt="لوحات إرشادية" loading="lazy" decoding="async">
           <h3 class="card-title">لوحات إرشادية</h3>
           <p>حِرفية عالية داخل وخارج المنشآت.</p>
         </article>
-        <article class="card" data-aos="fade-up" data-aos-delay="160">
+        <article class="card hover-raise" data-aos="fade-up" data-aos-delay="160">
           <img class="card-media" src="assets/img/services/printing.webp" alt="طباعة رقمية" loading="lazy" decoding="async">
           <h3 class="card-title">طباعة رقمية</h3>
           <p>جودة تبرز الهوية وتحقق التأثير المطلوب.</p>
@@ -180,23 +202,50 @@
     </div>
   </section>
 
-  <!-- Portfolio -->
-  <section id="portfolio" class="section section--alt">
+  <!-- Testimonials (سلايدر خفيف) -->
+  <section id="testimonials" class="section">
     <div class="container">
-      <h2 class="section-title" data-aos="fade-up">أعمال مختارة</h2>
-      <div class="grid grid--4">
-        <figure class="tile" data-aos="zoom-in"><img src="assets/img/portfolio/p1-1200x744.webp" alt="عمل 1" loading="lazy" decoding="async"></figure>
-        <figure class="tile" data-aos="zoom-in" data-aos-delay="60"><img src="assets/img/portfolio/p2-1200x744.webp" alt="عمل 2" loading="lazy" decoding="async"></figure>
-        <figure class="tile" data-aos="zoom-in" data-aos-delay="120"><img src="assets/img/portfolio/p3-1200x744.webp" alt="عمل 3" loading="lazy" decoding="async"></figure>
-        <figure class="tile" data-aos="zoom-in" data-aos-delay="180"><img src="assets/img/portfolio/p4-1200x744.webp" alt="عمل 4" loading="lazy" decoding="async"></figure>
+      <h2 class="section-title h-underline" data-aos="fade-up">قالوا عنّا</h2>
+      <div class="t-slider" data-aos="fade-up" data-aos-delay="100">
+        <article class="t-card">
+          <p>“تنفيذ جميل وسريع.. فريق محترف وفاهم.”</p>
+          <div class="t-meta">— عميل حكومي</div>
+        </article>
+        <article class="t-card">
+          <p>“تصاميم أنيقة وتواصل ممتاز. أنصح بالتعامل.”</p>
+          <div class="t-meta">— شركة تطوير</div>
+        </article>
+        <article class="t-card">
+          <p>“التزام بالمواعيد وخامات عالية، تجربة مميزة.”</p>
+          <div class="t-meta">— مقاول مشاريع</div>
+        </article>
       </div>
     </div>
   </section>
 
+  <!-- Portfolio -->
+  <section id="portfolio" class="section section--alt">
+    <div class="container">
+      <h2 class="section-title h-underline" data-aos="fade-up">أعمال مختارة</h2>
+      <div class="grid grid--4">
+        <figure class="tile hover-raise" data-aos="zoom-in"><img src="assets/img/portfolio/p1-1200x744.webp" alt="عمل 1" loading="lazy" decoding="async"></figure>
+        <figure class="tile hover-raise" data-aos="zoom-in" data-aos-delay="60"><img src="assets/img/portfolio/p2-1200x744.webp" alt="عمل 2" loading="lazy" decoding="async"></figure>
+        <figure class="tile hover-raise" data-aos="zoom-in" data-aos-delay="120"><img src="assets/img/portfolio/p3-1200x744.webp" alt="عمل 3" loading="lazy" decoding="async"></figure>
+        <figure class="tile hover-raise" data-aos="zoom-in" data-aos-delay="180"><img src="assets/img/portfolio/p4-1200x744.webp" alt="عمل 4" loading="lazy" decoding="async"></figure>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA شريطي للجوال -->
+  <div class="mobile-cta">
+    <a class="btn" href="https://wa.me/966507646222" target="_blank" rel="noopener">اطلب عرضًا</a>
+    <a class="btn btn--ghost" href="#portfolio">أعمالنا</a>
+  </div>
+
   <!-- Contact -->
   <section id="contact" class="section">
     <div class="container">
-      <h2 class="section-title" data-aos="fade-up">تواصل معنا</h2>
+      <h2 class="section-title h-underline" data-aos="fade-up">تواصل معنا</h2>
       <p data-aos="fade-up" data-aos-delay="100">
         الهاتف: <a href="tel:+966507646222">+966 50 764 6222</a> — البريد: <a href="mailto:info@tnsn.sa">info@tnsn.sa</a>
       </p>
