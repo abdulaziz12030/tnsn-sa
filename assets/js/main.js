@@ -4,23 +4,10 @@
     const y = document.getElementById('y');
     if (y) y.textContent = new Date().getFullYear();
 
-    // قائمة الموبايل
+    // فتح/إغلاق قائمة الموبايل
     const toggle = document.querySelector('.menu-toggle');
     const nav = document.getElementById('mainNav');
-    if (toggle && nav) {
-      toggle.addEventListener('click', () => nav.classList.toggle('is-open'));
-    }
-    // نمط القائمة المفتوحة
-    const style = document.createElement('style');
-    style.textContent = `
-      .nav.is-open{
-        display:flex; flex-direction:column; gap:6px;
-        position:absolute; top:64px; right:0; left:0;
-        background:#fff; border:1px solid #E6E8EB; padding:10px; margin:0 16px; border-radius:12px;
-        box-shadow:0 8px 24px rgba(0,0,0,.06);
-      }
-    `;
-    document.head.appendChild(style);
+    if (toggle && nav) toggle.addEventListener('click', () => nav.classList.toggle('is-open'));
 
     // تمرير سلس
     document.querySelectorAll('a[href^="#"]').forEach(a => {
@@ -45,7 +32,7 @@
     revealTop();
     toTop && toTop.addEventListener('click', () => window.scrollTo({ top: 0, behavior: 'smooth' }));
 
-    // عدادات الإنجازات
+    // عدادات الإنجازات — تبدأ عند الظهور
     const counters = document.querySelectorAll('[data-counter]');
     if (counters.length) {
       const animate = (el) => {
