@@ -1,1 +1,99 @@
-// محتوى main.js الكامل
+// سنة الحقوق
+document.getElementById('year').textContent = new Date().getFullYear();
+
+// === Enter animations on load ===
+window.addEventListener('load', ()=>{
+  requestAnimationFrame(()=>{
+    document.getElementById('title').classList.add('in');
+    setTimeout(()=>{ document.getElementById('subtitle').classList.add('in'); }, 120);
+    setTimeout(()=>{ document.getElementById('ctaRow').classList.add('in'); }, 260);
+  });
+});
+
+// === Gentle parallax for hero background (via CSS var) ===
+const hero = document.getElementById('hero');
+window.addEventListener('scroll', ()=>{
+  const y = window.scrollY;
+  // نحدث متغير CSS ليؤثر على ::before
+  hero.style.setProperty('--bgY', `calc(50% + ${y*0.06}px)`);
+}, {passive:true});
+
+// === Ripple on buttons ===
+document.querySelectorAll('.btn').forEach(btn=>{
+  btn.addEventListener('click', function(e){
+    const r = document.createElement('span');
+    const d = Math.max(this.clientWidth, this.clientHeight);
+    r.style.width = r.style.height = d + 'px';
+    const rect = this.getBoundingClientRect();
+    r.style.left = (e.clientX - rect.left - d/2) + 'px';
+    r.style.top  = (e.clientY - rect.top  - d/2) + 'px';
+    r.className = 'ripple';
+    this.appendChild(r);
+    r.addEventListener('animationend', ()=> r.remove());
+  });
+});
+
+// === Scroll reveal (عناوين/بطاقات/لوحات) + Counters ===
+const io = new IntersectionObserver((entries)=>{
+  entries.forEach(e=>{
+    if(e.isIntersecting){
+      e.target.classList.add('in','show');
+      if(e.target.querySelector && e.target.querySelector('.counter')) startCounters(e.target);
+      io.unobserve(e.target);
+    }
+  });
+},{threshold:.2});
+
+document.querySelectorAll('.from-right,.from-left,.card,.stat,.panel').forEach(el=> io.observe(el));
+document.querySelectorAll('.card').forEach(el=> el.classList.remove('show'));
+
+// Counters animation
+function startCounters(scope){
+  scope.querySelectorAll('.counter').forEach(el=>{
+    const target = +el.dataset.target; const dur = 1400 + Math.random()*800;
+    const start = performance.now();
+    function tick(t){
+      const p = Math.min(1,(t-start)/dur);
+      el.textContent = Math.floor(target*p).toLocaleString('en-US');
+      if(p<1) requestAnimationFrame(tick);
+    }
+    requestAnimationFrame(tick);
+  });
+}
+
+// Ask buttons -> preselect service
+document.querySelectorAll('.ask-btn').forEach(btn=>{
+  btn.addEventListener('click', ()=>{
+    const serviceText = btn.dataset.service || 'طلب عرض سعر';
+    const select = document.getElementById('serviceSelect');
+    if(select){
+      Array.from(select.options).forEach(o=>{ o.selected = (o.text.trim() === serviceText.trim()); });
+      document.getElementById('leadForm').scrollIntoView({behavior:'smooth'});
+    }
+  });
+});
+
+// Back to top
+const toTop = document.getElementById('toTop');
+window.addEventListener('scroll', ()=>{ toTop.style.display = (window.scrollY > 400) ? 'block' : 'none'; });
+toTop.addEventListener('click', ()=> window.scrollTo({top:0, behavior:'smooth'}));
+
+// Submit form (Formspree أو باك إندك)
+async function submitLead(ev){
+  ev.preventDefault();
+  const form = ev.target;
+  const endpoint = form.dataset.endpoint; // ضع معرّفك من Formspree
+  const ok = document.getElementById('ok');
+  const no = document.getElementById('no');
+  if(ok) ok.style.display='none'; if(no) no.style.display='none';
+  const data = Object.fromEntries(new FormData(form).entries());
+  try{
+    const res = await fetch(endpoint, {
+      method:'POST', headers:{'Content-Type':'application/json','Accept':'application/json'},
+      body: JSON.stringify(data)
+    });
+    if(res.ok){ form.reset(); if(ok) ok.style.display='block'; }
+    else{ if(no) no.style.display='block'; }
+  }catch(_){ if(no) no.style.display='block'; }
+  return false;
+}
