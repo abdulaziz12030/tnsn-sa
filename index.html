@@ -5,7 +5,21 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>TNSN | حلول دعائية تطبع أثرًا هادئًا</title>
   <meta name="theme-color" content="#0b0b0f"/>
+
+  <!-- Fonts -->
   <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;800&display=swap" rel="stylesheet">
+
+  <!-- Preload hero for better LCP -->
+  <link rel="preload" as="image" href="https://i.postimg.cc/VLPyCKdt/6.png" fetchpriority="high">
+
+  <!-- Open Graph / Twitter -->
+  <meta property="og:title" content="TNSN — حلول دعائية وهوية متناسقة">
+  <meta property="og:description" content="أسوار مشاريع ولوحات وطباعة رقمية — تنفيذ متقن بلمسة إبداعية هادئة.">
+  <meta property="og:type" content="website">
+  <meta property="og:image" content="https://i.postimg.cc/VLPyCKdt/6.png">
+  <meta name="twitter:card" content="summary_large_image">
+
+  <!-- Styles -->
   <link rel="stylesheet" href="assets/css/style.css">
 </head>
 <body id="top">
@@ -20,12 +34,13 @@
         <img src="https://i.postimg.cc/nLJNPkym/1.png" alt="TNSN Logo">
       </a>
       <div class="spacer"></div>
-      <nav class="links" aria-label="روابط">
+      <nav class="links" aria-label="روابط" id="mainNav">
         <a href="#services">الخدمات</a>
         <a href="#numbers">أرقام</a>
         <a href="#contact">تواصل</a>
         <a href="#leadForm" class="btn cta">اطلب عرض سعر</a>
       </nav>
+      <button class="menu-toggle" aria-label="القائمة" aria-controls="mainNav" aria-expanded="false">☰</button>
     </div>
   </header>
 
@@ -45,10 +60,9 @@
   <section class="section" id="services" aria-label="خدماتنا">
     <h2 class="from-right">خدماتنا</h2>
     <p class="note from-right">من التصور إلى التركيب — حلول شاملة بلمسة متناسقة.</p>
-
     <div class="grid">
       <article class="card">
-        <figure><img loading="lazy" alt="أسوار مشاريع" src="https://images.unsplash.com/photo-1509221963646-7e6b0dda3a2f?q=80&w=1600&auto=format&fit=crop"></figure>
+        <figure><img loading="lazy" decoding="async" alt="أسوار مشاريع" src="https://images.unsplash.com/photo-1509221963646-7e6b0dda3a2f?q=80&w=1600&auto=format&fit=crop"></figure>
         <div class="content">
           <h3>أسوار المشاريع</h3>
           <div class="tag">تصميم • تصنيع • تركيب</div>
@@ -56,9 +70,8 @@
           <div class="actions"><a href="#leadForm" class="btn cta ask-btn" data-service="أسوار المشاريع">اطلب الخدمة</a></div>
         </div>
       </article>
-
       <article class="card">
-        <figure><img loading="lazy" alt="لوحات إرشادية وتعريفية" src="https://images.unsplash.com/photo-1579762715118-a6f1d4b934f1?q=80&w=1600&auto=format&fit=crop"></figure>
+        <figure><img loading="lazy" decoding="async" alt="لوحات إرشادية وتعريفية" src="https://images.unsplash.com/photo-1579762715118-a6f1d4b934f1?q=80&w=1600&auto=format&fit=crop"></figure>
         <div class="content">
           <h3>اللوحات الإرشادية والتعريفية</h3>
           <div class="tag">ألمنيوم • أكريليك • مضيئة</div>
@@ -66,9 +79,8 @@
           <div class="actions"><a href="#leadForm" class="btn ghost ask-btn" data-service="لوحات إرشادية">اطلب الخدمة</a></div>
         </div>
       </article>
-
       <article class="card">
-        <figure><img loading="lazy" alt="الطباعة الرقمية" src="https://images.unsplash.com/photo-1504198453319-5ce911bafcde?q=80&w=1600&auto=format&fit=crop"></figure>
+        <figure><img loading="lazy" decoding="async" alt="الطباعة الرقمية" src="https://images.unsplash.com/photo-1504198453319-5ce911bafcde?q=80&w=1600&auto=format&fit=crop"></figure>
         <div class="content">
           <h3>الطباعة الرقمية</h3>
           <div class="tag">Vinyl • Mesh • UV • Latex</div>
@@ -141,13 +153,14 @@
   <!-- WhatsApp Floating -->
   <div class="wa">
     <a aria-label="تواصل واتساب" href="https://wa.me/966507646222" target="_blank" rel="noopener">
-      <svg viewBox="0 0 16 16"><path d="M13.601 2.326A7.94 7.94 0 0 0 8.012.003a7.99 7.99 0 0 0-6.94 11.868L.001 16l4.21-1.06A7.99 7.99 0 0 0 8.012 16h.003a7.99 7.99 0 0 0 5.586-13.674ZM8.015 14.5a6.48 6.48 0 0 1-3.307-.91l-.237-.141-2.5.629.667-2.438-.154-.25a6.5 6.5 0 1 1 5.531 3.11Zm3.676-4.842c-.2-.1-1.178-.58-1.36-.646-.182-.066-.315-.1-.448.1-.133.2-.513.646-.628.78-.115.133-.232.15-.432.05-.2-.1-.846-.311-1.612-.992-.595-.53-.997-1.183-1.112-1.383-.115-.2-.012-.307.087-.407.089-.088.2-.23.3-.345.1-.115.133-.2.2-.332.066-.133.033-.25-.011-.35-.045-.1-.46-1.113-.633-1.52-.166-.4-.336-.35-.448-.356l-.382-.007c-.133 0-.35.05-.535.25-.184.2-.7.68-.7 1.65 0 .97.717 1.907.817 2.037.1.13 1.415 2.161 3.428 3.032.479.211.852.338 1.142.432.479.153.913.133 1.255.084.387-.56 1.178-.48 1.345-.94.167-.46.167-.86.117-.94-.05-.084-.185-.137-.395-.237Z"/></svg>
+      <svg viewBox="0 0 16 16"><path d="M13.601 2.326A7.94 7.94 0 0 0 8.012.003a7.99 7.99 0 0 0-6.94 11.868L.001 16l4.21-1.06A7.99 7.99 0 0 0 8.012 16h.003a7.99 7.99 0 0 0 5.586-13.674ZM8.015 14.5a6.48 6.48 0 0 1-3.307-.91l-.237-.141-2.5.629.667-2.438-.154-.25a6.5 6.5 0 1 1 5.531 3.11Zm3.676-4.842c-.2-.1-1.178-.58-1.36-.646-.182-.066-.315-.1-.448.1-.133.2-.513.646-.628.78-.115.133-.232.15-.432.05-.2-.1-.846-.311-1.612-.992-.595-.53-.997-1.183-1.112-1.383-.115-.2-.012-.307.087-.407.089-.088.2-.23.3-.345.1-.115.133-.2.2-.332.066-.133.033-.25-.011-.35-.045-.1-.46-1.113-.633-1.52-.166-.4-.336-.35-.448-.356l-.382-.007c-.133 0-.35 .05-.535 .25-.184 .2-.7 .68-.7 1.65 0 .97 .717 1.907 .817 2.037 .1 .13 1.415 2.161 3.428 3.032 .479 .211 .852 .338 1.142 .432 .479 .153 .913 .133 1.255 .084 .387 -.56 1.178 -.48 1.345 -.94 .167 -.46 .167 -.86 .117 -.94 -.05 -.084 -.185 -.137 -.395 -.237Z"/></svg>
     </a>
   </div>
 
   <!-- Back to top -->
   <button id="toTop" aria-label="العودة للأعلى">↑</button>
 
+  <!-- Scripts -->
   <script src="assets/js/main.js" defer></script>
 </body>
 </html>

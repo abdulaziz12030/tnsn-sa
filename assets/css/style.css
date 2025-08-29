@@ -6,6 +6,7 @@
   --glass-w:rgba(255,255,255,.14);
 }
 *{box-sizing:border-box}
+html{scroll-behavior:smooth}
 html,body{margin:0;padding:0;background:var(--bg);color:var(--text);font-family:'Cairo',system-ui,-apple-system,sans-serif}
 a{color:inherit;text-decoration:none}
 img{max-width:100%;display:block}
@@ -22,7 +23,12 @@ img{max-width:100%;display:block}
 .brand img{height:52px;filter:drop-shadow(0 1px 1px rgba(0,0,0,.35))}
 .spacer{flex:1}
 .links{display:flex;gap:16px;font-weight:700;color:#e7eaf0}
-@media (max-width:640px){ .links{display:none} }
+.menu-toggle{display:none;margin-right:10px;padding:8px 12px;border-radius:10px;border:1px solid #fff3;background:#0005;color:#fff}
+@media (max-width:640px){
+  .links{display:none}
+  .links.open{display:flex;position:absolute;right:12px;top:68px;background:#0b0b0f;border:1px solid var(--line);border-radius:12px;padding:10px;flex-direction:column;gap:8px;z-index:99}
+  .menu-toggle{display:inline-block}
+}
 
 /* ===== Buttons (Glass) ===== */
 .btn{
@@ -50,6 +56,9 @@ img{max-width:100%;display:block}
   box-shadow:0 10px 28px rgba(0,0,0,.18);
 }
 .ghost:hover{background:rgba(255,255,255,.22);}
+/* تعزيز التباين فوق الهيرو */
+.hero .btn.ghost{color:#fff;border-color:#fff;background:rgba(255,255,255,.18)}
+.hero .btn.ghost:hover{background:rgba(255,255,255,.24)}
 
 /* ===== HERO ===== */
 .hero{
@@ -59,19 +68,15 @@ img{max-width:100%;display:block}
 .hero::before{
   content:"";position:absolute;inset:0;z-index:-2;
   background:var(--hero) center/cover no-repeat;
-  background-position-y: var(--bgY, 50%); /* للسماح بالبارالاكس عبر متغير CSS */
-  will-change:background-position;
+  background-position-y: var(--bgY, 50%);
+  will-change: background-position;
 }
 .hero::after{content:"";position:absolute;inset:0;z-index:-1;background:linear-gradient(180deg,rgba(0,0,0,.45),rgba(0,0,0,.9))}
 .hero .wrap{max-width:1000px;margin-top:8vh}
-/* Mobile-first: ارفع النص وأنزل الأزرار لإبراز تفاصيل البنر */
-.hero h1{margin:0 0 16px;font-size:clamp(28px,5.8vw,52px);font-weight:800;line-height:1.35;transform:translateY(-42px)}
-.hero p{margin:0 auto 32px;max-width:920px;color:#e7ebf3;font-size:clamp(16px,1.8vw,20px);transform:translateY(-42px)}
-.hero .actions{
-  display:flex;gap:14px;flex-wrap:wrap;justify-content:center;
-  margin-top:12px; /* حسب طلبك: الأزرار تحت النص مباشرة */
-  transform:none;  /* بدون نزول إضافي */
-}
+/* Mobile-first: النص مكانه، الأزرار تحت النص مباشرة */
+.hero h1{margin:0 0 16px;font-size:clamp(28px,5.8vw,52px);font-weight:800;line-height:1.35;transform:translateY(-28px)}
+.hero p{margin:0 auto 32px;max-width:920px;color:#e7ebf3;font-size:clamp(16px,1.8vw,20px);transform:translateY(-28px)}
+.hero .actions{display:flex;gap:14px;flex-wrap:wrap;justify-content:center;margin-top:12px;transform:none}
 @media (min-width:768px){
   .hero{min-height:86vh}
   .hero h1,.hero p{transform:none}
@@ -84,6 +89,8 @@ img{max-width:100%;display:block}
 .in{opacity:1;transform:none;transition:transform .85s cubic-bezier(.2,.7,.3,1), opacity .85s ease}
 .from-right{opacity:0;transform:translateX(28px)}
 .from-left{opacity:0;transform:translateX(-28px)}
+/* إظهار عنوان وخلاصة الخدمات مباشرة */
+#services .from-right,#services .from-left{opacity:1 !important;transform:none !important}
 
 /* Float بسيط لزر الـ CTA */
 .float{animation:float 6.5s ease-in-out infinite}

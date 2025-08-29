@@ -1,6 +1,16 @@
 // سنة الحقوق
 document.getElementById('year').textContent = new Date().getFullYear();
 
+// قائمة الجوال + ARIA
+const toggle = document.querySelector('.menu-toggle');
+const nav = document.getElementById('mainNav');
+if (toggle && nav){
+  toggle.addEventListener('click', ()=>{
+    const open = nav.classList.toggle('open');
+    toggle.setAttribute('aria-expanded', open ? 'true' : 'false');
+  });
+}
+
 // === Enter animations on load ===
 window.addEventListener('load', ()=>{
   requestAnimationFrame(()=>{
@@ -10,13 +20,19 @@ window.addEventListener('load', ()=>{
   });
 });
 
-// === Gentle parallax for hero background (via CSS var) ===
+// === Gentle parallax for hero background (via CSS var) with rAF throttling ===
 const hero = document.getElementById('hero');
+let ticking = false;
 window.addEventListener('scroll', ()=>{
-  const y = window.scrollY;
-  // نحدث متغير CSS ليؤثر على ::before
-  hero.style.setProperty('--bgY', `calc(50% + ${y*0.06}px)`);
-}, {passive:true});
+  if(!ticking){
+    window.requestAnimationFrame(()=>{
+      const y = window.scrollY;
+      hero.style.setProperty('--bgY', `calc(50% + ${y*0.06}px)`);
+      ticking = false;
+    });
+    ticking = true;
+  }
+},{passive:true});
 
 // === Ripple on buttons ===
 document.querySelectorAll('.btn').forEach(btn=>{
@@ -42,7 +58,10 @@ const io = new IntersectionObserver((entries)=>{
       io.unobserve(e.target);
     }
   });
-},{threshold:.2});
+},{
+  threshold: 0.12,
+  rootMargin: '80px 0px -20px 0px' // يكشف العناصر أبكر قليلًا
+});
 
 document.querySelectorAll('.from-right,.from-left,.card,.stat,.panel').forEach(el=> io.observe(el));
 document.querySelectorAll('.card').forEach(el=> el.classList.remove('show'));
@@ -78,7 +97,7 @@ const toTop = document.getElementById('toTop');
 window.addEventListener('scroll', ()=>{ toTop.style.display = (window.scrollY > 400) ? 'block' : 'none'; });
 toTop.addEventListener('click', ()=> window.scrollTo({top:0, behavior:'smooth'}));
 
-// Submit form (Formspree أو باك إندك)
+// Submit form (Formspree أو باك إندك) + إخفاء نجاح تلقائي
 async function submitLead(ev){
   ev.preventDefault();
   const form = ev.target;
@@ -92,8 +111,17 @@ async function submitLead(ev){
       method:'POST', headers:{'Content-Type':'application/json','Accept':'application/json'},
       body: JSON.stringify(data)
     });
-    if(res.ok){ form.reset(); if(ok) ok.style.display='block'; }
-    else{ if(no) no.style.display='block'; }
-  }catch(_){ if(no) no.style.display='block'; }
+    if(res.ok){
+      form.reset();
+      if(ok){
+        ok.style.display='block';
+        setTimeout(()=>{ ok.style.display='none'; }, 5000);
+      }
+    }else{
+      if(no) no.style.display='block';
+    }
+  }catch(_){
+    if(no) no.style.display='block';
+  }
   return false;
 }
