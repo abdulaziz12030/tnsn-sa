@@ -108,7 +108,15 @@
     .card:hover figure img{transform:scale(1.1)}             /* تكبير خفيف عند الهوفر */
     .card .content{padding:16px;display:flex;flex-direction:column;gap:8px}
     .tag{display:inline-flex;gap:6px;border:1px solid var(--line);border-radius:999px;background:#151821;color:#dfe3ea;padding:6px 10px;font-weight:700;font-size:.9rem}
-    .actions{margin-top:auto;display:flex;gap:8px}
+  .hero .actions{
+  display:flex;
+  gap:14px;
+  flex-wrap:wrap;
+  justify-content:center;
+  margin-top:12px;      /* مسافة بسيطة تحت النص */
+  transform:none;       /* إلغاء النزول للأسفل */
+}
+
 
     /* ===== Stats ===== */
     .stats{max-width:1200px;margin:34px auto;padding:0 18px;display:grid;grid-template-columns:repeat(4,1fr);gap:14px}
