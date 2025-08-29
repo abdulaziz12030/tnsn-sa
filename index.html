@@ -69,9 +69,9 @@
     .hero::after{content:"";position:absolute;inset:0;z-index:-1;background:linear-gradient(180deg,rgba(0,0,0,.45),rgba(0,0,0,.9))}
     .hero .wrap{max-width:1000px;margin-top:8vh}
     /* Mobile-first: ارفع النص وأنزل الأزرار لإبراز تفاصيل البنر */
-    .hero h1{margin:0 0 16px;font-size:clamp(28px,5.8vw,52px);font-weight:800;line-height:1.35;transform:translateY(-42px)}
-    .hero p{margin:0 auto 32px;max-width:920px;color:#e7ebf3;font-size:clamp(16px,1.8vw,20px);transform:translateY(-42px)}
-    .hero .actions{display:flex;gap:14px;flex-wrap:wrap;justify-content:center;transform:translateY(28px)}
+ .hero h1{transform:translateY(-60px);}   /* النص يطلع أكثر */
+.hero p{transform:translateY(-60px);}    /* الوصف يطلع أكثر */
+.hero .actions{transform:translateY(60px);} /* الأزرار تنزل أكثر */
     @media (min-width:768px){
       .hero{min-height:86vh}
       .hero h1,.hero p{transform:none}
