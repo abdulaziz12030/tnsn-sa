@@ -1,299 +1,321 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="ar" dir="rtl">
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>TNSN — تعريف مختصر</title>
-  <meta name="description" content="موقع تعريفي بصفحة واحدة لعرض هوية وخدمات TNSN بصورة حديثة.">
-  <meta property="og:locale" content="ar_SA">
+  <title>TNSN Advertising | حليفك الأمثل لإعلان ذكي</title>
+  <meta name="description" content="TNSN — حلول دعائية وطباعة رقمية، أسوار مشاريع، لوحات إرشادية، وتصميم واجهات برؤية حديثة وهوية قوية." />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;800;900&display=swap" rel="stylesheet">
   <style>
     :root{
-      --brand-black:#0F0F0F; --brand-orange:#FF6A00; --brand-blue:#0F6DB6; --brand-white:#fff;
-      --bg:#F7F9FC; --surface:#fff; --soft:#F1F4F8; --text:#111316; --muted:#5C6168; --line:rgba(17,19,22,.08);
-      --radius:16px; --shadow:0 1px 1px rgba(17,19,22,.02),0 12px 28px rgba(17,19,22,.06);
+      --bg:#0b0b0f;           /* خلفية داكنة */
+      --bg-soft:#101215;      /* أهدأ قليلًا */
+      --ink:#ffffff;          /* نص أبيض صافٍ */
+      --muted:#dfe3ea;        /* نص ثانوي باهت */
+      --white:#ffffff;
+      --orange:#c05a2b;       /* البرتقالي الرئيس */
+      --charcoal:#0f0f12;     /* فحمّي للأزرار/الأيقونات */
+      --tile:#15171c;
+      --shadow:0 10px 30px rgba(0,0,0,.25);
+      --max:1200px;
     }
-    *{box-sizing:border-box} html{direction:rtl} body{
-      margin:0; font-family:"IBM Plex Arabic","Cairo","Tajawal",system-ui,-apple-system,Segoe UI,Roboto,"Helvetica Neue",Arial,"Noto Sans",sans-serif;
-      background:var(--bg); color:var(--text); -webkit-font-smoothing:antialiased; text-rendering:optimizeLegibility;
+    *{box-sizing:border-box}
+    html,body{margin:0;padding:0;font-family:'Cairo',system-ui,-apple-system,Segoe UI,Roboto,Helvetica,Arial,sans-serif;background:var(--bg);color:var(--ink);scroll-behavior:smooth}
+    img{max-width:100%;display:block}
+    a{color:inherit;text-decoration:none}
+    .wrap{max-width:var(--max);margin:auto;padding:0 18px}
+
+    /* ====== شريط أعلى/تنبيه ====== */
+    .topbar{background:#0c0d10;color:#fff;position:sticky;top:0;z-index:70;border-bottom:1px solid #191b20}
+    .topbar .inner{display:flex;gap:12px;align-items:center;justify-content:space-between;padding:8px 0}
+    .topbar .ticker{overflow:hidden;white-space:nowrap;color:#fff;opacity:.85}
+    .topbar .ticker span{display:inline-block;padding-inline-start:24px;animation:ticker 18s linear infinite}
+    @keyframes ticker{from{transform:translateX(0)}to{transform:translateX(-100%)}}
+
+    /* ====== الترويسة/التنقل ====== */
+    .nav{position:sticky;top:36px;z-index:60;backdrop-filter:saturate(140%) blur(8px);background:rgba(12,13,16,.7);border-bottom:1px solid #191b20}
+    .nav .inner{display:flex;align-items:center;gap:12px;height:64px}
+    .brand{display:flex;align-items:center;gap:10px;font-weight:900}
+    .brand-badge{display:grid;place-items:center;height:40px;width:40px;border-radius:10px;background:linear-gradient(135deg,#0b0b0f,#1a1b1f);border:1px solid #22252b}
+    .brand-badge svg{width:22px;height:22px;fill:#fff}
+    .brand .name{font-weight:900;letter-spacing:.5px}
+    .links{margin-inline-start:auto;display:flex;gap:16px;font-weight:700;color:#cfd5de}
+    .links a{opacity:.85} .links a:hover{opacity:1}
+    .cta{background:var(--orange);color:#fff;border:none;border-radius:12px;padding:10px 16px;font-weight:800;cursor:pointer;box-shadow:var(--shadow);transition:.25s}
+    .cta:hover{transform:translateY(-1px);filter:saturate(115%)}
+
+    /* ====== هيرو ====== */
+    .hero{position:relative;min-height:68vh;display:grid;place-items:center;isolation:isolate}
+    .hero::before{content:"";position:absolute;inset:0;z-index:-2;
+      background:
+        radial-gradient(1000px 480px at 15% 25%, rgba(0,0,0,.35), transparent 60%),
+        radial-gradient(980px 520px at 80% 60%, rgba(192,90,43,.12), transparent 60%),
+        linear-gradient(180deg,#0a0b0f 0%, #0c0d12 60%, #0a0b0f 100%);
     }
-    img{max-width:100%; display:block}
-    a{color:var(--brand-blue); text-decoration:none} a:hover{text-decoration:underline}
-    .container{width:min(1200px,100%); margin-inline:auto; padding-inline:16px}
-    /* Header */
-    .header{position:sticky; top:0; z-index:20; backdrop-filter:blur(8px); background:rgba(255,255,255,.85); border-bottom:1px solid var(--line)}
-    .header-in{min-height:64px; display:flex; align-items:center; justify-content:space-between}
-    .brand{display:flex; align-items:center; gap:10px; color:var(--text); text-decoration:none; font-weight:800}
-    .nav{display:flex; gap:18px; align-items:center} .nav a{font-weight:600; color:var(--text); opacity:.9} .nav a:hover{opacity:1}
-    .nav-toggle{display:none;width:44px;height:44px;border:1px solid var(--line);border-radius:10px;background:var(--surface)}
-    .nav-toggle span{display:block;width:20px;height:2px;background:var(--text);margin:6px auto}
-    @media(max-width:900px){
-      .nav-toggle{display:block}
-      .nav{position:fixed; inset:64px 0 auto 0; background:var(--surface); border-bottom:1px solid var(--line);
-           transform:translateY(-130%); transition:.3s ease; flex-direction:column; padding:8px 16px}
-      .nav a{width:100%; padding:14px 6px; border-top:1px solid var(--line)}
-      .nav.open{transform:translateY(0)}
-      body.no-scroll{overflow:hidden}
+    .hero .wrap{display:grid;grid-template-columns:1.25fr .75fr;gap:30px;align-items:center;padding:56px 0}
+    .hero h1{font-size:clamp(28px,4.6vw,56px);line-height:1.25;margin:0 0 8px;font-weight:900;color:#fff}
+    .hero p{font-size:clamp(16px,1.6vw,20px);color:#d9dde3;margin:0 0 18px}
+    .hero .actions{display:flex;gap:12px;flex-wrap:wrap}
+    .btn{background:var(--charcoal);color:#fff;border:1px solid #22252b;border-radius:14px;padding:12px 18px;font-weight:800;cursor:pointer;box-shadow:var(--shadow);transition:.25s}
+    .btn.ghost{background:transparent;border:1px solid #23262c;color:#ffffff}
+    .btn:hover{transform:translateY(-1px);filter:saturate(108%)}
+    .pattern{border-radius:16px;background:var(--tile);padding:16px;border:1px solid #202228;position:relative;overflow:hidden}
+    .grid{display:grid;grid-template-columns:repeat(8,1fr);gap:8px}
+    .tile{aspect-ratio:1/1;border-radius:12px;background:#0f1014;border:1px solid #202228;display:grid;place-items:center}
+    .tile svg{opacity:.9}
+
+    /* ====== أقسام عامة ====== */
+    section{padding:72px 0;border-top:1px solid #16181d}
+    .section-title{font-size:clamp(22px,3.2vw,36px);margin:0 0 10px;font-weight:900;color:#fff}
+    .section-note{color:var(--muted);margin:0 0 26px}
+
+    /* ====== البطاقات ====== */
+    .cards{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+    .card{background:#0e1014;border:1px solid #1a1d22;border-radius:18px;padding:18px;box-shadow:var(--shadow);display:grid;gap:10px}
+    .card h3{margin:0;font-weight:800;color:#fff}
+    .badge{display:inline-flex;align-items:center;gap:8px;background:rgba(0,0,0,.25);border:1px solid #22252b;color:#ffffff;border-radius:999px;padding:6px 10px;font-weight:700}
+    .badge.orange{background:rgba(192,90,43,.12);border-color:#3a2a23;color:#ffd9c7}
+    .card p{margin:0;color:#d8dde5}
+    .card .illus{height:140px;border-radius:14px;background:linear-gradient(135deg,#121418,#0c0e12);border:1px dashed #242830;display:grid;place-items:center;opacity:.9;color:#cfd5de}
+
+    /* ====== معرض/شبكة ====== */
+    .masonry{columns:3 280px;column-gap:16px}
+    .ph{break-inside:avoid;border-radius:16px;background:#0e1014;border:1px solid #1a1d22;margin:0 0 16px;overflow:hidden}
+    .ph img{width:100%;height:auto;display:block;opacity:.85;filter:grayscale(10%)} /* هدوء بصري */
+    .ph .cap{padding:10px 14px;color:#d8dde5}
+
+    /* ====== قسم الجودة ====== */
+    .quality{display:grid;grid-template-columns:1fr 1fr;gap:20px;align-items:center}
+    .quality .panel{background:#0e1014;border:1px solid #1a1d22;border-radius:18px;padding:18px}
+    .list{display:grid;gap:10px;margin:0;padding:0;list-style:none}
+    .list li{display:flex;gap:10px;align-items:flex-start}
+    .list b{display:grid;place-items:center;min-width:28px;height:28px;border-radius:8px;background:rgba(192,90,43,.18);border:1px solid #3e2c25;color:#fff;font-size:14px}
+
+    /* ====== تواصل ====== */
+    .contact{display:grid;grid-template-columns:1.1fr .9fr;gap:20px;align-items:start}
+    .contact .box{background:#0e1014;border:1px solid #1a1d22;border-radius:18px;padding:18px}
+    .field{display:grid;gap:6px}
+    input,textarea{background:#0c0e12;border:1px solid #1a1d22;border-radius:12px;color:#ffffff;padding:12px 14px;font-family:inherit;font-size:16px;outline:none}
+    textarea{min-height:120px;resize:vertical}
+    .submit{background:var(--orange);color:#fff;border:none;border-radius:12px;padding:12px 16px;font-weight:800;cursor:pointer;box-shadow:var(--shadow);transition:.25s}
+    .submit:hover{transform:translateY(-1px)}
+
+    /* ====== ذيل الصفحة ====== */
+    footer{padding:26px 0;border-top:1px solid #16181d;background:#0a0b0f;color:#d0d6df}
+    .foot{display:flex;gap:14px;align-items:center;justify-content:space-between;flex-wrap:wrap}
+    .credits{opacity:.8}
+
+    /* ====== تجاوبية ====== */
+    @media (max-width: 980px){
+      .hero .wrap{grid-template-columns:1fr}
+      .cards{grid-template-columns:1fr 1fr}
+      .quality{grid-template-columns:1fr}
+      .contact{grid-template-columns:1fr}
     }
-    /* Hero banner (صورة عريضة) */
-    .hero{padding:28px 0; background:linear-gradient(180deg,#fff,#F3F6FB)}
-    .hero-wrap{border:1px solid var(--line); border-radius:24px; overflow:hidden; box-shadow:var(--shadow)}
-    .hero-img{aspect-ratio:16/7; width:100%; object-fit:cover; background:#F3F6FB}
-    /* الصورة المؤقتة كـ data-uri */
-    .hero-img[src=""]{display:none}
-    .hero-content{display:grid; grid-template-columns:1.1fr .9fr; gap:24px; padding:24px; background:var(--surface)}
-    .hero-text h1{margin:0 0 8px; font-size:clamp(24px,4.5vw,44px); color:var(--brand-black)}
-    .hero-text p{margin:0 0 14px; color:var(--muted); line-height:1.8}
-    .hero-cta{display:flex; gap:10px; flex-wrap:wrap}
-    .btn{display:inline-flex; align-items:center; gap:.5rem; padding:.9rem 1.2rem; border-radius:var(--radius); font-weight:800; cursor:pointer; border:1px solid transparent}
-    .btn--solid{background:var(--brand-orange); color:#fff; box-shadow:0 8px 20px rgba(255,106,0,.2)}
-    .btn--line{border-color:var(--line); background:transparent; color:var(--text)}
-    @media(max-width:960px){.hero-content{grid-template-columns:1fr}}
-    /* Sections */
-    .section{padding:clamp(40px,6vw,80px) 0; background:var(--surface)}
-    .section.alt{background:var(--soft)}
-    .title{margin:0 0 18px; font-size:clamp(22px,3.2vw,32px); color:var(--brand-black)}
-    .lead{margin:0 0 10px; color:var(--muted)}
-    /* خدمات */
-    .grid{display:grid; gap:20px}
-    .g-3{grid-template-columns:repeat(3,minmax(0,1fr))}
-    @media(max-width:1024px){.g-3{grid-template-columns:repeat(2,1fr)}}
-    @media(max-width:560px){.g-3{grid-template-columns:1fr}}
-    .card{background:var(--surface); border:1px solid var(--line); border-radius:var(--radius); padding:16px; box-shadow:var(--shadow); display:flex; flex-direction:column; gap:12px}
-    .card .wide{aspect-ratio:16/9; width:100%; border-radius:12px; object-fit:cover; border:1px solid var(--line); background:#F3F6FB}
-    .card h3{margin:0; color:var(--brand-black)}
-    /* معرض أفقي قابل للسحب */
-    .hscroll{display:grid; grid-auto-flow:column; grid-auto-columns:80%; gap:16px; overflow-x:auto; overscroll-behavior-x:contain; scroll-snap-type:x mandatory; padding-bottom:6px}
-    .hscroll::-webkit-scrollbar{height:8px} .hscroll::-webkit-scrollbar-thumb{background:rgba(17,19,22,.12); border-radius:8px}
-    .snap{scroll-snap-align:start}
-    .gallery-item{position:relative; border:1px solid var(--line); border-radius:16px; overflow:hidden; box-shadow:var(--shadow)}
-    .gallery-img{width:100%; aspect-ratio:16/9; object-fit:cover; display:block; background:#F3F6FB}
-    .badge{position:absolute; top:10px; inset-inline-start:10px; background:rgba(255,255,255,.85); border:1px solid var(--line); border-radius:999px; padding:6px 10px; font-weight:700; font-size:13px}
-    @media(min-width:900px){.hscroll{grid-auto-columns:calc(33.333% - 11px)}}
-    /* CTA */
-    .cta{background:linear-gradient(135deg,#FF6A00 0%,#0F6DB6 100%); color:#fff}
-    .cta .title{color:#fff}
-    .cta .wrap{display:grid; grid-template-columns:1fr auto; gap:16px; align-items:center}
-    @media(max-width:768px){.cta .wrap{grid-template-columns:1fr}}
-    /* Contact */
-    .form{display:grid; grid-template-columns:1fr 1fr; gap:16px}
-    .form label{font-weight:700}
-    .input{padding:12px; border-radius:10px; border:1px solid var(--line); background:#fff; color:var(--text); width:100%}
-    .form textarea{min-height:120px}
-    @media(max-width:680px){.form{grid-template-columns:1fr}}
-    /* Footer */
-    .footer{background:var(--brand-black); color:#EAECEF; border-top:1px solid rgba(255,255,255,.06); padding:22px 0; font-size:14px}
-    /* Floating buttons */
-    .fab{position:fixed; bottom:18px; z-index:50; width:52px; height:52px; display:grid; place-items:center; border-radius:50%;
-         backdrop-filter:blur(10px); background:rgba(255,255,255,.9); border:1px solid var(--line); box-shadow:var(--shadow)}
-    .fab-whatsapp{left:16px} .fab-up{right:16px}
-    .fab svg{width:26px; height:26px}
-    .fab-whatsapp svg{fill:#25D366} .fab-up svg{stroke:#111316; fill:none; stroke-width:2}
-    /* Motion (خفيف) */
-    .reveal{opacity:0; transform:translateY(12px); transition:opacity .6s ease, transform .6s ease}
-    .reveal.in{opacity:1; transform:none}
-    @media(prefers-reduced-motion:reduce){.reveal{opacity:1!important; transform:none!important; transition:none!important}}
+    @media (max-width: 640px){
+      .cards{grid-template-columns:1fr}
+    }
   </style>
 </head>
 <body>
-  <!-- أزرار عائمة -->
-  <a class="fab fab-whatsapp" href="https://wa.me/966507646222" target="_blank" aria-label="تواصل واتساب">
-    <!-- WhatsApp -->
-    <svg viewBox="0 0 32 32" aria-hidden="true"><path d="M19.1 17.6c-.3-.1-1.9-.9-2.2-1s-.5-.1-.7.1-.8.9-1 1.1-.4.2-.7.1c-.3-.1-1.3-.5-2.5-1.6-.9-.8-1.6-1.8-1.8-2.1s0-.5.1-.6.3-.3.4-.5c.1-.2.2-.3.3-.5.1-.2 0-.4 0-.6s-.7-1.7-1-2.3c-.3-.6-.5-.5-.7-.5h-.6c-.2 0-.6.1-.9.4s-1.2 1.2-1.2 2.8 1.2 3.2 1.4 3.4c.2.2 2.3 3.6 5.6 5 3.2 1.3 3.2.9 3.8.9s1.9-.8 2.2-1.6c.3-.8.3-1.5.2-1.6-.1-.1-.3-.1-.6-.2zM16 3c7.2 0 13 5.8 13 13s-5.8 13-13 13c-2.3 0-4.5-.6-6.4-1.8L3 29l1.8-6.5C3.6 20.5 3 18.3 3 16 3 8.8 8.8 3 16 3zm0-2C7.7 1 1 7.7 1 16c0 2.6.7 5 2 7.1L1 31l7.9-2c2.1 1.3 4.6 2.1 7.1 2.1 8.3 0 15-6.7 15-15S24.3 1 16 1z"/></svg>
-  </a>
-  <button class="fab fab-up" aria-label="العودة للأعلى" title="أعلى">
-    <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 15l6-6 6 6"/></svg>
-  </button>
 
-  <!-- رأس الصفحة -->
-  <header class="header">
-    <div class="container header-in">
-      <a class="brand" href="#">
-        <svg width="120" height="32" viewBox="0 0 180 44" role="img" aria-label="TNSN">
-          <g font-family="Inter, system-ui, sans-serif" font-weight="800" font-size="28">
-            <text x="0" y="30" fill="#111316">TNSN</text>
-          </g>
-          <circle cx="160" cy="22" r="6" fill="#FF6A00"></circle>
-        </svg>
-      </a>
-      <button class="nav-toggle" aria-controls="mainNav" aria-expanded="false">
-        <span></span><span></span><span></span>
-      </button>
-      <nav class="nav" id="mainNav">
-        <a href="#about">عنّا</a>
-        <a href="#services">الخدمات</a>
-        <a href="#gallery">المعرض</a>
-        <a href="#contact">تواصل</a>
+  <!-- ===== شريط أعلى ===== -->
+  <div class="topbar">
+    <div class="wrap inner">
+      <div class="ticker"><span> TNSN — شريكك الهادئ والواثق، كتابة بيضاء ونَفَس برتقالي. </span></div>
+      <a href="#contact" class="badge orange">تواصل معنا</a>
+    </div>
+  </div>
+
+  <!-- ===== الترويسة ===== -->
+  <header class="nav">
+    <div class="wrap inner">
+      <div class="brand">
+        <div class="brand-badge" aria-hidden="true">
+          <svg viewBox="0 0 24 24"><path d="M12 2a10 10 0 1 0 0 20 10 10 0 0 0 0-20Zm-2.5 6.2c.6-.5 1.5-.2 2 .4.5.6.3 1.5-.3 2.1-.6.5-1.5.2-2-.4-.5-.6-.3-1.5.3-2.1Zm4.9 0c.6.6.8 1.5.3 2.1-.5.6-1.4.9-2 .4-.6-.6-.8-1.5-.3-2.1.5-.6 1.4-.9 2-.4Z" fill="#fff"/></svg>
+        </div>
+        <div class="name">TNSN Advertising</div>
+      </div>
+      <nav class="links">
+        <a href="#about">من نحن</a>
+        <a href="#services">خدماتنا</a>
+        <a href="#work">أعمالنا</a>
+        <a href="#quality">الجودة</a>
+        <a href="#contact" class="cta">طلب عرض سعر</a>
       </nav>
     </div>
   </header>
 
-  <!-- هيرو بصورة عريضة -->
+  <!-- ===== هيرو ===== -->
   <section class="hero">
-    <div class="container hero-wrap">
-      <img class="hero-img" alt="TNSN Banner" src="" id="heroPh">
-      <div class="hero-content">
-        <div class="hero-text reveal">
-          <h1>نُبرز هويتك.. بأسلوب حديث وواجهة جذّابة</h1>
-          <p>حلول دعائية متقنة، وصور عرضية مبهرة، وتوافق كامل مع الجوال — لتجربة احترافية بصفحة واحدة.</p>
-          <div class="hero-cta">
-            <a class="btn btn--solid" href="#contact">ابدأ الآن</a>
-            <a class="btn btn--line" href="#services">استكشف الخدمات</a>
-          </div>
-        </div>
-        <div class="reveal">
-          <p class="lead">نستخدم الأسود والبرتقالي كألوان إبراز فقط حيث يلزم — لواجهة خفيفة وحديثة.</p>
-          <p class="lead">المعرض عرضي، سهل السحب، والصور **عريضة** لأقصى حضور بصري.</p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- عنّا -->
-  <section id="about" class="section">
-    <div class="container">
-      <h2 class="title">عن TNSN</h2>
-      <p class="lead">من الرياض، نصنع هويات راقية وحلولاً دعائية حديثة تُبرز العلامات وتزيد الجاذبية البصرية. نركّز على الجودة، الاتساق اللوني، وسهولة الاستخدام.</p>
-    </div>
-  </section>
-
-  <!-- الخدمات -->
-  <section id="services" class="section alt">
-    <div class="container">
-      <h2 class="title">خدماتنا</h2>
-      <div class="grid g-3">
-        <article class="card reveal">
-          <img class="wide" alt="أسوار المشاريع" id="svc1">
-          <h3>أسوار المشاريع</h3>
-          <p>تصميم وتنفيذ أسوار إعلانية عريضة بمواد عالية الجودة وثبات ألوان.</p>
-        </article>
-        <article class="card reveal">
-          <img class="wide" alt="لوحات إرشادية" id="svc2">
-          <h3>لوحات إرشادية</h3>
-          <p>لافتات واضحة بمعايير عالمية، تعزّز التجربة وتُظهر الهوية.</p>
-        </article>
-        <article class="card reveal">
-          <img class="wide" alt="طباعة رقمية" id="svc3">
-          <h3>طباعة رقمية</h3>
-          <p>مطبوعات متقنة بألوان حيّة وإخراج نظيف.</p>
-        </article>
-      </div>
-    </div>
-  </section>
-
-  <!-- المعرض (صور عريضة قابلة للسحب) -->
-  <section id="gallery" class="section">
-    <div class="container">
-      <h2 class="title">مختارات بصور عريضة</h2>
-      <div class="hscroll" aria-roledescription="carousel">
-        <figure class="gallery-item snap reveal"><img class="gallery-img" alt="مشروع 1" id="g1"><figcaption class="badge">مشروع 1</figcaption></figure>
-        <figure class="gallery-item snap reveal"><img class="gallery-img" alt="مشروع 2" id="g2"><figcaption class="badge">مشروع 2</figcaption></figure>
-        <figure class="gallery-item snap reveal"><img class="gallery-img" alt="مشروع 3" id="g3"><figcaption class="badge">مشروع 3</figcaption></figure>
-        <figure class="gallery-item snap reveal"><img class="gallery-img" alt="مشروع 4" id="g4"><figcaption class="badge">مشروع 4</figcaption></figure>
-      </div>
-    </div>
-  </section>
-
-  <!-- CTA -->
-  <section class="section cta">
-    <div class="container wrap">
+    <div class="wrap">
       <div>
-        <h2 class="title">جاهز لبدء مشروعك؟</h2>
-        <p>اضغط “ابدأ الآن” أو تواصل عبر الواتساب يسار الشاشة.</p>
+        <h1>حليفك الأمثل لإعلان ذكي، وواجهات أجمل</h1>
+        <p>أسلوب هادئ، كتابة بيضاء واضحة، ولمسات برتقالية دقيقة تمنح توازنًا وجاذبية.</p>
+        <div class="actions">
+          <a class="btn" href="#services">استكشف الخدمات</a>
+          <a class="btn ghost" href="#work">تصفح الأعمال</a>
+        </div>
       </div>
-      <a class="btn btn--solid" href="#contact">ابدأ الآن</a>
+
+      <!-- شبكة زخارف: الأيقونات بالأسود بدل الأزرق -->
+      <aside class="pattern" aria-hidden="true">
+        <div class="grid">
+          <div class="tile"><svg width="34" height="34" viewBox="0 0 24 24"><path fill="#0b0b0f" d="M12 3l7 9-7 9-7-9 7-9z"/></svg></div>
+          <div class="tile"><svg width="34" height="34" viewBox="0 0 24 24"><circle cx="12" cy="12" r="4" fill="#c05a2b"/></svg></div>
+          <div class="tile"><svg width="34" height="34" viewBox="0 0 24 24"><rect x="5" y="5" width="14" height="14" stroke="#2a2d34" fill="none"/></svg></div>
+          <div class="tile"><svg width="34" height="34" viewBox="0 0 24 24"><path d="M4 12h16" stroke="#0b0b0f"/></svg></div>
+          <div class="tile"><svg width="34" height="34" viewBox="0 0 24 24"><path d="M12 4v16" stroke="#c05a2b"/></svg></div>
+          <div class="tile"><svg width="34" height="34" viewBox="0 0 24 24"><path d="M6 6l12 12M18 6L6 18" stroke="#26282e"/></svg></div>
+          <div class="tile"><svg width="34" height="34" viewBox="0 0 24 24"><path d="M4 8h16M4 12h10M4 16h6" stroke="#5b6370"/></svg></div>
+          <div class="tile"><svg width="34" height="34" viewBox="0 0 24 24"><path d="M12 3l9 9-9 9-9-9z" fill="none" stroke="#2a2d34"/></svg></div>
+
+          <div class="tile"><svg width="34" height="34" viewBox="0 0 24 24"><circle cx="8" cy="12" r="3" fill="#0b0b0f"/><circle cx="16" cy="12" r="3" fill="#c05a2b"/></svg></div>
+          <div class="tile"><svg width="34" height="34" viewBox="0 0 24 24"><path d="M6 12h12l-6 6z" fill="#0b0b0f"/></svg></div>
+          <div class="tile"><svg width="34" height="34" viewBox="0 0 24 24"><path d="M6 7h12M6 12h12M6 17h12" stroke="#2a2d34"/></svg></div>
+          <div class="tile"><svg width="34" height="34" viewBox="0 0 24 24"><rect x="7" y="7" width="10" height="10" fill="none" stroke="#c05a2b"/></svg></div>
+          <div class="tile"><svg width="34" height="34" viewBox="0 0 24 24"><path d="M8 6h8l2 12H6z" fill="none" stroke="#2a2d34"/></svg></div>
+          <div class="tile"><svg width="34" height="34" viewBox="0 0 24 24"><path d="M12 5l5 7-5 7-5-7z" fill="#0b0b0f"/></svg></div>
+          <div class="tile"><svg width="34" height="34" viewBox="0 0 24 24"><circle cx="12" cy="12" r="8" fill="none" stroke="#2a2d34"/></svg></div>
+          <div class="tile"><svg width="34" height="34" viewBox="0 0 24 24"><path d="M6 12l6-6 6 6-6 6z" fill="none" stroke="#c05a2b"/></svg></div>
+        </div>
+      </aside>
     </div>
   </section>
 
-  <!-- التواصل -->
-  <section id="contact" class="section">
-    <div class="container">
-      <h2 class="title">تواصل معنا</h2>
-      <form class="form" onsubmit="return false">
-        <div>
-          <label for="name">الاسم الكامل</label>
-          <input class="input" id="name" placeholder="مثال: محمد الأحمد" required>
+  <!-- ===== من نحن ===== -->
+  <section id="about">
+    <div class="wrap">
+      <h2 class="section-title">عن النميان TNSN</h2>
+      <p class="section-note">أسلوب بصري هادئ ومتوازن، خطوط واضحة ونِسَب بيضاء مريحة، ولمسة برتقالية خفيفة ترشد الانتباه.</p>
+      <div class="cards">
+        <div class="card">
+          <span class="badge">تركيز على الوضوح</span>
+          <h3>كتابة بيضاء مقروءة</h3>
+          <p>تباين محسوب يضمن راحة القراءة على مختلف الأجهزة.</p>
         </div>
-        <div>
-          <label for="email">البريد الإلكتروني</label>
-          <input class="input" id="email" type="email" placeholder="you@example.com" required>
+        <div class="card">
+          <span class="badge orange">لمسة برتقالية</span>
+          <h3>عناصر نداء محدودة</h3>
+          <p>يقتصر اللون البرتقالي على النقاط المهمة والأزرار الرئيسة.</p>
         </div>
-        <div style="grid-column:1/-1">
-          <label for="msg">رسالتك</label>
-          <textarea class="input" id="msg" placeholder="اكتب رسالتك هنا" required></textarea>
+        <div class="card">
+          <span class="badge">أيقونات سوداء</span>
+          <h3>هدوء في الزخارف</h3>
+          <p>تم استبدال كل الأزرق بدرجات فحمية/سوداء للموحّد الهادئ.</p>
         </div>
-        <div style="grid-column:1/-1">
-          <button class="btn btn--solid" type="submit">إرسال</button>
-          <a class="btn btn--line" href="https://wa.me/966507646222" target="_blank">واتساب</a>
-        </div>
-      </form>
+      </div>
     </div>
   </section>
 
-  <footer class="footer">
-    <div class="container">© TNSN — جميع الحقوق محفوظة</div>
+  <!-- ===== خدماتنا ===== -->
+  <section id="services">
+    <div class="wrap">
+      <h2 class="section-title">ماذا نقدم؟</h2>
+      <p class="section-note">حلول دعائية وطباعة ومعالجات واجهات — بنفس روح الهدوء والتناغم.</p>
+      <div class="cards">
+        <article class="card">
+          <h3>أسوار المشاريع</h3>
+          <p>أسوار أنيقة بهوية موحدة، خامات متينة، وتوزيع بصري متزن.</p>
+          <div class="illus">أسوار • هويات • أحجام مخصّصة</div>
+        </article>
+        <article class="card">
+          <h3>اللوحات الإرشادية والتعريفية</h3>
+          <p>لوحات بنِسَب هادئة وخطوط واضحة ومسارات حركة طبيعية.</p>
+          <div class="illus">ألمنيوم • أكريليك • مضيئة</div>
+        </article>
+        <article class="card">
+          <h3>الطباعة الرقمية</h3>
+          <p>ثبات ووضوح ألوان مع مراعاة الهدوء العام للهوية.</p>
+          <div class="illus">Vinyl • Mesh • UV • Latex</div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== أعمالنا (معرض) ===== -->
+  <section id="work">
+    <div class="wrap">
+      <h2 class="section-title">نماذج من الأعمال</h2>
+      <p class="section-note">شبكة صور يمكن استبدالها بصوركم، مع فلتر خفيف يضمن هدوء المشهد.</p>
+      <div class="masonry">
+        <figure class="ph"><img src="https://images.unsplash.com/photo-1579762715118-a6f1d4b934f1?q=80&w=1200&auto=format&fit=crop" alt="لوحة خارجية"><figcaption class="cap">لوحة خارجية</figcaption></figure>
+        <figure class="ph"><img src="https://images.unsplash.com/photo-1558002038-1055907df827?q=80&w=1200&auto=format&fit=crop" alt="واجهة مضيئة"><figcaption class="cap">واجهة مضيئة</figcaption></figure>
+        <figure class="ph"><img src="https://images.unsplash.com/photo-1509221963646-7e6b0dda3a2f?q=80&w=1200&auto=format&fit=crop" alt="أسوار مشاريع"><figcaption class="cap">أسوار مشاريع</figcaption></figure>
+        <figure class="ph"><img src="https://images.unsplash.com/photo-1557800636-894a64c1696f?q=80&w=1200&auto=format&fit=crop" alt="طباعة أرضيات"><figcaption class="cap">طباعة أرضيات</figcaption></figure>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== الجودة أولاً ===== -->
+  <section id="quality">
+    <div class="wrap quality">
+      <div class="panel">
+        <h2 class="section-title">الجودة أولاً</h2>
+        <p class="section-note">تناغم بصري محسوب، وتفاصيل تنفيذ دقيقة.</p>
+        <ul class="list">
+          <li><b>01</b><div><strong>مواد وتنفيذ احترافي</strong><br/> التزام بالمواصفات والمتانة وثبات الألوان.</div></li>
+          <li><b>02</b><div><strong>هدوء بصري</strong><br/> أيقونات سوداء ونِسَب فراغ تريح العين.</div></li>
+          <li><b>03</b><div><strong>تركيز على المهم</strong><br/> برتقالي للّحظات الحاسمة فقط.</div></li>
+        </ul>
+      </div>
+      <div class="panel">
+        <h3 style="margin-top:0">تجربة استخدام بسيطة</h3>
+        <p>مسارات تصفح واضحة، وأزرار قليلة بدور محدد، بدون تشتيت.</p>
+        <div class="illus" style="margin-top:12px;display:grid;gap:8px;place-items:center">
+          <div>سِمة عامة: أسود/أبيض — وتطعيم برتقالي</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== التواصل ===== -->
+  <section id="contact">
+    <div class="wrap contact">
+      <div class="box">
+        <h2 class="section-title">تواصل معنا</h2>
+        <p class="section-note">املأ النموذج وسنعاود الاتصال بك.</p>
+        <form onsubmit="return fakeSubmit(this)">
+          <div class="field"><label>الاسم</label><input required placeholder="اسم الشركة أو الشخص"/></div>
+          <div class="field"><label>البريد الإلكتروني</label><input type="email" required placeholder="example@email.com"/></div>
+          <div class="field"><label>رقم التواصل</label><input type="tel" placeholder="+966..." /></div>
+          <div class="field"><label>تفاصيل الطلب</label><textarea placeholder="اذكر الخدمة المطلوبة، المقاسات، الموقع..."></textarea></div>
+          <button class="submit">إرسال الطلب</button>
+          <p id="ok" style="display:none;margin-top:6px;color:#a7f3d0">✅ تم استلام الطلب (نموذج تجريبي).</p>
+          <p id="no" style="display:none;margin-top:6px;color:#fecaca">❌ حدث خطأ — جرّب لاحقًا.</p>
+        </form>
+      </div>
+      <div class="box">
+        <h3 style="margin-top:0">قنوات الاتصال</h3>
+        <p>واتساب: <a href="https://wa.me/966507646222" target="_blank" rel="noopener">+966 50 764 6222</a></p>
+        <p>البريد: <a href="mailto:info@tnsn.sa">info@tnsn.sa</a></p>
+        <p>الموقع: الرياض، المملكة العربية السعودية</p>
+        <hr style="border-color:#1a1d22;border-style:solid;border-width:1px 0 0;margin:14px 0">
+        <p>نسعد بخدمتكم.</p>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <div class="wrap foot">
+      <div class="brand" style="gap:8px">
+        <div class="brand-badge" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M12 2a10 10 0 1 0 0 20 10 10 0 0 0 0-20Zm-2.5 6.2c.6-.5 1.5-.2 2 .4.5.6.3 1.5-.3 2.1-.6.5-1.5.2-2-.4-.5-.6-.3-1.5.3-2.1Zm4.9 0c.6.6.8 1.5.3 2.1-.5.6-1.4.9-2 .4-.6-.6-.8-1.5-.3-2.1.5-.6 1.4-.9 2-.4Z" fill="#fff"/></svg></div>
+        <div class="name">TNSN Advertising</div>
+      </div>
+      <div class="credits">© <span id="y"></span> TNSN. جميع الحقوق محفوظة.</div>
+    </div>
   </footer>
 
   <script>
-    // ناڤ للموبايل
-    const nav = document.getElementById('mainNav');
-    const togg = document.querySelector('.nav-toggle');
-    togg.addEventListener('click', ()=>{
-      nav.classList.toggle('open');
-      document.body.classList.toggle('no-scroll', nav.classList.contains('open'));
-      togg.setAttribute('aria-expanded', nav.classList.contains('open'));
-    });
-
-    // زر أعلى الصفحة
-    const up = document.querySelector('.fab-up');
-    up.addEventListener('click', ()=> window.scrollTo({top:0, behavior:'smooth'}));
-
-    // موشن عند الظهور
-    const prefersReduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-    if(!prefersReduced && 'IntersectionObserver' in window){
-      const io = new IntersectionObserver((entries)=>{
-        entries.forEach(e=>{
-          if(e.isIntersecting){ e.target.classList.add('in'); io.unobserve(e.target); }
-        });
-      },{threshold:0.15});
-      document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
-    } else {
-      document.querySelectorAll('.reveal').forEach(el=>el.classList.add('in'));
+    document.getElementById('y').textContent = new Date().getFullYear();
+    function fakeSubmit(form){
+      const ok = document.getElementById('ok'); const no = document.getElementById('no');
+      ok.style.display='none'; no.style.display='none';
+      setTimeout(()=>{ ok.style.display='block'; }, 500);
+      return false;
     }
-
-    // صور مؤقتة (عريضة) كـ SVG data-uri
-    function widePlaceholder(label){
-      const svg = `
-        <svg xmlns='http://www.w3.org/2000/svg' width='1600' height='900'>
-          <defs>
-            <linearGradient id='g' x1='0' x2='1'>
-              <stop offset='0%' stop-color='#0F6DB6'/>
-              <stop offset='100%' stop-color='#FF6A00'/>
-            </linearGradient>
-          </defs>
-          <rect width='100%' height='100%' fill='#F3F6FB'/>
-          <rect x='40' y='40' width='1520' height='820' rx='24' fill='url(#g)' opacity='.22'/>
-          <g font-family='Arial' font-weight='700' font-size='54' fill='#111316' opacity='.9'>
-            <text x='50%' y='50%' dominant-baseline='middle' text-anchor='middle'>${label}</text>
-          </g>
-        </svg>`;
-      return `data:image/svg+xml;charset=utf-8,${encodeURIComponent(svg)}`;
-    }
-    document.getElementById('heroPh').src = widePlaceholder('TNSN — Banner عريض');
-    document.getElementById('svc1').src = widePlaceholder('أسوار المشاريع — عريض 16:9');
-    document.getElementById('svc2').src = widePlaceholder('لوحات إرشادية — عريض 16:9');
-    document.getElementById('svc3').src = widePlaceholder('طباعة رقمية — عريض 16:9');
-    document.getElementById('g1').src   = widePlaceholder('مشروع 1 — عريض');
-    document.getElementById('g2').src   = widePlaceholder('مشروع 2 — عريض');
-    document.getElementById('g3').src   = widePlaceholder('مشروع 3 — عريض');
-    document.getElementById('g4').src   = widePlaceholder('مشروع 4 — عريض');
-
-    // تمرير زر "ابدأ الآن" يركّز على الاسم
-    document.querySelectorAll('a[href="#contact"]').forEach(a=>{
-      a.addEventListener('click', (e)=>{ e.preventDefault();
-        document.getElementById('contact').scrollIntoView({behavior:'smooth'}); 
-        setTimeout(()=>document.getElementById('name').focus(), 400);
-      });
-    });
   </script>
 </body>
 </html>
