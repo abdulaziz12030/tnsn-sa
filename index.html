@@ -3,8 +3,8 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width,initial-scale=1">
-  <title>TNSN | واجهات أجمل وإعلان ذكي</title>
-  <meta name="description" content="حلول دعاية وإعلان متقنة من الرياض">
+  <title>TNSN | هوية خضراء هادئة</title>
+  <meta name="description" content="حلول دعاية وإعلان متقنة بهوية خضراء هادئة">
   <link rel="icon" href="assets/img/favicon.png">
   <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;800&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="assets/css/style.css">
@@ -13,7 +13,7 @@
 <header>
   <div class="container navbar">
     <div class="nav-left">
-      <a class="logo" href="/"><img loading="lazy" src="assets/img/logo.svg" alt="TNSN logo"></a>
+      <a class="logo" href="/"><img src="assets/img/logo.svg" alt="TNSN logo"></a>
     </div>
     <nav class="nav-right" aria-label="التنقل الرئيسي">
       <a href="index.html">الرئيسية</a>
@@ -23,9 +23,10 @@
       <a href="contact.html">تواصل</a>
       <a class="btn btn-outline" href="quote.html">اطلب عرض سعر</a>
     </nav>
-    <button class="mobile-toggle" onclick="toggleMenu()" aria-label="قائمة">☰</button>
+    <button class="mobile-toggle" aria-label="قائمة">☰</button>
   </div>
 </header>
+
 
 
 <section class="hero">
@@ -33,73 +34,57 @@
     <div>
       <p class="breadcrumbs">الرئيسية</p>
       <h1 class="reveal">حليفك الأمثل لإعلانٍ ذكي، وواجهات أجمل.</h1>
-      <p class="lead">ننطلق من قلب الرياض بروحٍ تمزج الأصالة بالحداثة، لنقدّم حلول دعاية وإعلان متقنة تُبرز هوية مشروعك وتلفت الأنظار بجمال بصري ومعايير جودة عالمية.</p>
-      <div class="cta">
-        <a class="btn btn-primary" href="services.html">استكشف خدماتنا</a>
-        <a class="btn btn-outline" href="quote.html">اطلب عرض سعر</a>
+      <p class="lead reveal delay-1">ننطلق من الرياض بروح تجمع الأصالة والحداثة لنقدّم حلول دعاية وإعلان مبتكرة ومتقنة بمعايير عالمية.</p>
+      <div class="cta reveal delay-2">
+        <a class="btn btn-primary" href="quote.html">اطلب عرض سعر</a>
+        <a class="btn btn-outline" href="work.html">شاهد أعمالنا</a>
       </div>
     </div>
-    <div><img loading="lazy" src="assets/img/hero.jpg" alt="TNSN Hero" class="floaty"></div>
+    <figure class="reveal delay-1"><img loading="lazy" src="assets/img/hero.jpg" alt="TNSN Hero" class="floaty"></figure>
   </div>
 </section>
+
 
 <section class="highlights">
   <div class="container badges">
-    <div class="badge">جودة تنفيذ ومعايير عالمية</div>
-    <div class="badge">ثبات ألوان ومواد معتمدة</div>
-    <div class="badge">تركيب احترافي ودقة ميدانية</div>
-    <div class="badge">تسليم ضمن الجداول الزمنية</div>
-  </div>
-</section>
-
-<section class="section">
-  <div class="container grid-2">
-    <div>
-      <h2 class="reveal">خدمات TNSN</h2>
-      <p>من الفكرة حتى التركيب: أسوار المشاريع، اللوحات الإرشادية والتعريفية، الطباعة الرقمية، وحلول إعلانية مبتكرة تحقّق أثرًا بصريًا لافتًا في المدينة.</p>
-      <a class="btn btn-primary" href="services.html">تعرّف أكثر</a>
-    </div>
-    <div><img loading="lazy" src="assets/img/services.jpg" alt="خدمات TNSN"></div>
+    <div class="badge">جودة تنفيذ</div>
+    <div class="badge">ثبات ألوان</div>
+    <div class="badge">تركيب احترافي</div>
+    <div class="badge">تسليم دقيق</div>
   </div>
 </section>
 
 <section class="section">
   <div class="container">
     <h2 class="reveal">أعمال مختارة</h2>
-    <div class="grid-3">
-      <div class="card reveal delay-1">
-        <img loading="lazy" src="assets/img/work1.jpg" alt="أسوار المشاريع">
-        <div class="pad">
-          <h3>أسوار المشاريع</h3>
-          <p>تصميم وطباعة وتركيب أسوار إعلانية بمواد متينة وثبات ألوان.</p>
-        </div>
+
+    <div class="slider reveal">
+      <div class="slider-track">
+        <div class="slide"><img loading="lazy" src="assets/img/work1.jpg" alt="أسوار المشاريع"></div>
+        <div class="slide"><img loading="lazy" src="assets/img/work2.jpg" alt="اللوحات الإرشادية"></div>
+        <div class="slide"><img loading="lazy" src="assets/img/work3.jpg" alt="الطباعة الرقمية"></div>
       </div>
-      <div class="card reveal delay-1">
-        <img loading="lazy" src="assets/img/work2.jpg" alt="اللوحات الإرشادية">
-        <div class="pad">
-          <h3>اللوحات الإرشادية والتعريفية</h3>
-          <p>لوحات بمعايير حديثة للداخل والخارج تُبرز الهوية وتوجّه الزوار.</p>
-        </div>
+      <div class="nav">
+        <button class="prev" aria-label="السابق">‹</button>
+        <button class="next" aria-label="التالي">›</button>
       </div>
-      <div class="card reveal delay-1">
-        <img loading="lazy" src="assets/img/work3.jpg" alt="الطباعة الرقمية">
-        <div class="pad">
-          <h3>الطباعة الرقمية</h3>
-          <p>مطبوعات بجودة استثنائية وتقنيات حديثة ومخرجات ترضي تطلعاتكم.</p>
-        </div>
-      </div>
+    </div>
+    <div class="slider-dots" style="margin-top:.6rem">
+      <button aria-label="شريحة 1"></button>
+      <button aria-label="شريحة 2"></button>
+      <button aria-label="شريحة 3"></button>
     </div>
   </div>
 </section>
 
 <section class="section cta-banner">
   <div class="container wrap">
-    <div>
-      <h2 class="reveal">مستعدّون لإخراج فكرتك بأعلى جودة</h2>
-      <p>لنبدأ من اليوم بتصميمٍ يحكي طموحك ويليق بهويتك. اطلب عرض سعر الآن وسنقترح عليك أفضل المواد والمقاسات.</p>
+    <div class="reveal">
+      <h2>جاهزون لإخراج فكرتك بهدوء وأناقة</h2>
+      <p>نقترح المواد والمقاسات المناسبة وننفّذ بمهارة لضمان نتيجة تليق بهويتك.</p>
       <a class="btn btn-primary" href="quote.html">اطلب عرض سعر</a>
     </div>
-    <div><img loading="lazy" src="assets/img/cta.jpg" alt="CTA"></div>
+    <figure class="reveal delay-1"><img loading="lazy" src="assets/img/work2.jpg" alt="CTA"></figure>
   </div>
 </section>
 
@@ -107,11 +92,11 @@
   <div class="container">
     <div class="grid-3">
       <div>
-        <img loading="lazy" src="assets/img/logo.svg" alt="TNSN" style="height:42px"><br>
-        <p class="small">حلول دعاية وإعلان متقنة من الرياض: أسوار مشاريع، لوحات، طباعة رقمية وحلول مبتكرة.</p>
+        <img src="assets/img/logo.svg" alt="TNSN" style="height:42px"><br>
+        <p class="small">حلول دعاية وإعلان متقنة: أسوار مشاريع، لوحات، طباعة رقمية، وحلول مبتكرة بهوية هادئة.</p>
       </div>
       <div>
-        <strong>روابط سريعة</strong><br>
+        <strong>روابط</strong><br>
         <a href="index.html">الرئيسية</a> •
         <a href="services.html">الخدمات</a> •
         <a href="work.html">أعمالنا</a> •
@@ -127,14 +112,12 @@
     <p class="small" style="margin-top:14px">© TNSN — جميع الحقوق محفوظة</p>
   </div>
 </footer>
-<script src="assets/js/main.js"></script>
-
-
-<button class="fab fab-whatsapp" aria-label="تواصل واتساب" onclick="window.open('https://wa.me/966507646222','_blank')" title="واتساب">
+<button class="fab fab-whatsapp" aria-label="تواصل واتساب" onclick="window.open('https://wa.me/966507646222?text=%D9%85%D8%B1%D8%AD%D8%A8%D8%A7%20TNSN%20%D8%A3%D8%B1%D9%8A%D8%AF%20%D8%B9%D8%B1%D8%B6%20%D8%B3%D8%B9%D8%B1','_blank')" title="واتساب">
   <img src="assets/img/whatsapp.svg" alt="WhatsApp">
 </button>
 <button class="fab fab-top" aria-label="العودة للأعلى" title="أعلى" onclick="window.scrollTo({top:0,behavior:'smooth'})">
   <img src="assets/img/arrow-up.svg" alt="إلى الأعلى">
 </button>
+<script src="assets/js/main.js"></script>
 
 </body></html>

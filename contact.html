@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width,initial-scale=1">
   <title>تواصل مع TNSN</title>
-  <meta name="description" content="حلول دعاية وإعلان متقنة من الرياض">
+  <meta name="description" content="حلول دعاية وإعلان متقنة بهوية خضراء هادئة">
   <link rel="icon" href="assets/img/favicon.png">
   <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;800&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="assets/css/style.css">
@@ -13,7 +13,7 @@
 <header>
   <div class="container navbar">
     <div class="nav-left">
-      <a class="logo" href="/"><img loading="lazy" src="assets/img/logo.svg" alt="TNSN logo"></a>
+      <a class="logo" href="/"><img src="assets/img/logo.svg" alt="TNSN logo"></a>
     </div>
     <nav class="nav-right" aria-label="التنقل الرئيسي">
       <a href="index.html">الرئيسية</a>
@@ -23,22 +23,30 @@
       <a href="contact.html">تواصل</a>
       <a class="btn btn-outline" href="quote.html">اطلب عرض سعر</a>
     </nav>
-    <button class="mobile-toggle" onclick="toggleMenu()" aria-label="قائمة">☰</button>
+    <button class="mobile-toggle" aria-label="قائمة">☰</button>
   </div>
 </header>
 
 
 <section class="section">
   <div class="container">
-    <p class="breadcrumbs"><a href="index.html">الرئيسية</a> / تواصل</p>
     <h2 class="reveal">تواصل معنا</h2>
-    <form class="form" data-dummy onsubmit="submitDummy(event)">
-      <input type="text" name="name" placeholder="الاسم الكامل" required>
+    <form class="form reveal" data-dummy>
+      <div class="row">
+        <input type="text" name="name" placeholder="الاسم الكامل" required>
+        <input type="tel" name="phone" placeholder="رقم الجوال" required>
+      </div>
       <input type="email" name="email" placeholder="البريد الإلكتروني" required>
-      <input type="tel" name="phone" placeholder="رقم الجوال (اختياري)">
-      <textarea name="message" placeholder="رسالتك" rows="5" required></textarea>
+      <select name="service">
+        <option value="">اختر الخدمة المطلوبة</option>
+        <option>أسوار المشاريع</option>
+        <option>اللوحات الإرشادية والتعريفية</option>
+        <option>الطباعة الرقمية</option>
+        <option>حلول أخرى</option>
+      </select>
+      <textarea name="message" placeholder="تفاصيل ومقاسات وملاحظات" rows="6"></textarea>
       <button class="btn btn-primary" type="submit">إرسال</button>
-      <p class="small">أو اتصل بنا مباشرة: <a href="tel:+966507646222">+966507646222</a></p>
+      <p class="small">أو واتساب مباشر: <a href="https://wa.me/966507646222" target="_blank" rel="noopener">اضغط هنا</a></p>
     </form>
   </div>
 </section>
@@ -47,11 +55,11 @@
   <div class="container">
     <div class="grid-3">
       <div>
-        <img loading="lazy" src="assets/img/logo.svg" alt="TNSN" style="height:42px"><br>
-        <p class="small">حلول دعاية وإعلان متقنة من الرياض: أسوار مشاريع، لوحات، طباعة رقمية وحلول مبتكرة.</p>
+        <img src="assets/img/logo.svg" alt="TNSN" style="height:42px"><br>
+        <p class="small">حلول دعاية وإعلان متقنة: أسوار مشاريع، لوحات، طباعة رقمية، وحلول مبتكرة بهوية هادئة.</p>
       </div>
       <div>
-        <strong>روابط سريعة</strong><br>
+        <strong>روابط</strong><br>
         <a href="index.html">الرئيسية</a> •
         <a href="services.html">الخدمات</a> •
         <a href="work.html">أعمالنا</a> •
@@ -67,14 +75,12 @@
     <p class="small" style="margin-top:14px">© TNSN — جميع الحقوق محفوظة</p>
   </div>
 </footer>
-<script src="assets/js/main.js"></script>
-
-
-<button class="fab fab-whatsapp" aria-label="تواصل واتساب" onclick="window.open('https://wa.me/966507646222','_blank')" title="واتساب">
+<button class="fab fab-whatsapp" aria-label="تواصل واتساب" onclick="window.open('https://wa.me/966507646222?text=%D9%85%D8%B1%D8%AD%D8%A8%D8%A7%20TNSN%20%D8%A3%D8%B1%D9%8A%D8%AF%20%D8%B9%D8%B1%D8%B6%20%D8%B3%D8%B9%D8%B1','_blank')" title="واتساب">
   <img src="assets/img/whatsapp.svg" alt="WhatsApp">
 </button>
 <button class="fab fab-top" aria-label="العودة للأعلى" title="أعلى" onclick="window.scrollTo({top:0,behavior:'smooth'})">
   <img src="assets/img/arrow-up.svg" alt="إلى الأعلى">
 </button>
+<script src="assets/js/main.js"></script>
 
 </body></html>
