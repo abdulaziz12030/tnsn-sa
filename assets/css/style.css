@@ -1,7 +1,6 @@
 
 :root {
-  --bg:#0d3b66; --bg2:#0f4c81; --acc:#2ec4b6;
-  --muted:#e6eef6; --text:#0f2640; --white:#fff;
+  --bg:#0c6b58; --bg2:#0ca770; --acc:#0ca770; --muted:#eaf7f2; --text:#1e2c2a; --white:#ffffff;
   --space-1: .35rem; --space-2: .6rem; --space-3: .9rem;
   --space-4: 1.25rem; --space-5: 1.75rem; --space-6: 2.2rem;
   --radius: 14px; --shadow: 0 10px 30px rgba(0,0,0,.12);
@@ -113,3 +112,17 @@ footer a:hover{opacity:1;text-decoration:underline}
 @media (max-width:560px){
   .btn{padding:1rem 1.2rem;border-radius:14px}
 }
+
+/* Floating action buttons */
+.fab{position:fixed; z-index:50; width:56px; height:56px; border-radius:50%; display:flex; align-items:center; justify-content:center;
+  box-shadow:0 10px 24px rgba(0,0,0,.18); border:0; cursor:pointer}
+.fab img{width:28px;height:28px}
+.fab-whatsapp{left:14px; bottom:14px; background:var(--acc)}
+.fab-top{right:14px; bottom:14px; background:rgba(30,44,42,.9)}
+.fab:hover{transform:translateY(-2px)}
+.fab[hidden]{display:none}
+
+/* Softer cards & sections for 'calm' identity */
+.card{border-color:#e9f3ef}
+.section{background:linear-gradient(180deg,#fff, #fff 70%, var(--mint) 100%)}
+.hero{background:linear-gradient(135deg, var(--bg) 40%, var(--bg2));}

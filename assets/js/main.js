@@ -51,3 +51,14 @@
     });
   });
 })();
+
+// Show "back to top" only after some scroll
+(function(){
+  const topBtn = document.querySelector('.fab-top');
+  function toggleTop(){
+    if(!topBtn) return;
+    if(window.scrollY > 180){ topBtn.hidden = false; } else { topBtn.hidden = true; }
+  }
+  window.addEventListener('scroll', toggleTop, {passive:true});
+  toggleTop();
+})();
