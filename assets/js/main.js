@@ -90,3 +90,28 @@
 
   go(0);
 })();
+
+
+// Animate counters when in view
+(function(){
+  const counters = document.querySelectorAll('.counter strong');
+  if(!counters.length) return;
+  let done=false;
+  function animate(){
+    if(done) return;
+    counters.forEach(c=>{
+      const target = +c.dataset.target;
+      let start=0, step = Math.ceil(target/60);
+      const timer=setInterval(()=>{
+        start+=step;
+        if(start>=target){ start=target; clearInterval(timer); }
+        c.textContent=start;
+      },30);
+    });
+    done=true;
+  }
+  const obs = new IntersectionObserver(entries=>{
+    if(entries.some(e=>e.isIntersecting)){ animate(); obs.disconnect(); }
+  },{threshold:.4});
+  counters.forEach(c=>obs.observe(c));
+})();

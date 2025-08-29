@@ -138,3 +138,22 @@ footer{background:#0b3e33}
 .btn-primary{background: var(--acc); color:#2b1505; box-shadow:0 6px 24px rgba(244,124,32,.28)}
 .section{background:linear-gradient(180deg,#fff, #fff 76%, var(--muted) 100%)}
 footer{background:#0b0b0b}
+
+/* Hero */
+.hero{background:linear-gradient(135deg, var(--bg) 60%, #000000);}
+.hero h1{color:var(--white)}
+.hero p.lead{color:#f6f6f6}
+
+/* Service cards */
+.service-card{background:#fff; border:1px solid #eee; border-radius:12px; padding:20px; text-align:center;
+  box-shadow:0 2px 10px rgba(0,0,0,.05); transition:transform .25s}
+.service-card:hover{transform:translateY(-4px)}
+.service-card h3{color:var(--acc)}
+.service-card .btn{margin-top:10px}
+
+/* Counters */
+.counters{display:grid; grid-template-columns:repeat(4,1fr); gap:20px; text-align:center; margin-top:30px}
+.counter{background:#fff; border-radius:12px; padding:20px; box-shadow:0 2px 12px rgba(0,0,0,.06)}
+.counter strong{font-size:2rem; color:var(--acc); display:block}
+.counter span{color:var(--ink)}
+@media(max-width:900px){.counters{grid-template-columns:repeat(2,1fr);}}
