@@ -13,7 +13,7 @@
 <header>
   <div class="container navbar">
     <div class="nav-left">
-      <a class="logo" href="/"><img src="assets/img/logo.svg" alt="TNSN logo"></a>
+      <a class="logo" href="/"><img loading="lazy" src="assets/img/logo.svg" alt="TNSN logo"></a>
     </div>
     <nav class="nav-right" aria-label="التنقل الرئيسي">
       <a href="index.html">الرئيسية</a>
@@ -31,8 +31,8 @@
 <section class="section">
   <div class="container">
     <p class="breadcrumbs"><a href="index.html">الرئيسية</a> / اطلب عرض سعر</p>
-    <h2>اطلب عرض سعر</h2>
-    <form class="form" onsubmit="submitDummy(event)">
+    <h2 class="reveal">اطلب عرض سعر</h2>
+    <form class="form" data-dummy onsubmit="submitDummy(event)">
       <input type="text" name="name" placeholder="اسم الجهة/العميل" required>
       <input type="tel" name="phone" placeholder="رقم الجوال" required>
       <input type="email" name="email" placeholder="البريد الإلكتروني" required>
@@ -54,7 +54,7 @@
   <div class="container">
     <div class="grid-3">
       <div>
-        <img src="assets/img/logo.svg" alt="TNSN" style="height:42px"><br>
+        <img loading="lazy" src="assets/img/logo.svg" alt="TNSN" style="height:42px"><br>
         <p class="small">حلول دعاية وإعلان متقنة من الرياض: أسوار مشاريع، لوحات، طباعة رقمية وحلول مبتكرة.</p>
       </div>
       <div>

@@ -1,18 +1,53 @@
 
-function toggleMenu(){
-  const nav = document.querySelector('.nav-right');
-  if(!nav) return;
-  if(getComputedStyle(nav).display === 'none'){
-    nav.style.display = 'flex';
-    nav.style.flexDirection = 'column';
-    nav.style.background = 'var(--bg)';
-    nav.style.position = 'absolute';
-    nav.style.top = '60px';
-    nav.style.right = '0';
-    nav.style.padding = '12px 16px';
-    nav.style.boxShadow = '0 10px 20px rgba(0,0,0,.25)';
-  }else{
-    nav.style.display = 'none';
+(function(){
+  function qs(s){ return document.querySelector(s); }
+  function qsa(s){ return Array.from(document.querySelectorAll(s)); }
+
+  // Mobile menu
+  const toggle = qs('.mobile-toggle');
+  const nav = qs('.nav-right');
+  if(toggle && nav){
+    toggle.addEventListener('click', () => {
+      nav.classList.toggle('is-open');
+      document.body.style.overflow = nav.classList.contains('is-open') ? 'hidden' : '';
+    });
   }
-}
-function submitDummy(e){ e.preventDefault(); alert('تم استلام رسالتك بنجاح. سنعود إليك قريبًا.'); }
+
+  // Reveal on scroll
+  const items = qsa('.reveal');
+  if('IntersectionObserver' in window && items.length){
+    const io = new IntersectionObserver((entries)=>{
+      entries.forEach(e=>{
+        if(e.isIntersecting){
+          e.target.classList.add('in');
+          io.unobserve(e.target);
+        }
+      });
+    }, {rootMargin:'-10% 0px -10% 0px', threshold:0.1});
+    items.forEach(el=>io.observe(el));
+  }else{
+    items.forEach(el=>el.classList.add('in'));
+  }
+
+  // Smooth scroll for same-page anchors
+  qsa('a[href^="#"]').forEach(a=>{
+    a.addEventListener('click', (ev)=>{
+      const id = a.getAttribute('href').slice(1);
+      const el = qs('#'+id);
+      if(el){
+        ev.preventDefault();
+        el.scrollIntoView({behavior:'smooth', block:'start'});
+      }
+    });
+  });
+
+  // Dummy submit
+  qsa('form').forEach(f=>{
+    f.addEventListener('submit', (e)=>{
+      if(f.getAttribute('data-dummy') !== null){
+        e.preventDefault();
+        alert('تم استلام طلبك بنجاح. سنعود إليك قريبًا.');
+      }
+    });
+  });
+})();
