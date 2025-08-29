@@ -11,46 +11,66 @@
       --bg:#0b0b0f; --line:#1e222a; --acc:#c05a2b; --text:#fff;
       --muted:#cfd5df; --shadow:0 12px 30px rgba(0,0,0,.28);
       --hero:url('https://i.postimg.cc/VLPyCKdt/6.png');
-      --r:16px;
+      --glass:rgba(0,0,0,.28);         /* خلفية زجاجية عامة */
+      --glass-w:rgba(255,255,255,.14); /* خلفية زجاجية فاتحة */
     }
     *{box-sizing:border-box}
     html,body{margin:0;padding:0;background:var(--bg);color:var(--text);font-family:'Cairo',system-ui,-apple-system,sans-serif}
     a{color:inherit;text-decoration:none}
     img{max-width:100%;display:block}
 
-    /* ===== Topbar (اختياري) ===== */
+    /* ===== Topbar ===== */
     .topbar{position:sticky;top:0;z-index:95;background:#0b0b0f;border-bottom:1px solid var(--line)}
     .topbar .wrap{max-width:1200px;margin:auto;padding:8px 18px;color:#e3e7ee;font-weight:700;white-space:nowrap;overflow:hidden}
     .topbar .wrap span{display:inline-block;animation:marq 14s linear infinite}
     @keyframes marq{from{transform:translateX(-100%)}to{transform:translateX(100%)}}
 
     /* ===== NAV ===== */
-    .nav{position:sticky;top:36px;z-index:94;background:rgba(12,12,14,.85);backdrop-filter:blur(10px);border-bottom:1px solid var(--line)}
+    .nav{position:sticky;top:36px;z-index:94;background:rgba(12,12,14,.75);backdrop-filter:saturate(160%) blur(10px);border-bottom:1px solid var(--line)}
     .nav .wrap{max-width:1200px;margin:auto;padding:10px 18px;display:flex;align-items:center;gap:12px}
     .brand img{height:52px;filter:drop-shadow(0 1px 1px rgba(0,0,0,.35))}
     .spacer{flex:1}
     .links{display:flex;gap:16px;font-weight:700;color:#e7eaf0}
     @media (max-width:640px){ .links{display:none} }
 
-    /* ===== Buttons ===== */
-    .btn{position:relative;display:inline-flex;align-items:center;gap:8px;
-         padding:14px 22px;border-radius:12px;font-weight:800;border:2px solid #fff;
-         cursor:pointer;text-decoration:none;transition:transform .2s ease, box-shadow .2s ease, background .2s ease}
+    /* ===== Buttons (Glass) ===== */
+    .btn{
+      position:relative;display:inline-flex;align-items:center;gap:10px;
+      padding:14px 22px;border-radius:14px;font-weight:800;border:1px solid rgba(255,255,255,.45);
+      cursor:pointer;text-decoration:none;transition:transform .2s ease, box-shadow .25s ease, background .25s ease, border-color .25s ease, opacity .25s;
+      backdrop-filter:saturate(150%) blur(8px);
+    }
     .btn:active{transform:translateY(1px) scale(.99)}
     .btn::after{content:"";position:absolute;inset:0;border-radius:inherit;opacity:0;transition:opacity .25s}
-    .btn:hover::after{opacity:.08;background:#fff}
-    .cta{background:var(--acc);border-color:#3a2a23;color:#fff;box-shadow:var(--shadow)}
-    .ghost{background:transparent;color:#fff;border-color:#fff}
+    .btn:hover::after{opacity:.06;background:#fff}
+    /* CTA بزجاج برتقالي شفاف */
+    .cta{
+      background:rgba(192,90,43,.26); /* شفافية */
+      border-color:rgba(192,90,43,.55);
+      color:#fff;
+      box-shadow:0 14px 40px rgba(192,90,43,.22);
+    }
+    .cta:hover{background:rgba(192,90,43,.36); border-color:rgba(192,90,43,.75)}
+    /* زر زجاجي أبيض شفاف */
+    .ghost{
+      background:var(--glass-w);
+      color:#fff;
+      border-color:rgba(255,255,255,.55);
+      box-shadow:0 10px 28px rgba(0,0,0,.18);
+    }
+    .ghost:hover{background:rgba(255,255,255,.22);}
 
     /* ===== HERO ===== */
-    .hero{position:relative;min-height:100vh;display:flex;flex-direction:column;align-items:center;
-          text-align:center;padding:0 18px;isolation:isolate;overflow:hidden}
+    .hero{
+      position:relative;min-height:100vh;display:flex;flex-direction:column;align-items:center;
+      text-align:center;padding:0 18px;isolation:isolate;overflow:hidden
+    }
     .hero::before{content:"";position:absolute;inset:0;z-index:-2;background:var(--hero) center/cover no-repeat;will-change:background-position}
     .hero::after{content:"";position:absolute;inset:0;z-index:-1;background:linear-gradient(180deg,rgba(0,0,0,.45),rgba(0,0,0,.9))}
     .hero .wrap{max-width:1000px;margin-top:8vh}
-    /* موبايل: ارفع النص وأنزل الأزرار لإبراز ملامح الصورة */
-    .hero h1{margin:0 0 18px;font-size:clamp(28px,5.8vw,52px);font-weight:800;line-height:1.35;transform:translateY(-42px)}
-    .hero p{margin:0 auto 36px;max-width:920px;color:#e7ebf3;font-size:clamp(16px,1.8vw,20px);transform:translateY(-42px)}
+    /* Mobile-first: ارفع النص وأنزل الأزرار لإبراز تفاصيل البنر */
+    .hero h1{margin:0 0 16px;font-size:clamp(28px,5.8vw,52px);font-weight:800;line-height:1.35;transform:translateY(-42px)}
+    .hero p{margin:0 auto 32px;max-width:920px;color:#e7ebf3;font-size:clamp(16px,1.8vw,20px);transform:translateY(-42px)}
     .hero .actions{display:flex;gap:14px;flex-wrap:wrap;justify-content:center;transform:translateY(28px)}
     @media (min-width:768px){
       .hero{min-height:86vh}
@@ -58,14 +78,19 @@
       .hero .actions{transform:none}
     }
 
-    /* ===== Motion classes ===== */
-    .motion-up{opacity:0;transform:translateY(24px)}
-    .motion-down{opacity:0;transform:translateY(-24px)}
-    .in{opacity:1;transform:none;transition:transform .8s cubic-bezier(.2,.7,.3,1), opacity .8s ease}
+    /* ===== Motion / Animations ===== */
+    .motion-up{opacity:0;transform:translateY(28px)}
+    .motion-down{opacity:0;transform:translateY(-28px)}
+    .in{opacity:1;transform:none;transition:transform .85s cubic-bezier(.2,.7,.3,1), opacity .85s ease}
+    /* Fade lateral (لمن تحب) */
+    .from-right{opacity:0;transform:translateX(28px)}
+    .from-left{opacity:0;transform:translateX(-28px)}
 
+    /* Float بسيط لزر الـ CTA */
     .float{animation:float 6.5s ease-in-out infinite}
     @keyframes float{0%,100%{transform:translateY(0)}50%{transform:translateY(-6px)}}
 
+    /* Ripple عند الضغط */
     .ripple{position:absolute;border-radius:50%;transform:scale(0);animation:ripple .6s linear;pointer-events:none;background:rgba(255,255,255,.35)}
     @keyframes ripple{to{transform:scale(4);opacity:0}}
 
@@ -75,23 +100,27 @@
     .note{color:var(--muted)}
 
     .grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
-    .card{background:#0f1014;border:1px solid var(--line);border-radius:16px;overflow:hidden;box-shadow:var(--shadow);display:flex;flex-direction:column}
+    .card{background:rgba(15,16,20,.75);backdrop-filter:blur(8px);border:1px solid var(--line);border-radius:16px;overflow:hidden;box-shadow:var(--shadow);display:flex;flex-direction:column;transform:translateY(18px);opacity:.0}
+    .card.show{transform:none;opacity:1;transition:transform .8s cubic-bezier(.2,.7,.3,1), opacity .8s ease}
     .card figure{aspect-ratio:16/9;background:#0d0e12;overflow:hidden}
-    .card figure img{width:100%;height:100%;object-fit:cover;transform:scale(1.04);transition:transform .6s cubic-bezier(.2,.7,.3,1);filter:grayscale(.1)}
-    .card:hover figure img{transform:scale(1.1)}
+    .card figure img{width:100%;height:100%;object-fit:cover;transform:scale(1.04) translateY(6px);transition:transform .9s cubic-bezier(.2,.7,.3,1)}
+    .card.show figure img{transform:scale(1.06) translateY(0)} /* نبضة خفيفة عند الدخول */
+    .card:hover figure img{transform:scale(1.1)}             /* تكبير خفيف عند الهوفر */
     .card .content{padding:16px;display:flex;flex-direction:column;gap:8px}
     .tag{display:inline-flex;gap:6px;border:1px solid var(--line);border-radius:999px;background:#151821;color:#dfe3ea;padding:6px 10px;font-weight:700;font-size:.9rem}
     .actions{margin-top:auto;display:flex;gap:8px}
 
     /* ===== Stats ===== */
     .stats{max-width:1200px;margin:34px auto;padding:0 18px;display:grid;grid-template-columns:repeat(4,1fr);gap:14px}
-    .stat{background:#0f1014;border:1px solid var(--line);border-radius:16px;box-shadow:var(--shadow);padding:18px;text-align:center}
+    .stat{background:rgba(15,16,20,.75);backdrop-filter:blur(8px);border:1px solid var(--line);border-radius:16px;box-shadow:var(--shadow);padding:18px;text-align:center;opacity:0;transform:translateY(16px)}
+    .stat.show{opacity:1;transform:none;transition:transform .7s cubic-bezier(.2,.7,.3,1), opacity .7s ease}
     .kpi{font-size:clamp(26px,3.5vw,38px);font-weight:800;color:var(--acc)}
     .counter{display:inline-block;min-width:2ch;text-align:center}
 
     /* ===== Contact ===== */
     .contact{display:grid;grid-template-columns:1.1fr .9fr;gap:18px}
-    .panel{background:#0e0f13;border:1px solid var(--line);border-radius:16px;box-shadow:var(--shadow);padding:18px}
+    .panel{background:rgba(14,15,19,.75);backdrop-filter:blur(8px);border:1px solid var(--line);border-radius:16px;box-shadow:var(--shadow);padding:18px;opacity:0;transform:translateY(16px)}
+    .panel.show{opacity:1;transform:none;transition:transform .7s cubic-bezier(.2,.7,.3,1), opacity .7s ease}
     .inp{display:flex;flex-direction:column;gap:6px}
     .inp input,.inp select,.inp textarea{border:1px solid #232834;border-radius:12px;padding:12px 14px;background:#0b0c10;color:#fff}
     .inp input:focus,.inp select:focus,.inp textarea:focus{border-color:#3a414f}
@@ -120,9 +149,9 @@
       .stats{grid-template-columns:1fr}
     }
 
-    /* احترام تفضيل تقليل الحركة */
+    /* Reduced motion */
     @media (prefers-reduced-motion: reduce){
-      .motion-up,.motion-down,.in,.float{animation:none;transition:none;transform:none;opacity:1}
+      .motion-up,.motion-down,.from-right,.from-left,.in,.float{animation:none;transition:none;transform:none;opacity:1}
       .ripple{display:none}
     }
   </style>
@@ -136,6 +165,7 @@
   <header class="nav">
     <div class="wrap">
       <a class="brand" href="#top" aria-label="TNSN">
+        <!-- شعارك من الرابط الذي قدمته -->
         <img src="https://i.postimg.cc/nLJNPkym/1.png" alt="TNSN Logo">
       </a>
       <div class="spacer"></div>
@@ -162,11 +192,11 @@
 
   <!-- SERVICES -->
   <section class="section" id="services" aria-label="خدماتنا">
-    <h2 class="reveal">خدماتنا</h2>
-    <p class="note reveal">من التصور إلى التركيب — حلول شاملة بلمسة متناسقة.</p>
+    <h2 class="from-right">خدماتنا</h2>
+    <p class="note from-right">من التصور إلى التركيب — حلول شاملة بلمسة متناسقة.</p>
 
     <div class="grid">
-      <article class="card reveal">
+      <article class="card">
         <figure><img loading="lazy" alt="أسوار مشاريع" src="https://images.unsplash.com/photo-1509221963646-7e6b0dda3a2f?q=80&w=1600&auto=format&fit=crop"></figure>
         <div class="content">
           <h3>أسوار المشاريع</h3>
@@ -176,17 +206,17 @@
         </div>
       </article>
 
-      <article class="card reveal">
+      <article class="card">
         <figure><img loading="lazy" alt="لوحات إرشادية وتعريفية" src="https://images.unsplash.com/photo-1579762715118-a6f1d4b934f1?q=80&w=1600&auto=format&fit=crop"></figure>
         <div class="content">
           <h3>اللوحات الإرشادية والتعريفية</h3>
           <div class="tag">ألمنيوم • أكريليك • مضيئة</div>
           <p>لوحات بمعايير عالية تعكس هوية المكان وتوجّه الزوار بسلاسة.</p>
-          <div class="actions"><a href="#leadForm" class="btn cta ask-btn" data-service="لوحات إرشادية">اطلب الخدمة</a></div>
+          <div class="actions"><a href="#leadForm" class="btn ghost ask-btn" data-service="لوحات إرشادية">اطلب الخدمة</a></div>
         </div>
       </article>
 
-      <article class="card reveal">
+      <article class="card">
         <figure><img loading="lazy" alt="الطباعة الرقمية" src="https://images.unsplash.com/photo-1504198453319-5ce911bafcde?q=80&w=1600&auto=format&fit=crop"></figure>
         <div class="content">
           <h3>الطباعة الرقمية</h3>
@@ -200,20 +230,20 @@
 
   <!-- NUMBERS -->
   <section class="section" id="numbers" aria-label="أرقام تُثبت الجودة">
-    <h2 class="reveal">أرقام مختصرة</h2>
+    <h2 class="from-left">أرقام مختصرة</h2>
     <div class="stats">
-      <div class="stat reveal"><div class="kpi"><span class="counter" data-target="300">0</span>+</div><p>مطبوعات ومنتجات منفّذة</p></div>
-      <div class="stat reveal"><div class="kpi"><span class="counter" data-target="120">0</span>+</div><p>واجهة ولوحة تركيب</p></div>
-      <div class="stat reveal"><div class="kpi"><span class="counter" data-target="60">0</span></div><p>سور مشروع</p></div>
-      <div class="stat reveal"><div class="kpi"><span class="counter" data-target="15">0</span>+</div><p>سنوات خبرة مجتمعة</p></div>
+      <div class="stat"><div class="kpi"><span class="counter" data-target="300">0</span>+</div><p>مطبوعات ومنتجات منفّذة</p></div>
+      <div class="stat"><div class="kpi"><span class="counter" data-target="120">0</span>+</div><p>واجهة ولوحة تركيب</p></div>
+      <div class="stat"><div class="kpi"><span class="counter" data-target="60">0</span></div><p>سور مشروع</p></div>
+      <div class="stat"><div class="kpi"><span class="counter" data-target="15">0</span>+</div><p>سنوات خبرة مجتمعة</p></div>
     </div>
   </section>
 
   <!-- CONTACT -->
   <section class="section" id="contact" aria-label="تواصل معنا">
-    <h2 class="reveal">تواصل معنا</h2>
+    <h2 class="from-right">تواصل معنا</h2>
     <div class="contact">
-      <div class="panel reveal">
+      <div class="panel">
         <h3 style="margin-top:0">تعرف علينا أكثر</h3>
         <p>نرتّب تفاصيل مشروعك ونقترح الحل الأنسب لهويتك وموقعك — بخبرة تنفيذية ومعايير جودة ثابتة.</p>
         <ul style="line-height:2">
@@ -223,7 +253,7 @@
         </ul>
       </div>
 
-      <div class="panel reveal">
+      <div class="panel">
         <h3 style="margin-top:0">نموذج طلب خدمة</h3>
         <form id="leadForm" class="lead-form" onsubmit="return submitLead(event)" data-endpoint="https://formspree.io/f/your-id-here">
           <div class="inp"><label>الاسم الكامل</label><input name="name" type="text" required placeholder="الاسم"></div>
@@ -260,7 +290,7 @@
   <!-- WhatsApp Floating -->
   <div class="wa">
     <a aria-label="تواصل واتساب" href="https://wa.me/966507646222" target="_blank" rel="noopener">
-      <svg viewBox="0 0 16 16"><path d="M13.601 2.326A7.94 7.94 0 0 0 8.012.003a7.99 7.99 0 0 0-6.94 11.868L.001 16l4.21-1.06A7.99 7.99 0 0 0 8.012 16h.003a7.99 7.99 0 0 0 5.586-13.674ZM8.015 14.5a6.48 6.48 0 0 1-3.307-.91l-.237-.141-2.5.629.667-2.438-.154-.25a6.5 6.5 0 1 1 5.531 3.11Zm3.676-4.842c-.2-.1-1.178-.58-1.36-.646-.182-.066-.315-.1-.448.1-.133.2-.513.646-.628.78-.115.133-.232.15-.432.05-.2-.1-.846-.311-1.612-.992-.595-.53-.997-1.183-1.112-1.383-.115-.2-.012-.307.087-.407.089-.088.2-.23.3-.345.1-.115.133-.2.2-.332.066-.133.033-.25-.011-.35-.045-.1-.46-1.113-.633-1.52-.166-.4-.336-.35-.448-.356l-.382-.007c-.133 0-.35.05-.535.25-.184.2-.7.68-.7 1.65 0 .97.717 1.907.817 2.037.1.13 1.415 2.161 3.428 3.032.479.211.852.338 1.142.432.479.153.913.133 1.255.084.387-.056 1.178-.48 1.345-.94.167-.46.167-.86.117-.94-.05-.084-.185-.137-.395-.237Z"/></svg>
+      <svg viewBox="0 0 16 16"><path d="M13.601 2.326A7.94 7.94 0 0 0 8.012.003a7.99 7.99 0 0 0-6.94 11.868L.001 16l4.21-1.06A7.99 7.99 0 0 0 8.012 16h.003a7.99 7.99 0 0 0 5.586-13.674ZM8.015 14.5a6.48 6.48 0 0 1-3.307-.91l-.237-.141-2.5.629.667-2.438-.154-.25a6.5 6.5 0 1 1 5.531 3.11Zm3.676-4.842c-.2-.1-1.178-.58-1.36-.646-.182-.066-.315-.1-.448.1-.133.2-.513.646-.628.78-.115.133-.232.15-.432.05-.2-.1-.846-.311-1.612-.992-.595-.53-.997-1.183-1.112-1.383-.115-.2-.012-.307.087-.407.089-.088.2-.23.3-.345.1-.115.133-.2.2-.332.066-.133.033-.25-.011-.35-.045-.1-.46-1.113-.633-1.52-.166-.4-.336-.35-.448-.356l-.382-.007c-.133 0-.35.05-.535.25-.184.2-.7.68-.7 1.65 0 .97.717 1.907.817 2.037.1.13 1.415 2.161 3.428 3.032.479.211.852.338 1.142.432.479.153.913.133 1.255.084.387-.56 1.178-.48 1.345-.94.167-.46.167-.86.117-.94-.05-.084-.185-.137-.395-.237Z"/></svg>
     </a>
   </div>
 
@@ -271,7 +301,7 @@
     // سنة الحقوق
     document.getElementById('year').textContent = new Date().getFullYear();
 
-    // Enter animations
+    // === Enter animations on load ===
     window.addEventListener('load', ()=>{
       requestAnimationFrame(()=>{
         document.getElementById('title').classList.add('in');
@@ -280,14 +310,14 @@
       });
     });
 
-    // Parallax (gentle)
+    // === Gentle parallax for hero background ===
     const hero = document.getElementById('hero');
     window.addEventListener('scroll', ()=>{
       const y = window.scrollY;
       hero.style.backgroundPositionY = `calc(50% + ${y*0.06}px)`;
     }, {passive:true});
 
-    // Ripple on buttons
+    // === Ripple on buttons ===
     document.querySelectorAll('.btn').forEach(btn=>{
       btn.addEventListener('click', function(e){
         const r = document.createElement('span');
@@ -302,18 +332,26 @@
       });
     });
 
-    // Scroll reveal + start counters
+    // === Scroll reveal (عناوين/بطاقات/لوحات) + Counters ===
     const io = new IntersectionObserver((entries)=>{
       entries.forEach(e=>{
         if(e.isIntersecting){
+          // أضف صنف in/show لأي عنصر مراقب
           e.target.classList.add('in','show');
+          // عدّادات إذا وُجدت داخل العنصر
           if(e.target.querySelector && e.target.querySelector('.counter')) startCounters(e.target);
           io.unobserve(e.target);
         }
       });
     },{threshold:.2});
-    document.querySelectorAll('.reveal, .stat, .card').forEach(el=> io.observe(el));
 
+    // راقب العناصر
+    document.querySelectorAll('.from-right,.from-left,.card,.stat,.panel').forEach(el=> io.observe(el));
+
+    // بطاقات الخدمات تبدأ مخفية (يُضاف show عند الظهور)
+    document.querySelectorAll('.card').forEach(el=> el.classList.remove('show'));
+
+    // Counters animation
     function startCounters(scope){
       scope.querySelectorAll('.counter').forEach(el=>{
         const target = +el.dataset.target; const dur = 1400 + Math.random()*800;
@@ -351,16 +389,16 @@
       const endpoint = form.dataset.endpoint; // ضع معرّفك من Formspree
       const ok = document.getElementById('ok');
       const no = document.getElementById('no');
-      ok.style.display='none'; no.style.display='none';
+      if(ok) ok.style.display='none'; if(no) no.style.display='none';
       const data = Object.fromEntries(new FormData(form).entries());
       try{
         const res = await fetch(endpoint, {
           method:'POST', headers:{'Content-Type':'application/json','Accept':'application/json'},
           body: JSON.stringify(data)
         });
-        if(res.ok){ form.reset(); ok.style.display='block'; }
-        else{ no.style.display='block'; }
-      }catch(_){ no.style.display='block'; }
+        if(res.ok){ form.reset(); if(ok) ok.style.display='block'; }
+        else{ if(no) no.style.display='block'; }
+      }catch(_){ if(no) no.style.display='block'; }
       return false;
     }
   </script>
