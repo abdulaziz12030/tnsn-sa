@@ -3,19 +3,111 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>TNSN — إعلان راقٍ وهوية تُلهم</title>
-  <meta name="description" content="TNSN — حلول دعائية راقية ومتقنة تُبرز الهوية وتُلهم الجمال: أسوار مشاريع، لوحات، طباعة وهوية بصرية.">
-  <meta property="og:type" content="website">
-  <meta property="og:title" content="TNSN — إعلان راقٍ وهوية تُلهم">
-  <meta property="og:description" content="حلول دعائية ذكية بلمسة فخمة.">
+  <title>TNSN — تعريف مختصر</title>
+  <meta name="description" content="موقع تعريفي بصفحة واحدة لعرض هوية وخدمات TNSN بصورة حديثة.">
   <meta property="og:locale" content="ar_SA">
-  <link rel="icon" href='data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64"><rect width="64" height="64" rx="8" fill="%23FFFFFF"/><path d="M10 42 L54 22" stroke="%23FF6A00" stroke-width="6" stroke-linecap="round"/><circle cx="22" cy="22" r="6" fill="%230F6DB6"/></svg>' type="image/svg+xml">
-  <link rel="stylesheet" href="style.css" />
+  <style>
+    :root{
+      --brand-black:#0F0F0F; --brand-orange:#FF6A00; --brand-blue:#0F6DB6; --brand-white:#fff;
+      --bg:#F7F9FC; --surface:#fff; --soft:#F1F4F8; --text:#111316; --muted:#5C6168; --line:rgba(17,19,22,.08);
+      --radius:16px; --shadow:0 1px 1px rgba(17,19,22,.02),0 12px 28px rgba(17,19,22,.06);
+    }
+    *{box-sizing:border-box} html{direction:rtl} body{
+      margin:0; font-family:"IBM Plex Arabic","Cairo","Tajawal",system-ui,-apple-system,Segoe UI,Roboto,"Helvetica Neue",Arial,"Noto Sans",sans-serif;
+      background:var(--bg); color:var(--text); -webkit-font-smoothing:antialiased; text-rendering:optimizeLegibility;
+    }
+    img{max-width:100%; display:block}
+    a{color:var(--brand-blue); text-decoration:none} a:hover{text-decoration:underline}
+    .container{width:min(1200px,100%); margin-inline:auto; padding-inline:16px}
+    /* Header */
+    .header{position:sticky; top:0; z-index:20; backdrop-filter:blur(8px); background:rgba(255,255,255,.85); border-bottom:1px solid var(--line)}
+    .header-in{min-height:64px; display:flex; align-items:center; justify-content:space-between}
+    .brand{display:flex; align-items:center; gap:10px; color:var(--text); text-decoration:none; font-weight:800}
+    .nav{display:flex; gap:18px; align-items:center} .nav a{font-weight:600; color:var(--text); opacity:.9} .nav a:hover{opacity:1}
+    .nav-toggle{display:none;width:44px;height:44px;border:1px solid var(--line);border-radius:10px;background:var(--surface)}
+    .nav-toggle span{display:block;width:20px;height:2px;background:var(--text);margin:6px auto}
+    @media(max-width:900px){
+      .nav-toggle{display:block}
+      .nav{position:fixed; inset:64px 0 auto 0; background:var(--surface); border-bottom:1px solid var(--line);
+           transform:translateY(-130%); transition:.3s ease; flex-direction:column; padding:8px 16px}
+      .nav a{width:100%; padding:14px 6px; border-top:1px solid var(--line)}
+      .nav.open{transform:translateY(0)}
+      body.no-scroll{overflow:hidden}
+    }
+    /* Hero banner (صورة عريضة) */
+    .hero{padding:28px 0; background:linear-gradient(180deg,#fff,#F3F6FB)}
+    .hero-wrap{border:1px solid var(--line); border-radius:24px; overflow:hidden; box-shadow:var(--shadow)}
+    .hero-img{aspect-ratio:16/7; width:100%; object-fit:cover; background:#F3F6FB}
+    /* الصورة المؤقتة كـ data-uri */
+    .hero-img[src=""]{display:none}
+    .hero-content{display:grid; grid-template-columns:1.1fr .9fr; gap:24px; padding:24px; background:var(--surface)}
+    .hero-text h1{margin:0 0 8px; font-size:clamp(24px,4.5vw,44px); color:var(--brand-black)}
+    .hero-text p{margin:0 0 14px; color:var(--muted); line-height:1.8}
+    .hero-cta{display:flex; gap:10px; flex-wrap:wrap}
+    .btn{display:inline-flex; align-items:center; gap:.5rem; padding:.9rem 1.2rem; border-radius:var(--radius); font-weight:800; cursor:pointer; border:1px solid transparent}
+    .btn--solid{background:var(--brand-orange); color:#fff; box-shadow:0 8px 20px rgba(255,106,0,.2)}
+    .btn--line{border-color:var(--line); background:transparent; color:var(--text)}
+    @media(max-width:960px){.hero-content{grid-template-columns:1fr}}
+    /* Sections */
+    .section{padding:clamp(40px,6vw,80px) 0; background:var(--surface)}
+    .section.alt{background:var(--soft)}
+    .title{margin:0 0 18px; font-size:clamp(22px,3.2vw,32px); color:var(--brand-black)}
+    .lead{margin:0 0 10px; color:var(--muted)}
+    /* خدمات */
+    .grid{display:grid; gap:20px}
+    .g-3{grid-template-columns:repeat(3,minmax(0,1fr))}
+    @media(max-width:1024px){.g-3{grid-template-columns:repeat(2,1fr)}}
+    @media(max-width:560px){.g-3{grid-template-columns:1fr}}
+    .card{background:var(--surface); border:1px solid var(--line); border-radius:var(--radius); padding:16px; box-shadow:var(--shadow); display:flex; flex-direction:column; gap:12px}
+    .card .wide{aspect-ratio:16/9; width:100%; border-radius:12px; object-fit:cover; border:1px solid var(--line); background:#F3F6FB}
+    .card h3{margin:0; color:var(--brand-black)}
+    /* معرض أفقي قابل للسحب */
+    .hscroll{display:grid; grid-auto-flow:column; grid-auto-columns:80%; gap:16px; overflow-x:auto; overscroll-behavior-x:contain; scroll-snap-type:x mandatory; padding-bottom:6px}
+    .hscroll::-webkit-scrollbar{height:8px} .hscroll::-webkit-scrollbar-thumb{background:rgba(17,19,22,.12); border-radius:8px}
+    .snap{scroll-snap-align:start}
+    .gallery-item{position:relative; border:1px solid var(--line); border-radius:16px; overflow:hidden; box-shadow:var(--shadow)}
+    .gallery-img{width:100%; aspect-ratio:16/9; object-fit:cover; display:block; background:#F3F6FB}
+    .badge{position:absolute; top:10px; inset-inline-start:10px; background:rgba(255,255,255,.85); border:1px solid var(--line); border-radius:999px; padding:6px 10px; font-weight:700; font-size:13px}
+    @media(min-width:900px){.hscroll{grid-auto-columns:calc(33.333% - 11px)}}
+    /* CTA */
+    .cta{background:linear-gradient(135deg,#FF6A00 0%,#0F6DB6 100%); color:#fff}
+    .cta .title{color:#fff}
+    .cta .wrap{display:grid; grid-template-columns:1fr auto; gap:16px; align-items:center}
+    @media(max-width:768px){.cta .wrap{grid-template-columns:1fr}}
+    /* Contact */
+    .form{display:grid; grid-template-columns:1fr 1fr; gap:16px}
+    .form label{font-weight:700}
+    .input{padding:12px; border-radius:10px; border:1px solid var(--line); background:#fff; color:var(--text); width:100%}
+    .form textarea{min-height:120px}
+    @media(max-width:680px){.form{grid-template-columns:1fr}}
+    /* Footer */
+    .footer{background:var(--brand-black); color:#EAECEF; border-top:1px solid rgba(255,255,255,.06); padding:22px 0; font-size:14px}
+    /* Floating buttons */
+    .fab{position:fixed; bottom:18px; z-index:50; width:52px; height:52px; display:grid; place-items:center; border-radius:50%;
+         backdrop-filter:blur(10px); background:rgba(255,255,255,.9); border:1px solid var(--line); box-shadow:var(--shadow)}
+    .fab-whatsapp{left:16px} .fab-up{right:16px}
+    .fab svg{width:26px; height:26px}
+    .fab-whatsapp svg{fill:#25D366} .fab-up svg{stroke:#111316; fill:none; stroke-width:2}
+    /* Motion (خفيف) */
+    .reveal{opacity:0; transform:translateY(12px); transition:opacity .6s ease, transform .6s ease}
+    .reveal.in{opacity:1; transform:none}
+    @media(prefers-reduced-motion:reduce){.reveal{opacity:1!important; transform:none!important; transition:none!important}}
+  </style>
 </head>
 <body>
+  <!-- أزرار عائمة -->
+  <a class="fab fab-whatsapp" href="https://wa.me/966507646222" target="_blank" aria-label="تواصل واتساب">
+    <!-- WhatsApp -->
+    <svg viewBox="0 0 32 32" aria-hidden="true"><path d="M19.1 17.6c-.3-.1-1.9-.9-2.2-1s-.5-.1-.7.1-.8.9-1 1.1-.4.2-.7.1c-.3-.1-1.3-.5-2.5-1.6-.9-.8-1.6-1.8-1.8-2.1s0-.5.1-.6.3-.3.4-.5c.1-.2.2-.3.3-.5.1-.2 0-.4 0-.6s-.7-1.7-1-2.3c-.3-.6-.5-.5-.7-.5h-.6c-.2 0-.6.1-.9.4s-1.2 1.2-1.2 2.8 1.2 3.2 1.4 3.4c.2.2 2.3 3.6 5.6 5 3.2 1.3 3.2.9 3.8.9s1.9-.8 2.2-1.6c.3-.8.3-1.5.2-1.6-.1-.1-.3-.1-.6-.2zM16 3c7.2 0 13 5.8 13 13s-5.8 13-13 13c-2.3 0-4.5-.6-6.4-1.8L3 29l1.8-6.5C3.6 20.5 3 18.3 3 16 3 8.8 8.8 3 16 3zm0-2C7.7 1 1 7.7 1 16c0 2.6.7 5 2 7.1L1 31l7.9-2c2.1 1.3 4.6 2.1 7.1 2.1 8.3 0 15-6.7 15-15S24.3 1 16 1z"/></svg>
+  </a>
+  <button class="fab fab-up" aria-label="العودة للأعلى" title="أعلى">
+    <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 15l6-6 6 6"/></svg>
+  </button>
+
+  <!-- رأس الصفحة -->
   <header class="header">
-    <div class="container header-inner">
-      <a class="brand" href="#" aria-label="TNSN" title="TNSN">
+    <div class="container header-in">
+      <a class="brand" href="#">
         <svg width="120" height="32" viewBox="0 0 180 44" role="img" aria-label="TNSN">
           <g font-family="Inter, system-ui, sans-serif" font-weight="800" font-size="28">
             <text x="0" y="30" fill="#111316">TNSN</text>
@@ -23,332 +115,185 @@
           <circle cx="160" cy="22" r="6" fill="#FF6A00"></circle>
         </svg>
       </a>
-
-      <button class="nav-toggle" aria-controls="mainNav" aria-expanded="false" aria-label="فتح القائمة">
+      <button class="nav-toggle" aria-controls="mainNav" aria-expanded="false">
         <span></span><span></span><span></span>
       </button>
-
       <nav class="nav" id="mainNav">
         <a href="#about">عنّا</a>
         <a href="#services">الخدمات</a>
-        <a href="#portfolio">الأعمال</a>
-        <a href="#values">قيمنا</a>
-        <a href="#contact" class="btn btn--ghost js-request">تواصل</a>
+        <a href="#gallery">المعرض</a>
+        <a href="#contact">تواصل</a>
       </nav>
     </div>
   </header>
 
-  <!-- ====== HERO SLIDER ====== -->
+  <!-- هيرو بصورة عريضة -->
   <section class="hero">
-    <div class="container">
-
-      <div class="slider" aria-roledescription="carousel">
-        <!-- Slides -->
-        <div class="slides" role="group">
-          <!-- slide 1 -->
-          <div class="slide is-active" data-index="0" aria-label="1 / 3">
-            <div class="slide-media" data-variant="1" aria-hidden="true"></div>
-
-            <!-- أيقونات شفافة فوق البنر -->
-            <div class="slide-icons">
-              <!-- 4 أيقونات شفافة -->
-              <div class="icon" title="أسوار مشاريع" aria-hidden="true">
-                <svg viewBox="0 0 24 24"><path d="M4 7h16M4 12h16M4 17h16" /></svg>
-              </div>
-              <div class="icon" title="لوحات إرشادية" aria-hidden="true">
-                <svg viewBox="0 0 24 24"><path d="M4 6h16v6H4zM9 12v6" /></svg>
-              </div>
-              <div class="icon" title="طباعة رقمية" aria-hidden="true">
-                <svg viewBox="0 0 24 24"><path d="M6 7V3h12v4M6 17v4h12v-4M4 10h16v5H4z" /></svg>
-              </div>
-              <div class="icon" title="حلول هوية" aria-hidden="true">
-                <svg viewBox="0 0 24 24"><path d="M12 2l4 7-4 4-4-4 4-7zM4 22l8-5 8 5" /></svg>
-              </div>
-            </div>
-
-            <div class="slide-copy">
-              <h1>حليفك الأمثل لإعلان ذكي</h1>
-              <p>هوية واضحة، تنفيذ متقن، وجاذبية بصرية تُلهم جمهورك.</p>
-              <div class="hero-cta">
-                <a class="btn btn--solid js-request">
-                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M4 13l5 5M20 4c-3 0-7 2-9 4l-3 3 5 5 3-3c2-2 4-6 4-9z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
-                  ابدأ مشروعك
-                </a>
-                <a class="btn btn--line" href="#services">استكشف خدماتنا</a>
-              </div>
-            </div>
-          </div>
-
-          <!-- slide 2 -->
-          <div class="slide" data-index="1" aria-label="2 / 3">
-            <div class="slide-media" data-variant="2" aria-hidden="true"></div>
-            <div class="slide-icons">
-              <div class="icon"><svg viewBox="0 0 24 24"><path d="M6 3h12v6H6zM4 11h16v10H4z" /></svg></div>
-              <div class="icon"><svg viewBox="0 0 24 24"><path d="M3 7h18M6 12h12M9 17h6" /></svg></div>
-              <div class="icon"><svg viewBox="0 0 24 24"><path d="M12 2v20M2 12h20" /></svg></div>
-            </div>
-            <div class="slide-copy">
-              <h1>هوية متسقة على كل الواجهات</h1>
-              <p>من السوشال إلى الأسوار—ألوان ثابتة ورسائل واضحة.</p>
-              <div class="hero-cta">
-                <a class="btn btn--solid js-request">طلب خدمة</a>
-                <a class="btn btn--line" href="#portfolio">أعمالنا</a>
-              </div>
-            </div>
-          </div>
-
-          <!-- slide 3 -->
-          <div class="slide" data-index="2" aria-label="3 / 3">
-            <div class="slide-media" data-variant="3" aria-hidden="true"></div>
-            <div class="slide-icons">
-              <div class="icon"><svg viewBox="0 0 24 24"><path d="M12 2l7 4v8l-7 4-7-4V6z" /></svg></div>
-              <div class="icon"><svg viewBox="0 0 24 24"><path d="M4 8h16M4 12h16M4 16h10" /></svg></div>
-            </div>
-            <div class="slide-copy">
-              <h1>جاذبية بصرية راقية</h1>
-              <p>تدرجات TNSN بالأزرق والبرتقالي مع تفاصيل حديثة.</p>
-              <div class="hero-cta">
-                <a class="btn btn--solid js-request">تواصل الآن</a>
-                <a class="btn btn--line" href="#values">قيمنا</a>
-              </div>
-            </div>
+    <div class="container hero-wrap">
+      <img class="hero-img" alt="TNSN Banner" src="" id="heroPh">
+      <div class="hero-content">
+        <div class="hero-text reveal">
+          <h1>نُبرز هويتك.. بأسلوب حديث وواجهة جذّابة</h1>
+          <p>حلول دعائية متقنة، وصور عرضية مبهرة، وتوافق كامل مع الجوال — لتجربة احترافية بصفحة واحدة.</p>
+          <div class="hero-cta">
+            <a class="btn btn--solid" href="#contact">ابدأ الآن</a>
+            <a class="btn btn--line" href="#services">استكشف الخدمات</a>
           </div>
         </div>
-
-        <!-- Controls -->
-        <button class="ctrl prev" aria-label="السابق">‹</button>
-        <button class="ctrl next" aria-label="التالي">›</button>
-
-        <!-- Dots -->
-        <div class="dots" role="tablist" aria-label="التنقل بين السلايدات">
-          <button class="dot is-active" role="tab" aria-selected="true" aria-controls="slide-1" data-to="0"></button>
-          <button class="dot" role="tab" aria-selected="false" aria-controls="slide-2" data-to="1"></button>
-          <button class="dot" role="tab" aria-selected="false" aria-controls="slide-3" data-to="2"></button>
+        <div class="reveal">
+          <p class="lead">نستخدم الأسود والبرتقالي كألوان إبراز فقط حيث يلزم — لواجهة خفيفة وحديثة.</p>
+          <p class="lead">المعرض عرضي، سهل السحب، والصور **عريضة** لأقصى حضور بصري.</p>
         </div>
       </div>
-
     </div>
   </section>
-  <!-- ====== /HERO SLIDER ====== -->
 
+  <!-- عنّا -->
   <section id="about" class="section">
-    <div class="container grid grid--2">
-      <div class="motion-fade">
-        <h2 class="section-title">عن TNSN</h2>
-        <p>نتمحور حول الابتكار ونمتثل للإبداع، ونتناغم مع الجمال والجاذبية البصرية. نمتلك فريقاً شغوفاً يقدم حلولاً مبتكرة في الدعاية والإعلان بمستوى جودة عالمي.</p>
-        <div class="badges" style="margin-top:12px">
-          <span class="badge">ابتكار</span>
-          <span class="badge">إتقان</span>
-          <span class="badge">هوية</span>
-          <span class="badge">جاذبية بصرية</span>
-        </div>
-      </div>
-      <div class="motion-fade">
-        <div class="card">
-          <h3 class="card-title">رؤيتنا</h3>
-          <p>نحو جاذبية بصرية راقية في مدن الأناقة والحضارة.</p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <section id="services" class="section section--alt">
     <div class="container">
-      <h2 class="section-title motion-fade">ماذا نقدّم؟</h2>
-      <div class="grid grid--4">
-        <article class="card motion-up">
-          <div class="card-media ph-img" data-variant="1" aria-hidden="true"></div>
-          <h3 class="card-title">أسوار المشاريع</h3>
-          <p>تصميم وتنفيذ أسوار إعلانية أنيقة بمواد عالية الجودة وثبات ألوان.</p>
-          <button class="btn btn--line js-request">
-            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M12 20h9M16.5 3.5a2.12 2.12 0 013 3L7 19l-4 1 1-4 12.5-12.5z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
-            طلب الخدمة
-          </button>
-        </article>
-
-        <article class="card motion-up">
-          <div class="card-media ph-img" data-variant="2" aria-hidden="true"></div>
-          <h3 class="card-title">لوحات إرشادية</h3>
-          <p>لافتات داخلية وخارجية بمعايير عالمية وتقنيات حديثة.</p>
-          <button class="btn btn--line js-request">
-            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M12 20h9M16.5 3.5a2.12 2.12 0 013 3L7 19l-4 1 1-4 12.5-12.5z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
-            طلب الخدمة
-          </button>
-        </article>
-
-        <article class="card motion-up">
-          <div class="card-media ph-img" data-variant="3" aria-hidden="true"></div>
-          <h3 class="card-title">طباعة رقمية</h3>
-          <p>مطبوعات عالية الجودة بإخراج متقن وألوان حيّة.</p>
-          <button class="btn btn--line js-request">
-            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M12 20h9M16.5 3.5a2.12 2.12 0 013 3L7 19l-4 1 1-4 12.5-12.5z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
-            طلب الخدمة
-          </button>
-        </article>
-
-        <article class="card motion-up">
-          <div class="card-media ph-img" data-variant="4" aria-hidden="true"></div>
-          <h3 class="card-title">حلول الهوية</h3>
-          <p>من تصميم الشعار إلى دليل الهوية وتطبيقاته على الواجهات.</p>
-          <button class="btn btn--line js-request">
-            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M12 20h9M16.5 3.5a2.12 2.12 0 013 3L7 19l-4 1 1-4 12.5-12.5z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
-            طلب الخدمة
-          </button>
-        </article>
-      </div>
+      <h2 class="title">عن TNSN</h2>
+      <p class="lead">من الرياض، نصنع هويات راقية وحلولاً دعائية حديثة تُبرز العلامات وتزيد الجاذبية البصرية. نركّز على الجودة، الاتساق اللوني، وسهولة الاستخدام.</p>
     </div>
   </section>
 
-  <section id="portfolio" class="section">
+  <!-- الخدمات -->
+  <section id="services" class="section alt">
     <div class="container">
-      <h2 class="section-title motion-fade">مختارات من أعمالنا</h2>
-      <div class="grid grid--4 portfolio-grid">
-        <figure class="tile motion-up"><img class="ph ph-1" alt="مشروع تقريبي 1" /></figure>
-        <figure class="tile motion-up"><img class="ph ph-2" alt="مشروع تقريبي 2" /></figure>
-        <figure class="tile motion-up"><img class="ph ph-3" alt="مشروع تقريبي 3" /></figure>
-        <figure class="tile motion-up"><img class="ph ph-4" alt="مشروع تقريبي 4" /></figure>
+      <h2 class="title">خدماتنا</h2>
+      <div class="grid g-3">
+        <article class="card reveal">
+          <img class="wide" alt="أسوار المشاريع" id="svc1">
+          <h3>أسوار المشاريع</h3>
+          <p>تصميم وتنفيذ أسوار إعلانية عريضة بمواد عالية الجودة وثبات ألوان.</p>
+        </article>
+        <article class="card reveal">
+          <img class="wide" alt="لوحات إرشادية" id="svc2">
+          <h3>لوحات إرشادية</h3>
+          <p>لافتات واضحة بمعايير عالمية، تعزّز التجربة وتُظهر الهوية.</p>
+        </article>
+        <article class="card reveal">
+          <img class="wide" alt="طباعة رقمية" id="svc3">
+          <h3>طباعة رقمية</h3>
+          <p>مطبوعات متقنة بألوان حيّة وإخراج نظيف.</p>
+        </article>
       </div>
     </div>
   </section>
 
-  <section id="values" class="cta">
-    <div class="container cta-inner motion-fade">
+  <!-- المعرض (صور عريضة قابلة للسحب) -->
+  <section id="gallery" class="section">
+    <div class="container">
+      <h2 class="title">مختارات بصور عريضة</h2>
+      <div class="hscroll" aria-roledescription="carousel">
+        <figure class="gallery-item snap reveal"><img class="gallery-img" alt="مشروع 1" id="g1"><figcaption class="badge">مشروع 1</figcaption></figure>
+        <figure class="gallery-item snap reveal"><img class="gallery-img" alt="مشروع 2" id="g2"><figcaption class="badge">مشروع 2</figcaption></figure>
+        <figure class="gallery-item snap reveal"><img class="gallery-img" alt="مشروع 3" id="g3"><figcaption class="badge">مشروع 3</figcaption></figure>
+        <figure class="gallery-item snap reveal"><img class="gallery-img" alt="مشروع 4" id="g4"><figcaption class="badge">مشروع 4</figcaption></figure>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="section cta">
+    <div class="container wrap">
       <div>
-        <h2>الجودة أولًا</h2>
-        <p>حيثما تبحث عن جودة التنفيذ والإخراج والانسجام اللوني — نحن خيارك الأول.</p>
+        <h2 class="title">جاهز لبدء مشروعك؟</h2>
+        <p>اضغط “ابدأ الآن” أو تواصل عبر الواتساب يسار الشاشة.</p>
       </div>
-      <a class="btn btn--ghost js-request">
-        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M7 10l5 5 5-5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
-        تواصل معنا
-      </a>
+      <a class="btn btn--solid" href="#contact">ابدأ الآن</a>
     </div>
   </section>
 
+  <!-- التواصل -->
   <section id="contact" class="section">
-    <div class="container grid grid--2">
-      <div class="motion-fade">
-        <h2 class="section-title">تواصل معنا</h2>
-        <p>الهاتف: <a href="tel:+966507646222">+966 50 764 6222</a></p>
-        <p>البريد: <a href="mailto:info@tnsn.sa">info@tnsn.sa</a></p>
-        <p>الرياض، المملكة العربية السعودية</p>
-      </div>
-      <form class="card motion-up" onsubmit="return false" aria-label="نموذج تواصل">
-        <label for="name">الاسم الكامل</label>
-        <input id="name" class="input" type="text" placeholder="مثال: محمد الأحمد" required>
-        <label for="email">البريد الإلكتروني</label>
-        <input id="email" class="input" type="email" placeholder="you@example.com" required>
-        <label for="msg">رسالتك</label>
-        <textarea id="msg" class="input" placeholder="اكتب رسالتك هنا" style="min-height:120px" required></textarea>
-        <button class="btn btn--solid" type="submit">
-          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M22 2L11 13" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/><path d="M22 2l-7 20-4-9-9-4 20-7z" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/></svg>
-          إرسال
-        </button>
+    <div class="container">
+      <h2 class="title">تواصل معنا</h2>
+      <form class="form" onsubmit="return false">
+        <div>
+          <label for="name">الاسم الكامل</label>
+          <input class="input" id="name" placeholder="مثال: محمد الأحمد" required>
+        </div>
+        <div>
+          <label for="email">البريد الإلكتروني</label>
+          <input class="input" id="email" type="email" placeholder="you@example.com" required>
+        </div>
+        <div style="grid-column:1/-1">
+          <label for="msg">رسالتك</label>
+          <textarea class="input" id="msg" placeholder="اكتب رسالتك هنا" required></textarea>
+        </div>
+        <div style="grid-column:1/-1">
+          <button class="btn btn--solid" type="submit">إرسال</button>
+          <a class="btn btn--line" href="https://wa.me/966507646222" target="_blank">واتساب</a>
+        </div>
       </form>
     </div>
   </section>
 
   <footer class="footer">
-    <div class="container">
-      © TNSN ـ جميع الحقوق محفوظة
-    </div>
+    <div class="container">© TNSN — جميع الحقوق محفوظة</div>
   </footer>
 
   <script>
-  // موبايل ناڤ
-  const nav = document.getElementById('mainNav');
-  const toggle = document.querySelector('.nav-toggle');
-  toggle.addEventListener('click', () => {
-    const expanded = toggle.getAttribute('aria-expanded') === 'true';
-    toggle.setAttribute('aria-expanded', String(!expanded));
-    nav.classList.toggle('nav--open');
-    document.body.classList.toggle('no-scroll', !expanded);
-  });
-
-  // تمرير سلس + توجيه “طلب الخدمة” إلى الفورم والتركيز على الاسم
-  const requestButtons = document.querySelectorAll('.js-request');
-  const nameInput = document.getElementById('name');
-  function goToForm(e) {
-    e && e.preventDefault();
-    document.getElementById('contact').scrollIntoView({ behavior: 'smooth', block: 'start' });
-    setTimeout(() => nameInput && nameInput.focus(), 500);
-  }
-  requestButtons.forEach(btn => btn.addEventListener('click', goToForm));
-
-  // صور مؤقتة (SVG/Base64) للبورتفوليو
-  const phImgs = document.querySelectorAll('.ph');
-  phImgs.forEach((img, i) => {
-    const svg = encodeURIComponent(`
-      <svg xmlns='http://www.w3.org/2000/svg' width='800' height='600'>
-        <defs>
-          <linearGradient id='g' x1='0' x2='1'>
-            <stop offset='0%' stop-color='#0F6DB6'/>
-            <stop offset='100%' stop-color='#FF6A00'/>
-          </linearGradient>
-        </defs>
-        <rect width='100%' height='100%' fill='#F3F6FB'/>
-        <rect x='20' y='20' width='760' height='560' rx='12' fill='url(#g)' opacity='0.25'/>
-        <text x='50%' y='50%' fill='#111316' font-size='36' font-family='Arial' text-anchor='middle' dominant-baseline='middle'>مشروع ${i+1}</text>
-      </svg>
-    `);
-    img.src = `data:image/svg+xml;charset=utf-8,${svg}`;
-  });
-
-  // ====== SLIDER LOGIC ======
-  const slider = document.querySelector('.slider');
-  const slides = Array.from(document.querySelectorAll('.slide'));
-  const nextBtn = slider.querySelector('.next');
-  const prevBtn = slider.querySelector('.prev');
-  const dots = Array.from(slider.querySelectorAll('.dot'));
-  let current = 0;
-  let autoTimer = null;
-  let userInteracted = false;
-
-  function setSlide(index) {
-    slides.forEach((s, i) => s.classList.toggle('is-active', i === index));
-    dots.forEach((d, i) => {
-      d.classList.toggle('is-active', i === index);
-      d.setAttribute('aria-selected', i === index ? 'true' : 'false');
+    // ناڤ للموبايل
+    const nav = document.getElementById('mainNav');
+    const togg = document.querySelector('.nav-toggle');
+    togg.addEventListener('click', ()=>{
+      nav.classList.toggle('open');
+      document.body.classList.toggle('no-scroll', nav.classList.contains('open'));
+      togg.setAttribute('aria-expanded', nav.classList.contains('open'));
     });
-    current = index;
-  }
 
-  function next() { setSlide((current + 1) % slides.length); }
-  function prev() { setSlide((current - 1 + slides.length) % slides.length); }
+    // زر أعلى الصفحة
+    const up = document.querySelector('.fab-up');
+    up.addEventListener('click', ()=> window.scrollTo({top:0, behavior:'smooth'}));
 
-  nextBtn.addEventListener('click', () => { userInteracted = true; next(); });
-  prevBtn.addEventListener('click', () => { userInteracted = true; prev(); });
-  dots.forEach(d => d.addEventListener('click', (e) => {
-    userInteracted = true;
-    setSlide(Number(e.currentTarget.dataset.to));
-  }));
+    // موشن عند الظهور
+    const prefersReduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    if(!prefersReduced && 'IntersectionObserver' in window){
+      const io = new IntersectionObserver((entries)=>{
+        entries.forEach(e=>{
+          if(e.isIntersecting){ e.target.classList.add('in'); io.unobserve(e.target); }
+        });
+      },{threshold:0.15});
+      document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
+    } else {
+      document.querySelectorAll('.reveal').forEach(el=>el.classList.add('in'));
+    }
 
-  function autoPlay() {
-    if (userInteracted) return;
-    autoTimer = setInterval(next, 5000);
-  }
-  function stopAuto() {
-    if (autoTimer) { clearInterval(autoTimer); autoTimer = null; }
-  }
+    // صور مؤقتة (عريضة) كـ SVG data-uri
+    function widePlaceholder(label){
+      const svg = `
+        <svg xmlns='http://www.w3.org/2000/svg' width='1600' height='900'>
+          <defs>
+            <linearGradient id='g' x1='0' x2='1'>
+              <stop offset='0%' stop-color='#0F6DB6'/>
+              <stop offset='100%' stop-color='#FF6A00'/>
+            </linearGradient>
+          </defs>
+          <rect width='100%' height='100%' fill='#F3F6FB'/>
+          <rect x='40' y='40' width='1520' height='820' rx='24' fill='url(#g)' opacity='.22'/>
+          <g font-family='Arial' font-weight='700' font-size='54' fill='#111316' opacity='.9'>
+            <text x='50%' y='50%' dominant-baseline='middle' text-anchor='middle'>${label}</text>
+          </g>
+        </svg>`;
+      return `data:image/svg+xml;charset=utf-8,${encodeURIComponent(svg)}`;
+    }
+    document.getElementById('heroPh').src = widePlaceholder('TNSN — Banner عريض');
+    document.getElementById('svc1').src = widePlaceholder('أسوار المشاريع — عريض 16:9');
+    document.getElementById('svc2').src = widePlaceholder('لوحات إرشادية — عريض 16:9');
+    document.getElementById('svc3').src = widePlaceholder('طباعة رقمية — عريض 16:9');
+    document.getElementById('g1').src   = widePlaceholder('مشروع 1 — عريض');
+    document.getElementById('g2').src   = widePlaceholder('مشروع 2 — عريض');
+    document.getElementById('g3').src   = widePlaceholder('مشروع 3 — عريض');
+    document.getElementById('g4').src   = widePlaceholder('مشروع 4 — عريض');
 
-  slider.addEventListener('mouseenter', stopAuto);
-  slider.addEventListener('mouseleave', () => { if (!userInteracted) autoPlay(); });
-
-  // بدء العرض التلقائي بعد ثانية
-  setTimeout(autoPlay, 1000);
-
-  // موشن على الظهور
-  const prefersReduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-  if (!prefersReduced && 'IntersectionObserver' in window) {
-    const io = new IntersectionObserver((entries) => {
-      entries.forEach((e) => {
-        if (e.isIntersecting) {
-          e.target.classList.add('in-view');
-          io.unobserve(e.target);
-        }
+    // تمرير زر "ابدأ الآن" يركّز على الاسم
+    document.querySelectorAll('a[href="#contact"]').forEach(a=>{
+      a.addEventListener('click', (e)=>{ e.preventDefault();
+        document.getElementById('contact').scrollIntoView({behavior:'smooth'}); 
+        setTimeout(()=>document.getElementById('name').focus(), 400);
       });
-    }, { threshold: 0.15 });
-    document.querySelectorAll('.motion-fade, .motion-up').forEach(el => io.observe(el));
-  }
+    });
   </script>
 </body>
 </html>
