@@ -132,3 +132,9 @@ footer a:hover{opacity:1;text-decoration:underline}
 
 /* Footer contrast */
 footer{background:#0b3e33}
+
+/* Black/Orange identity adjustments */
+.hero{background:linear-gradient(140deg, var(--bg) 60%, #000000);}
+.btn-primary{background: var(--acc); color:#2b1505; box-shadow:0 6px 24px rgba(244,124,32,.28)}
+.section{background:linear-gradient(180deg,#fff, #fff 76%, var(--muted) 100%)}
+footer{background:#0b0b0b}
