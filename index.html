@@ -69,9 +69,9 @@
     .hero::after{content:"";position:absolute;inset:0;z-index:-1;background:linear-gradient(180deg,rgba(0,0,0,.45),rgba(0,0,0,.9))}
     .hero .wrap{max-width:1000px;margin-top:8vh}
     /* Mobile-first: ارفع النص وأنزل الأزرار لإبراز تفاصيل البنر */
- .hero h1{transform:translateY(-60px);}   /* النص يطلع أكثر */
-.hero p{transform:translateY(-60px);}    /* الوصف يطلع أكثر */
-.hero .actions{transform:translateY(60px);} /* الأزرار تنزل أكثر */
+    .hero h1{margin:0 0 16px;font-size:clamp(28px,5.8vw,52px);font-weight:800;line-height:1.35;transform:translateY(-42px)}
+    .hero p{margin:0 auto 32px;max-width:920px;color:#e7ebf3;font-size:clamp(16px,1.8vw,20px);transform:translateY(-42px)}
+    .hero .actions{display:flex;gap:14px;flex-wrap:wrap;justify-content:center;transform:translateY(28px)}
     @media (min-width:768px){
       .hero{min-height:86vh}
       .hero h1,.hero p{transform:none}
@@ -108,15 +108,7 @@
     .card:hover figure img{transform:scale(1.1)}             /* تكبير خفيف عند الهوفر */
     .card .content{padding:16px;display:flex;flex-direction:column;gap:8px}
     .tag{display:inline-flex;gap:6px;border:1px solid var(--line);border-radius:999px;background:#151821;color:#dfe3ea;padding:6px 10px;font-weight:700;font-size:.9rem}
-  .hero .actions{
-  display:flex;
-  gap:14px;
-  flex-wrap:wrap;
-  justify-content:center;
-  margin-top:12px;      /* مسافة بسيطة تحت النص */
-  transform:none;       /* إلغاء النزول للأسفل */
-}
-
+    .actions{margin-top:auto;display:flex;gap:8px}
 
     /* ===== Stats ===== */
     .stats{max-width:1200px;margin:34px auto;padding:0 18px;display:grid;grid-template-columns:repeat(4,1fr);gap:14px}
@@ -190,7 +182,7 @@
   <section class="hero" id="hero" aria-label="ترحيب">
     <div class="wrap">
       <h1 class="motion-down" id="title">نصنع واجهات هادئة <span style="color:var(--acc)">تُبرز علامتك</span></h1>
-      <p class="motion-down" id="subtitle">أسوار مشاريع وهوية لوحات وتعريفات وطباعة رقمية — تنفيذ متقن بلمسة إبداعية هادئة.</p>
+      <p class="motion-down" id="subtitle">أسوار مشاريع وهوية لوحات وتعريفات وطباعة رقمية — تنفيذ متقن بلمسة برتقالية هادئة.</p>
       <div class="actions motion-up" id="ctaRow">
         <a href="#leadForm" class="btn cta float">اطلب عرض سعر</a>
         <a href="#services" class="btn ghost">استعراض خدماتنا</a>
