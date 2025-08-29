@@ -1,0 +1,43 @@
+:root{
+  --bg:#0b0b0f; --line:#1e222a; --acc:#c05a2b; --text:#fff;
+}
+body{margin:0;font-family:'Cairo',sans-serif;background:var(--bg);color:var(--text)}
+
+.nav{background:#000a;padding:10px 20px;position:sticky;top:0;z-index:10;display:flex;align-items:center}
+.nav .wrap{display:flex;align-items:center;width:100%}
+.brand img{height:48px}
+.spacer{flex:1}
+.links a{margin:0 8px;color:#fff;text-decoration:none;font-weight:700}
+
+.btn{padding:12px 20px;border-radius:12px;cursor:pointer;text-decoration:none;font-weight:700;backdrop-filter:blur(8px);border:1px solid #fff3}
+.cta{background:rgba(192,90,43,.3);color:#fff;border-color:rgba(192,90,43,.7)}
+.ghost{background:rgba(255,255,255,.15);color:#fff;border-color:#fff6}
+.btn:hover{opacity:.9}
+
+/* HERO SLIDER */
+.hero-slider{position:relative;overflow:hidden;min-height:100vh;color:#fff}
+.hero-slider .slide{
+  position:absolute;inset:0;display:flex;justify-content:center;align-items:center;
+  background-size:cover;background-position:center;opacity:0;transition:opacity .7s ease;
+}
+.hero-slider .slide.active{opacity:1;z-index:1}
+.hero-slider .wrap{text-align:center;max-width:900px;padding:40px;z-index:2;position:relative}
+.hero-slider h1{font-size:clamp(28px,5vw,52px);margin-bottom:16px;animation:fadeDown 1s ease both}
+.hero-slider p{margin-bottom:28px;font-size:18px;color:#e7ebf3;animation:fadeUp 1.2s ease both}
+.hero-slider .actions{display:flex;gap:14px;justify-content:center;flex-wrap:wrap;animation:fadeUp 1.4s ease both}
+/* arrows */
+.hero-slider .prev,.hero-slider .next{
+  position:absolute;top:50%;transform:translateY(-50%);
+  background:rgba(0,0,0,.4);border:none;color:#fff;font-size:32px;
+  padding:8px 14px;border-radius:50%;cursor:pointer;z-index:3;
+}
+.hero-slider .prev{left:20px}.hero-slider .next{right:20px}
+
+/* Animations */
+@keyframes fadeDown{0%{opacity:0;transform:translateY(-30px)}100%{opacity:1;transform:none}}
+@keyframes fadeUp{0%{opacity:0;transform:translateY(30px)}100%{opacity:1;transform:none}}
+
+.section{padding:60px 20px;max-width:1000px;margin:auto}
+.note{color:#ccc}
+
+footer{background:#0a0b0f;color:#bbb;padding:20px;text-align:center;margin-top:40px}
