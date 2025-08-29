@@ -4,7 +4,6 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>TNSN | حلول دعائية تطبع أثرًا هادئًا</title>
-  <meta name="theme-color" content="#0b0b0f"/>
   <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;800&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css">
 </head>
@@ -13,11 +12,9 @@
   <!-- NAV -->
   <header class="nav">
     <div class="wrap">
-      <a class="brand" href="#top" aria-label="TNSN">
-        <img src="https://i.postimg.cc/nLJNPkym/1.png" alt="TNSN Logo">
-      </a>
+      <a class="brand" href="#top"><img src="https://i.postimg.cc/nLJNPkym/1.png" alt="TNSN Logo"></a>
       <div class="spacer"></div>
-      <nav class="links" aria-label="روابط">
+      <nav class="links">
         <a href="#services">الخدمات</a>
         <a href="#numbers">أرقام</a>
         <a href="#contact">تواصل</a>
@@ -47,7 +44,6 @@
         </div>
       </div>
     </div>
-    <!-- أزرار التحكم -->
     <button class="prev">‹</button>
     <button class="next">›</button>
   </section>
@@ -55,7 +51,31 @@
   <!-- SERVICES -->
   <section class="section" id="services">
     <h2>خدماتنا</h2>
-    <p class="note">من التصور إلى التركيب — حلول شاملة بلمسة متناسقة.</p>
+    <div class="grid">
+      <article class="card">
+        <h3>أسوار المشاريع</h3>
+        <p>هويات قوية على أسوار متينة بمقاسات متعددة وثبات ألوان.</p>
+      </article>
+      <article class="card">
+        <h3>اللوحات الإرشادية</h3>
+        <p>لوحات بمعايير عالية تعكس هوية المكان وتوجّه الزوار بسلاسة.</p>
+      </article>
+      <article class="card">
+        <h3>الطباعة الرقمية</h3>
+        <p>طباعة داخلية وخارجية بجودة عالية ووضوح وتناسق لوني.</p>
+      </article>
+    </div>
+  </section>
+
+  <!-- NUMBERS -->
+  <section class="section" id="numbers">
+    <h2>أرقام مختصرة</h2>
+    <div class="stats">
+      <div class="stat"><span class="counter" data-target="300">0</span>+ منتجات</div>
+      <div class="stat"><span class="counter" data-target="120">0</span>+ لوحات</div>
+      <div class="stat"><span class="counter" data-target="60">0</span> مشاريع</div>
+      <div class="stat"><span class="counter" data-target="15">0</span>+ سنوات خبرة</div>
+    </div>
   </section>
 
   <!-- CONTACT -->
@@ -69,10 +89,9 @@
     </form>
   </section>
 
+  <!-- FOOTER -->
   <footer>
-    <div class="wrap">
-      <div>© <span id="year"></span> TNSN – جميع الحقوق محفوظة</div>
-    </div>
+    <div class="wrap">© <span id="year"></span> TNSN – جميع الحقوق محفوظة</div>
   </footer>
 
   <script src="script.js"></script>
