@@ -171,3 +171,13 @@ footer .wrap{max-width:1200px;margin:auto;padding:22px 18px;display:flex;justify
 .lead-form select,
 .lead-form textarea{ padding: 14px; font-size: 16px; }
 .lead-form .btn{ width: 100%; padding: 14px; }
+
+
+/* === unify service card CTA color === */
+.card .btn.cta{ background:linear-gradient(180deg, #c76630, #b04f1b); color:#fff; border-color:#ffddb5; }
+/* unify icons color inside buttons */
+.btn svg, .btn i { color:#fff; fill:#fff; }
+
+
+/* === Fix: align hero CTA buttons on same baseline === */
+#ctaRow{display:flex;align-items:center;gap:14px;flex-wrap:wrap}
