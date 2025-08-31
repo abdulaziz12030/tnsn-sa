@@ -249,4 +249,10 @@ footer .wrap{max-width:1200px;margin:auto;padding:22px 18px;display:flex;justify
   opacity:1 !important;
   transform:none !important;
 }
+/* Right-align the Numbers heading */
+.section#numbers h2{
+  text-align: right !important;
+  margin-inline-start: 0;
+  margin-inline-end: 0;
+}
 
