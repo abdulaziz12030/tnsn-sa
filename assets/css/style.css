@@ -173,11 +173,18 @@ footer .wrap{max-width:1200px;margin:auto;padding:22px 18px;display:flex;justify
 .lead-form .btn{ width: 100%; padding: 14px; }
 
 
-/* === unify service card CTA color === */
-.card .btn.cta{ background:linear-gradient(180deg, #c76630, #b04f1b); color:#fff; border-color:#ffddb5; }
-/* unify icons color inside buttons */
+/* === Services titles above images === */
+.section#services .card > h3{
+  margin: 0 0 10px 0;
+  font-size: 22px;
+  font-weight: 800;
+  text-align: center;
+}
+.section#services .card figure{ margin-top: 0; }
+
+/* Align hero CTA buttons */
+#ctaRow{ display:flex; align-items:center; gap:14px; flex-wrap:wrap; }
+
+
+/* Unify icons in buttons */
 .btn svg, .btn i { color:#fff; fill:#fff; }
-
-
-/* === Fix: align hero CTA buttons on same baseline === */
-#ctaRow{display:flex;align-items:center;gap:14px;flex-wrap:wrap}
