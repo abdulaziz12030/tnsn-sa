@@ -160,3 +160,14 @@ footer .wrap{max-width:1200px;margin:auto;padding:22px 18px;display:flex;justify
   .motion-up,.motion-down,.from-right,.from-left,.in,.float{animation:none;transition:none;transform:none;opacity:1}
   .ripple{display:none}
 }
+
+
+/* === TNSN: mobile form spacing & side padding === */
+@media (max-width: 576px){
+  .lead-form{ padding-inline: 12px; }
+}
+.lead-form .inp{ margin-bottom: 16px; }
+.lead-form input,
+.lead-form select,
+.lead-form textarea{ padding: 14px; font-size: 16px; }
+.lead-form .btn{ width: 100%; padding: 14px; }

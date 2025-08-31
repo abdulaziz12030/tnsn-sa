@@ -101,11 +101,21 @@ toTop.addEventListener('click', ()=> window.scrollTo({top:0, behavior:'smooth'})
 async function submitLead(ev){
   ev.preventDefault();
   const form = ev.target;
-  const endpoint = form.dataset.endpoint; // ضع معرّفك من Formspree
+  let endpoint = (form.dataset.endpoint || '').trim(); // Formspree endpoint
+  // دعم تعيين المعرف عبر ?fs=YOUR_ID
+  try {
+    if (!endpoint || /your-id-here/i.test(endpoint)){
+      const fs = new URLSearchParams(window.location.search).get('fs');
+      if(fs){ endpoint = `https://formspree.io/f/${fs}`; }
+    }
+  } catch(_){ /* ignore */ }
   const ok = document.getElementById('ok');
   const no = document.getElementById('no');
   if(ok) ok.style.display='none'; if(no) no.style.display='none';
   const data = Object.fromEntries(new FormData(form).entries());
+  if(data.email && !data._replyto){ data._replyto = data.email; }
+  if(!data._subject){ data._subject = 'طلب خدمة جديد — TNSN'; }
+  if(!endpoint){ if(no) no.style.display='block'; return false; }
   try{
     const res = await fetch(endpoint, {
       method:'POST', headers:{'Content-Type':'application/json','Accept':'application/json'},
