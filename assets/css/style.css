@@ -188,3 +188,22 @@ footer .wrap{max-width:1200px;margin:auto;padding:22px 18px;display:flex;justify
 
 /* Unify icons in buttons */
 .btn svg, .btn i { color:#fff; fill:#fff; }
+
+
+/* === CTA brand color refinement === */
+.card .btn.cta, .hero .btn.cta{
+  background: linear-gradient(180deg,#e07a3a,#b5541b);
+  color:#fff;
+  border-color:#ffd6b8;
+  box-shadow: 0 12px 30px rgba(224,122,58,.22), 0 1px 0 rgba(255,255,255,.08) inset;
+}
+.card .btn.cta:hover, .hero .btn.cta:hover{
+  background: linear-gradient(180deg,#e8894f,#be5d24);
+}
+.card .btn.cta:active, .hero .btn.cta:active{
+  transform: translateY(1px);
+  box-shadow: 0 8px 20px rgba(224,122,58,.26) inset;
+}
+/* icons inside CTA */
+.card .btn.cta svg, .card .btn.cta i,
+.hero .btn.cta svg, .hero .btn.cta i{ color:#fff; fill:#fff; }
