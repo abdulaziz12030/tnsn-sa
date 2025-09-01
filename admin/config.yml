@@ -1,0 +1,111 @@
+backend:
+  name: github
+  repo: USER/REPO            # ← عدّلها إلى مستودع tnsn الحقيقي
+  branch: main
+  base_url: https://YOUR-OAUTH.vercel.app  # ← عدّلها إلى نطاق مشروع OAuth على Vercel
+
+locale: ar
+media_folder: "assets/img"
+public_folder: "/assets/img"
+publish_mode: editorial_workflow
+
+collections:
+  - name: "site"
+    label: "محتوى الموقع"
+    format: "json"
+    editor:
+      preview: false
+    files:
+      - file: "content.json"
+        label: "الإعدادات والمحتوى"
+        name: "content"
+        fields:
+          - label: "الثيم (الألوان والخلفيات)"
+            name: "theme"
+            widget: "object"
+            fields:
+              - {label: "لون الخلفية (bg)", name: "bg", widget: "string", default: "#0b0b0f"}
+              - {label: "لون السطح (surface)", name: "surface", widget: "string", default: "#0f1115"}
+              - {label: "لون التمييز (accent)", name: "accent", widget: "string", default: "#c05a2b"}
+              - {label: "لون النص (text)", name: "text", widget: "string", default: "#e7ebf2"}
+              - {label: "صورة البطل (اختياري)", name: "hero_image", widget: "image", required: false}
+          - label: "القسم الترحيبي (Hero)"
+            name: "hero"
+            widget: "object"
+            fields:
+              - {label: "العنوان", name: "title", widget: "string"}
+              - {label: "الوصف", name: "subtitle", widget: "text"}
+              - label: "معرض الصور (سلايدر اختياري)"
+                name: "images"
+                widget: "list"
+                field: {label: "صورة", name: "image", widget: "image"}
+          - label: "الخدمات"
+            name: "services"
+            widget: "list"
+            summary: "{{fields.title}}"
+            fields:
+              - {label: "المعرّف الثابت (slug)", name: "slug", widget: "select",
+                 options: [
+                   {label: "أسوار المشاريع", value: "fences"},
+                   {label: "اللوحات الإرشادية والتعريفية", value: "signage"},
+                   {label: "الطباعة الرقمية", value: "print"}
+                 ]}
+              - {label: "العنوان", name: "title", widget: "string"}
+              - {label: "الوصف", name: "description", widget: "text", required: false}
+              - label: "المعرض (صور متعددة تُعرض كسلايدر)"
+                name: "gallery"
+                widget: "list"
+                field: {label: "صورة", name: "image", widget: "image"}
+          - label: "البنرات"
+            name: "banners"
+            widget: "list"
+            fields:
+              - {label: "العنوان", name: "title", widget: "string"}
+              - {label: "الصورة", name: "image", widget: "image"}
+              - {label: "الرابط (اختياري)", name: "link", widget: "string", required: false}
+          - label: "الأقسام (مرنة)"
+            name: "sections"
+            widget: "list"
+            types:
+              - label: "شعارات عملاء (logos)"
+                name: "logos"
+                widget: "object"
+                fields:
+                  - {label: "معرّف القسم", name: "id", widget: "string", default: "clients"}
+                  - label: "العناصر"
+                    name: "items"
+                    widget: "list"
+                    fields:
+                      - {label: "صورة الشعار", name: "image", widget: "image"}
+                      - {label: "نص بديل", name: "alt", widget: "string", required: false}
+              - label: "بطاقات (cards)"
+                name: "cards"
+                widget: "object"
+                fields:
+                  - {label: "معرّف القسم", name: "id", widget: "string"}
+                  - label: "العناصر"
+                    name: "items"
+                    widget: "list"
+                    fields:
+                      - {label: "العنوان", name: "title", widget: "string"}
+                      - {label: "الوصف", name: "text", widget: "text", required: false}
+                      - {label: "صورة", name: "image", widget: "image", required: false}
+              - label: "نصي (text)"
+                name: "text"
+                widget: "object"
+                fields:
+                  - {label: "معرّف القسم", name: "id", widget: "string"}
+                  - {label: "العنوان", name: "title", widget: "string", required: false}
+                  - {label: "المحتوى", name: "content", widget: "markdown"}
+          - label: "الروابط"
+            name: "links"
+            widget: "object"
+            fields:
+              - {label: "واتساب", name: "whatsapp", widget: "string", required: false}
+              - {label: "البريد", name: "email", widget: "string", required: false}
+              - label: "الشبكات الاجتماعية"
+                name: "social"
+                widget: "list"
+                fields:
+                  - {label: "الاسم", name: "label", widget: "string"}
+                  - {label: "الرابط", name: "href", widget: "string"}
