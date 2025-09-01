@@ -1,6 +1,6 @@
 backend:
   name: github
-  repo: USER/REPO
+  repo: YOUR_USER/YOUR_REPO
   branch: main
   base_url: https://YOUR-OAUTH.vercel.app
 
